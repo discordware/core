@@ -1,11 +1,11 @@
-const Base = require("../src/index").Base;
+const Base = require('../src/index').Base;
 class Main extends Base {
     constructor(bot) {
         super(bot);
     }
 
     launch() {
-        console.log("Launched");
+        console.log('Launched');
     }
 }
 

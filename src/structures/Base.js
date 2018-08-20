@@ -1,4 +1,4 @@
-const IPC = require("./IPC.js");
+const IPC = require('./IPC.js');
 class Base {
     constructor(setup) {
         this.bot = setup.bot;
@@ -7,7 +7,7 @@ class Base {
     }
 
     restartCluster(clusterID) {
-        this.ipc.sendTo(clusterID, "restart", { name: "restart" });
+        this.ipc.sendTo(clusterID, 'restart', { name: 'restart' });
     }
 }
 

@@ -1,14 +1,15 @@
-const Sharder = require("../src/index").Master;
+const Sharder = require('../src/index').Master;
+const path = require('path');
 
-let sharder = new Sharder("test", "/tests/main.js", {
-    name: "Travis CLI",
+let sharder = new Sharder('test', path.join(__dirname, 'main.js'), {
+    name: 'Travis CLI',
     stats: true,
     clusters: 2,
     shards: 4,
     debug: true
 });
 
-sharder.on("stats", stats => {
+sharder.on('stats', stats => {
     console.log(stats)
 });
 

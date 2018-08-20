@@ -1,15 +1,7 @@
-let EventEmitter = require("events");
-/**
- * 
- * 
- * @class Queue
- * @extends {EventEmitter}
- */
+let EventEmitter = require('events');
+
 class Queue extends EventEmitter {
-    /**
-     * Creates an instance of Queue.
-     * @memberof Queue
-     */
+
     constructor() {
         super();
         this.queue = [];
@@ -18,15 +10,9 @@ class Queue extends EventEmitter {
     executeQueue() {
         let item = this.queue[0];
         if (!item) return;
-        this.emit("execute", item);
+        this.emit('execute', item);
     }
 
-    /**
-     * 
-     * 
-     * @param {any} item 
-     * @memberof Queue
-     */
     queueItem(item) {
         if (this.queue.length === 0) {
             this.queue.push(item);
