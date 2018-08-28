@@ -162,107 +162,120 @@ class ClusterManager extends EventEmitter {
         master.on('message', (worker, message) => {
             if (message.name) {
                 switch (message.name) {
-                case 'log':
-                    logger.log(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
-                    break;
-                case 'debug':
-                    if (this.options.debug) {
-                        logger.debug(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
+                    case 'log': {
+                        logger.log(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
+                        break;
                     }
-                    break;
-                case 'info':
-                    logger.info(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
-                    break;
-                case 'warn':
-                    logger.warn(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
-                    break;
-                case 'error':
-                    logger.error(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
-                    break;
-                case 'shardsStarted':
-                    this.queue.queue.splice(0, 1);
-                    if (this.queue.queue.length > 0) {
-                        this.queue.executeQueue();
+                    case 'debug': {
+                        if (this.options.debug) {
+                            logger.debug(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
+                        }
+                        break;
                     }
-                    break;
-                case 'cluster':
-                    this.sendWebhook('cluster', message.embed);
-                    break;
-                case 'shard':
-                    this.sendWebhook('shard', message.embed);
-                    break;
-                case 'stats': {
-                    this.stats.stats.guilds += message.stats.guilds;
-                    this.stats.stats.users += message.stats.users;
-                    this.stats.stats.voice += message.stats.voice;
-                    this.stats.stats.totalRam += message.stats.ram;
+                    case 'info': {
+                        logger.info(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
+                        break;
+                    }
+                    case 'warn': {
+                        logger.warn(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
+                        break;
+                    }
+                    case 'error': {
+                        logger.error(`Cluster ${worker.id}`, `${util.format(message.msg)}`);
+                        break;
+                    }
+                    case 'shardsStarted': {
+                        this.queue.queue.splice(0, 1);
+                        if (this.queue.queue.length > 0) {
+                            this.queue.executeQueue();
+                        }
+                        break;
+                    }
+                    case 'cluster': {
+                        this.sendWebhook('cluster', message.embed);
+                        break;
+                    }
+                    case 'shard': {
+                        this.sendWebhook('shard', message.embed);
+                        break;
+                    }
+                    case 'stats': {
+                        this.stats.stats.guilds += message.stats.guilds;
+                        this.stats.stats.users += message.stats.users;
+                        this.stats.stats.voice += message.stats.voice;
+                        this.stats.stats.totalRam += message.stats.ram;
 
-                    let ram = message.stats.ram / 1000000;
+                        let ram = message.stats.ram / 1000000;
 
-                    this.stats.stats.exclusiveGuilds += message.stats.exclusiveGuilds;
-                    this.stats.stats.largeGuilds += message.stats.largeGuilds;
+                        this.stats.stats.exclusiveGuilds += message.stats.exclusiveGuilds;
+                        this.stats.stats.largeGuilds += message.stats.largeGuilds;
 
-                    this.stats.stats.clusters.push({
-                        cluster: worker.id,
-                        shards: message.stats.shards,
-                        guilds: message.stats.guilds,
-                        ram: ram,
-                        voice: message.stats.voice,
-                        uptime: message.stats.uptime,
-                        exclusiveGuilds: message.stats.exclusiveGuilds,
-                        largeGuilds: message.stats.largeGuilds
-                    });
-
-                    this.stats.clustersCounted += 1;
-
-                    if (this.stats.clustersCounted === this.clusters.size) {
-                        let clusters = this.stats.stats.clusters.sort((a, b) => {
-                            if (a.cluster < b.cluster) return -1;
-                            if (a.cluster > b.cluster) return 1;
-                            return 0;
+                        this.stats.stats.clusters.push({
+                            cluster: worker.id,
+                            shards: message.stats.shards,
+                            guilds: message.stats.guilds,
+                            ram: ram,
+                            voice: message.stats.voice,
+                            uptime: message.stats.uptime,
+                            exclusiveGuilds: message.stats.exclusiveGuilds,
+                            largeGuilds: message.stats.largeGuilds
                         });
 
-                        this.emit('stats', {
-                            guilds: this.stats.stats.guilds,
-                            users: this.stats.stats.users,
-                            voice: this.stats.stats.voice,
-                            exclusiveGuilds: this.stats.stats.exclusiveGuilds,
-                            largeGuilds: this.stats.stats.largeGuilds,
-                            totalRam: this.stats.stats.totalRam / 1000000,
-                            clusters: clusters
-                        });
+                        this.stats.clustersCounted += 1;
+
+                        if (this.stats.clustersCounted === this.clusters.size) {
+                            let clusters = this.stats.stats.clusters.sort((a, b) => {
+                                if (a.cluster < b.cluster) return -1;
+                                if (a.cluster > b.cluster) return 1;
+                                return 0;
+                            });
+
+                            this.emit('stats', {
+                                guilds: this.stats.stats.guilds,
+                                users: this.stats.stats.users,
+                                voice: this.stats.stats.voice,
+                                exclusiveGuilds: this.stats.stats.exclusiveGuilds,
+                                largeGuilds: this.stats.stats.largeGuilds,
+                                totalRam: this.stats.stats.totalRam / 1000000,
+                                clusters: clusters
+                            });
+                        }
+                        break;
                     }
-                    break;
-                }
-                case 'fetchUser':
-                    this.fetchInfo(1, 'fetchUser', message.id);
-                    this.callbacks.set(message.id, worker.id);
-                    break;
-                case 'fetchGuild':
-                    this.fetchInfo(1, 'fetchGuild', message.id);
-                    this.callbacks.set(message.id, worker.id);
-                    break;
-                case 'fetchChannel':
-                    this.fetchInfo(1, 'fetchChannel', message.id);
-                    this.callbacks.set(message.id, worker.id);
-                    break;
-                case 'fetchReturn': {
-                    let callback = this.callbacks.get(message.value.id);
-                    let cluster = this.clusters.get(callback);
-                    if (cluster) {
-                        cluster.worker.send({ name: 'fetchReturn', id: message.value.id, value: message.value });
-                        this.callbacks.delete(message.value.id);
+                    case 'fetchUser': {
+                        this.fetchInfo(1, 'fetchUser', message.id);
+                        this.callbacks.set(message.id, worker.id);
+                        break;
                     }
-                    break;
-                }
-                case 'broadcast':
-                    this.broadcast(1, message.msg);
-                    break;
-                case 'send':
-                    this.sendTo(message.cluster, message.msg);
-                    break;
-                default:
-                    break;
+                    case 'fetchGuild': {
+                        this.fetchInfo(1, 'fetchGuild', message.id);
+                        this.callbacks.set(message.id, worker.id);
+                        break;
+                    }
+                    case 'fetchChannel': {
+                        this.fetchInfo(1, 'fetchChannel', message.id);
+                        this.callbacks.set(message.id, worker.id);
+                        break;
+                    }
+                    case 'fetchReturn': {
+                        let callback = this.callbacks.get(message.value.id);
+                        let cluster = this.clusters.get(callback);
+                        if (cluster) {
+                            cluster.worker.send({ name: 'fetchReturn', id: message.value.id, value: message.value });
+                            this.callbacks.delete(message.value.id);
+                        }
+                        break;
+                    }
+                    case 'broadcast': {
+                        this.broadcast(1, message.msg);
+                        break;
+                    }
+                    case 'send': {
+                        this.sendTo(message.cluster, message.msg);
+                        break;
+                    }
+                    default:
+                        break;
                 }
             }
         });
