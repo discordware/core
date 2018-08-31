@@ -1,6 +1,6 @@
 class Stats {
-    constructor() {
-
+    constructor(communication) {
+        this.communication = communication;
     }
 }
 
