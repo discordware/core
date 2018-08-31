@@ -3,6 +3,14 @@ class Logger {
         this.transports = [];
     }
 
+    init() {
+        return Promise.all(this.transports.map(async transport => {
+            if (typeof transport.init === 'function') {
+                await transport.init();
+            }
+        }));
+    }
+
     registerTransport(transport) {
         this.transports.push(transport);
     }

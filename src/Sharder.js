@@ -10,12 +10,16 @@ class Sharder {
         this.options = options;
     }
 
-    init() {
+    async init() {
         this.logger = this.modules.logger || new Logger();
         this.communication = this.modules.communication || new Communication();
-        this.clustering = this.modules.clustering || new Clustering();
+        this.clustering = this.modules.clustering || new Clustering(this.communication);
         this.sharding = this.modules.sharding || new Sharding();
         this.stats = this.modules.stats || new Stats(this.communication);
+
+        await this.logger.init();
+        await this.communication.init();
+        await this.clustering.init();
     }
 }
 
