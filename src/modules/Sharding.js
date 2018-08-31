@@ -1,10 +1,10 @@
 class Sharding {
-    constructor() {
-
+    constructor(options) {
+        this.options = options;
     }
 
     init() {
-        
+
     }
 }
 
