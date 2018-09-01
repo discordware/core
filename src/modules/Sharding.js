@@ -1,6 +1,7 @@
 class Sharding {
-    constructor(options) {
+    constructor(options, token) {
         this.options = options;
+        this.token = token;
     }
 
     init() {

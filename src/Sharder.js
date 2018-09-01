@@ -13,9 +13,9 @@ class Sharder {
     async init() {
         this.logger = this.modules.logger || new Logger();
         this.communication = this.modules.communication || new Communication();
-        this.sharding = this.modules.sharding || new Sharding(this.options.sharding);
+        this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.options.token);
         this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.communication, this.sharding);
-        this.stats = this.modules.stats || new Stats(this.communication);
+        this.stats = this.modules.stats || new Stats(this.options.stats, this.communication);
 
         if (!this.clustering.isMaster) return;
 
