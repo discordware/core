@@ -17,6 +17,8 @@ class Sharder {
         this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.communication, this.sharding);
         this.stats = this.modules.stats || new Stats(this.communication);
 
+        if (!this.clustering.isMaster) return;
+
         await this.logger.init();
         await this.communication.init();
         await this.clustering.init();
