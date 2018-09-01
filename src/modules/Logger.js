@@ -1,5 +1,6 @@
 class Logger {
-    constructor() {
+    constructor(options) {
+        this.options = options;
         this.transports = [];
     }
 

@@ -11,19 +11,18 @@ class Sharder {
     }
 
     async init() {
-        this.logger = this.modules.logger || new Logger();
-        this.communication = this.modules.communication || new Communication();
-        this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.options.token);
-        this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.communication, this.sharding);
-        this.stats = this.modules.stats || new Stats(this.options.stats, this.communication);
+        this.logger = this.modules.logger || new Logger(this.options.logger);
+        this.communication = this.modules.communication || new Communication(this.logger);
+        this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.options.token, this.logger);
+        this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.communication, this.sharding, this.logger);
+        this.stats = this.modules.stats || new Stats(this.options.stats, this.communication, this.logger);
 
         if (!this.clustering.isMaster) return;
 
         await this.logger.init();
         await this.communication.init();
-        await this.clustering.init();
         await this.sharding.init();
-        await this.stats.init();
+        await this.clustering.init();
     }
 }
 
