@@ -3,6 +3,7 @@
   "version": "1.7.8",
   "description": "A sharder for the discord eris library",
   "main": "./index.js",
+  "types": "./typings/index.d.ts",
   "dependencies": {
     "asciiart-logo": "^0.1.7",
     "colors": "^1.1.2",
