@@ -1,9 +1,10 @@
 const EventEmitter = require('events').EventEmitter;
 
 class Communication extends EventEmitter {
-    constructor(logger) {
+    constructor(logger, registry) {
         super();
         this.logger = logger;
+        this.registry = registry;
     }
 
     init() {
