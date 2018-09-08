@@ -1,47 +1,60 @@
 class Logger {
-    constructor(options) {
-        this.options = options;
-        this.transports = [];
+    constructor() {
+        this.transports = {};
     }
 
     init() {
-        return Promise.all(this.transports.map(async transport => {
+        return Promise.all(Object.keys(this.transports).map(key => {
+            let transport = this.transports[key];
+
             if (typeof transport.init === 'function') {
-                await transport.init();
+                return transport.init();
+            } else {
+                return Promise.resolve();
             }
         }));
     }
 
     registerTransport(transport) {
-        this.transports.push(transport);
+        this.transports[transport.name] = transport;
     }
 
     debug(data) {
-        this.transports.forEach(transport => {
+        Object.keys(this.transports).forEach(key => {
+            let transport = this.transports[key];
+
             transport.debug(data);
         });
     }
 
     error(data) {
-        this.transports.forEach(transport => {
+        Object.keys(this.transports).forEach(key => {
+            let transport = this.transports[key];
+
             transport.error(data);
         });
     }
 
     info(data) {
-        this.transports.forEach(transport => {
+        Object.keys(this.transports).forEach(key => {
+            let transport = this.transports[key];
+
             transport.info(data);
         });
     }
 
     log(data) {
-        this.transports.forEach(transport => {
+        Object.keys(this.transports).forEach(key => {
+            let transport = this.transports[key];
+
             transport.log(data);
         });
     }
 
     warn(data) {
-        this.transports.forEach(transport => {
+        Object.keys(this.transports).forEach(key => {
+            let transport = this.transports[key];
+
             transport.warn(data);
         });
     }
