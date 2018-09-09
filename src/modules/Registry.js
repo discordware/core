@@ -3,11 +3,11 @@ class Registry {
         this._store = {};
     }
 
-    register(key, value) {
+    set(key, value) {
         this._store[key] = value;
     }
 
-    deregister(key) {
+    delete(key) {
         delete this._store[key];
     }
 

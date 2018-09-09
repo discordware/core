@@ -7,15 +7,18 @@ const Registry = require('./modules/Registry');
 const Sharding = require('./modules/Sharding');
 const Stats = require('./modules/Stats');
 
-// Transports & Destinations
+// Default transport
 const Console = require('./transports/Console');
-const Discord = require('./destinations/Discord');
 
 class Sharder {
     constructor(instanceID, options, modules) {
         this.modules = modules;
         this.options = options;
-        this.instanceID = instanceID || 'Aplha';
+        this.instanceID = instanceID;
+
+        if (!instanceID) {
+            throw new Error('instanceID not provided');
+        }
     }
 
     create() {

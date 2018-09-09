@@ -7,10 +7,14 @@ class Sharding {
     }
 
     init() {
-
+        return Promise.resolve();
     }
 
-    getSet(cluster) {
+    shard(clusterCount) {
+        
+    }
+
+    getConfig(cluster) {
 
     }
 }
