@@ -9,11 +9,18 @@ class DiscordDestination {
 
     init() {
         this.eris = new Eris(this.token);
+        return Promise.resolve();
     }
 
     alert(data) {
         let { title, msg, date, type } = data;
-        let { id, token } = this.options[type];
+        let config = this.options[type];
+
+        if (!config) return;
+
+        let { id, token } = config;
+
+        if (!id || !token) return;
 
         this.eris.executeWebhook(id, token, {
             embeds: [
