@@ -1,4 +1,4 @@
-const Base = require('../src/index').Base;
+const Base = require('../index').Base;
 class Main extends Base {
     constructor(bot) {
         super(bot);

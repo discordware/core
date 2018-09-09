@@ -469,15 +469,15 @@ class ClusterManager extends EventEmitter {
     }
 
     calculateShards(shards) {
-        if (this.shardCount !== 0) return this.shardCount;
+        if (this.shardCount !== 0) return Promise.resolve(this.shardCount);
         if (shards === 1) {
-            return shards;
+            return Promise.resolve(shards);
         } else {
             let guildCount = shards * 1000;
             let guildsPerShard = this.guildsPerShard;
             let shardsDecimal = guildCount / guildsPerShard;
             let finalShards = Math.ceil(shardsDecimal);
-            return finalShards;
+            return Promise.resolve(finalShards);
         }
     }
 

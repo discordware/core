@@ -1,4 +1,4 @@
-const Sharder = require('./src/Sharder');
+const Sharder = require('./src/sharding/clustermanager');
 
 Object.assign(Sharder, {
     Base: require('./src/structures/Base.js'),
