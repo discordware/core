@@ -15,6 +15,21 @@ class Clustering {
         return master.isMaster;
     }
 
+    async fetchClusterID(workerID) {
+        let clusterID;
+
+        try {
+            clusterID = await this.registry.get(`workers.${this.sharding.instanceID}.${workerID}`);
+        } catch (err) {
+            this.logger.error({
+                src: 'Clustering',
+                msg: err
+            });
+        }
+
+        return clusterID;
+    }
+
     async fetchConfig(clusterID) {
         let clusterConfig;
 
@@ -47,7 +62,7 @@ class Clustering {
         let shardConfig;
 
         try {
-            shardConfig = await this.sharding.getConfig(clusterID)
+            shardConfig = await this.sharding.getConfig(clusterID);
         } catch (err) {
             this.logger.error({
                 src: 'Clustering',
@@ -99,15 +114,15 @@ class Clustering {
             };
 
             let worker = master.fork(Object.assign(this.options.env, env));
-            worker.id = clusterID;
 
             this.registry.set(`clusters.${this.sharding.instanceID}.${clusterID}`, {
                 firstShardID,
                 lastShardID,
                 maxShards,
-                instanceID,
-                workerID: worker.id
+                instanceID
             });
+
+            this.registry.set(`workers.${this.sharding.instanceID}.${worker.id}`, clusterID);
 
             process.nextTick(() => {
                 this.startCluster(clusterID + 1, total);
@@ -125,7 +140,23 @@ class Clustering {
         }
     }
 
-    async restartCluster(clusterID, code) {
+    async restartCluster(workerID, code) {
+        let clusterID = await this.fetchClusterID(workerID);
+
+        if (!clusterID) {
+            this.logger.error({
+                src: 'Clustering',
+                msg: `ClusterID not found for worker ${workerID}`
+            });
+
+            this.alerts.alert({
+                title: 'Clustering Error',
+                msg: `ClusterID not found for worker ${workerID}`,
+                date: new Date(),
+                type: 'cluster'
+            });
+        }
+
         let config = await this.fetchConfig(clusterID);
 
         if (!config) return;
@@ -154,15 +185,16 @@ class Clustering {
         };
 
         let worker = master.fork(Object.assign(this.options.env, env));
-        worker.id = clusterID;
 
         this.registry.set(`clusters.${this.sharding.instanceID}.${clusterID}`, {
             firstShardID,
             lastShardID,
             maxShards,
-            instanceID,
-            workerID: worker.id
+            instanceID
         });
+
+        this.registry.delete(`workers.${this.sharding.instanceID}.${workerID}`);
+        this.registry.set(`workers.${this.sharding.instanceID}.${worker.id}`, clusterID);
 
         this.alerts.alert({
             title: 'Cluster Restart',
