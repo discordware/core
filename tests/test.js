@@ -8,10 +8,3 @@ let sharder = new Sharder('test', path.join(__dirname, 'main.js'), {
     clusters: 4,
     debug: true
 });
-
-
-/*
-setTimeout(() => {
-    process.exit();
-}, 1000 * 30);
-*/

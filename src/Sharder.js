@@ -3,9 +3,11 @@ const Alerts = require('./modules/Alerts');
 const Clustering = require('./modules/Clustering');
 const Communication = require('./modules/Communication');
 const Logger = require('./modules/Logger');
+const Queue = require('./modules/Queue');
 const Registry = require('./modules/Registry');
 const Sharding = require('./modules/Sharding');
 const Stats = require('./modules/Stats');
+
 
 // Default transport
 const Console = require('./transports/Console');
@@ -25,9 +27,10 @@ class Sharder {
         this.logger = this.modules.logger || new Logger();
         this.alerts = this.modules.alerts || new Alerts();
         this.registry = this.modules.registry || new Registry();
+        this.queue = this.modules.queue || new Queue();
         this.communication = this.modules.communication || new Communication(this.logger, this.registry);
         this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.logger, this.options.token, this.instanceID);
-        this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.communication, this.sharding, this.registry, this.logger, this.alerts);
+        this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
         this.stats = this.modules.stats || new Stats(this.options.stats, this.communication, this.logger);
     }
 

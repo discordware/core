@@ -1,13 +1,14 @@
 const master = require('cluster');
 
 class Clustering {
-    constructor(options, communication, sharding, registry, logger, alerts) {
+    constructor(options, communication, sharding, registry, logger, alerts, queue) {
         this.options = options;
         this.communication = communication;
         this.sharding = sharding;
         this.registry = registry;
         this.logger = logger;
         this.alerts = alerts;
+        this.queue = queue;
     }
 
     get isMaster() {
@@ -177,6 +178,8 @@ class Clustering {
     }
 
     onExit(worker, code) {
+
+        // TODO: add restart queueing
         this.restartCluster(worker.id, code);
     }
 }
