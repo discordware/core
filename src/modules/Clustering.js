@@ -155,6 +155,8 @@ class Clustering {
                 date: new Date(),
                 type: 'cluster'
             });
+
+            return;
         }
 
         let config = await this.fetchConfig(clusterID);
