@@ -1,8 +1,9 @@
 const master = require('cluster');
 
 class Clustering {
-    constructor(options, communication, sharding, registry, logger, alerts, queue) {
+    constructor(options, instanceID, communication, sharding, registry, logger, alerts, queue) {
         this.options = options;
+        this.instanceID = instanceID;
         this.communication = communication;
         this.sharding = sharding;
         this.registry = registry;
@@ -19,7 +20,7 @@ class Clustering {
         let clusterID;
 
         try {
-            clusterID = await this.registry.get(`workers.${this.sharding.instanceID}.${workerID}`);
+            clusterID = await this.registry.get(`workers.${this.instanceID}.${workerID}`);
         } catch (err) {
             this.logger.error({
                 src: 'Clustering',
@@ -34,7 +35,7 @@ class Clustering {
         let clusterConfig;
 
         try {
-            clusterConfig = await this.registry.get(`clusters.${this.sharding.instanceID}.${clusterID}`);
+            clusterConfig = await this.registry.get(`clusters.${this.instanceID}.${clusterID}`);
         } catch (err) {
             this.logger.error({
                 src: 'Clustering',
@@ -51,7 +52,7 @@ class Clustering {
 
                 this.alerts.alert({
                     title: 'Clustering Error',
-                    msg: `Failed to fetch config for cluster ${this.sharding.instanceID}`,
+                    msg: `Failed to fetch config for cluster ${this.instanceID}`,
                     date: new Date(),
                     type: 'cluster'
                 });
@@ -113,16 +114,16 @@ class Clustering {
                 CLUSTER_ID: clusterID
             };
 
-            let worker = master.fork(Object.assign(this.options.env, env));
+            let worker = master.fork(Object.assign({}, this.options.env, env));
 
-            this.registry.set(`clusters.${this.sharding.instanceID}.${clusterID}`, {
+            this.registry.set(`clusters.${this.instanceID}.${clusterID}`, {
                 firstShardID,
                 lastShardID,
                 maxShards,
                 instanceID
             });
 
-            this.registry.set(`workers.${this.sharding.instanceID}.${worker.id}`, clusterID);
+            this.registry.set(`workers.${this.instanceID}.${worker.id}`, clusterID);
 
             process.nextTick(() => {
                 this.startCluster(clusterID + 1, total);
@@ -134,7 +135,7 @@ class Clustering {
         if (clusterID === total) {
 
         } else {
-            this.communication.send(this.sharding.instanceID, clusterID, 'connect', {});
+            this.communication.send(this.instanceID, clusterID, 'connect', {});
 
             // TODO: Add Queue
         }
@@ -188,15 +189,15 @@ class Clustering {
 
         let worker = master.fork(Object.assign(this.options.env, env));
 
-        this.registry.set(`clusters.${this.sharding.instanceID}.${clusterID}`, {
+        this.registry.set(`clusters.${this.instanceID}.${clusterID}`, {
             firstShardID,
             lastShardID,
             maxShards,
             instanceID
         });
 
-        this.registry.delete(`workers.${this.sharding.instanceID}.${workerID}`);
-        this.registry.set(`workers.${this.sharding.instanceID}.${worker.id}`, clusterID);
+        this.registry.delete(`workers.${this.instanceID}.${workerID}`);
+        this.registry.set(`workers.${this.instanceID}.${worker.id}`, clusterID);
 
         this.alerts.alert({
             title: 'Cluster Restart',

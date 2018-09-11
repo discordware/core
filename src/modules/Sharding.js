@@ -1,9 +1,10 @@
 class Sharding {
-    constructor(options, logger, token, instanceID) {
+    constructor(options, token, instanceID, logger, alerts) {
         this.options = options;
         this.token = token;
         this.logger = logger;
         this.instanceID = instanceID;
+        this.alerts = alerts;
     }
 
     init() {

@@ -29,8 +29,8 @@ class Sharder {
         this.registry = this.modules.registry || new Registry();
         this.queue = this.modules.queue || new Queue();
         this.communication = this.modules.communication || new Communication(this.logger, this.registry);
-        this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.logger, this.options.token, this.instanceID);
-        this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
+        this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.options.token, this.instanceID, this.logger, this.alerts);
+        this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.instanceID, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
         this.stats = this.modules.stats || new Stats(this.options.stats, this.communication, this.logger);
     }
 
