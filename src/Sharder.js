@@ -45,6 +45,14 @@ class Sharder {
         await this.sharding.init();
         this.clustering.init();
     }
+
+    addInstance(instanceID, options) {
+
+    }
+
+    updateInstance(instanceID, options) {
+        
+    }
 }
 
 module.exports = Sharder;
