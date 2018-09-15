@@ -2,12 +2,12 @@
 const Alerts = require('./modules/Alerts');
 const Clustering = require('./modules/Clustering');
 const Communication = require('./modules/Communication');
+const Configuration = require('./modules/Configuration');
 const Logger = require('./modules/Logger');
 const Queue = require('./modules/Queue');
 const Registry = require('./modules/Registry');
 const Sharding = require('./modules/Sharding');
 const Stats = require('./modules/Stats');
-
 
 // Default transport
 const Console = require('./transports/Console');
@@ -15,23 +15,28 @@ const Console = require('./transports/Console');
 class Sharder {
     constructor(instanceID, options, modules) {
         this.modules = modules;
-        this.options = options;
         this.instanceID = instanceID;
 
         if (!instanceID) {
             throw new Error('instanceID not provided');
         }
+
+        this.config = modules.Configuration || new Configuration(instanceID, options);
     }
 
-    create() {
+    async create() {
+        await this.config.init();
+
+        let { sharding, clustering, stats } = await this.config.getConfig();
+
         this.logger = this.modules.logger || new Logger();
         this.alerts = this.modules.alerts || new Alerts();
         this.registry = this.modules.registry || new Registry();
         this.queue = this.modules.queue || new Queue();
         this.communication = this.modules.communication || new Communication(this.logger, this.registry);
-        this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.options.token, this.instanceID, this.logger, this.alerts);
-        this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.instanceID, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
-        this.stats = this.modules.stats || new Stats(this.options.stats, this.communication, this.logger);
+        this.sharding = this.modules.sharding || new Sharding(sharding, this.options.token, this.instanceID, this.logger, this.alerts);
+        this.clustering = this.modules.clustering || new Clustering(clustering, this.instanceID, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
+        this.stats = this.modules.stats || new Stats(stats, this.communication, this.logger);
     }
 
     async init() {
@@ -51,7 +56,7 @@ class Sharder {
     }
 
     updateInstance(instanceID, options) {
-        
+
     }
 }
 

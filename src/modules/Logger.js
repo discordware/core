@@ -1,6 +1,7 @@
 class Logger {
     constructor() {
         this.transports = {};
+        this.started = false;
     }
 
     init() {
@@ -15,8 +16,16 @@ class Logger {
         }));
     }
 
-    registerTransport(transport) {
-        this.transports[transport.name] = transport;
+    async registerTransport(transport) {
+        if (!this.started) {
+            this.transports[transport.name] = transport;
+        } else {
+            if (typeof transport.init === 'function') {
+                await transport.init();
+            }
+            
+            this.transports[transport.name] = transport;
+        }
     }
 
     debug(data) {
