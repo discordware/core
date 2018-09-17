@@ -37,6 +37,8 @@ class Sharder {
         this.sharding = this.modules.sharding || new Sharding(sharding, this.options.token, this.instanceID, this.logger, this.alerts);
         this.clustering = this.modules.clustering || new Clustering(clustering, this.instanceID, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
         this.stats = this.modules.stats || new Stats(stats, this.communication, this.logger);
+
+        return Promise.resolve();
     }
 
     async init() {
@@ -49,6 +51,8 @@ class Sharder {
         await this.communication.init();
         await this.sharding.init();
         this.clustering.init();
+
+        return Promise.resolve();
     }
 
     addInstance(instanceID, options) {

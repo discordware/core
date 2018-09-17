@@ -1,10 +1,34 @@
 declare module 'eris-sharder' {
     import { EventEmitter } from 'events';
 
-    export class Sharder {
-        constructor(modules: Modules, options: SharderOptions);
-        public modules: Modules;
-        public options: SharderOptions;
+    export class Alerts {
+
+    }
+
+    export class Clustering {
+        constructor(options: ClusteringOptions, communication: Communication, sharding: Sharding, logger: Logger);
+        public options: ClusteringOptions;
+        public communication: Communication;
+        public sharding: Sharding;
+        public logger: Logger;
+        get isMaster(): boolean;
+        public init();
+    }
+
+    export class Configuration {
+        constructor(instanceID: string, options?: SharderOptions);
+        init(): Promise<void>;
+        getConfig(): Promise<Config>;
+    }
+
+    export class Communication extends EventEmitter {
+        constructor(logger: Logger);
+        public logger: Logger;
+        public init(): Promise<void>;
+        public send(instance: string, clusterID: string, event: string, data: Json);
+        public awaitResponse(instance: string, clusterID: string, event: string, data: Json): Promise<Json>;
+        public broadcast(instance: string, event: string, data: Json);
+        public awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
     }
 
     export class Logger {
@@ -20,24 +44,28 @@ declare module 'eris-sharder' {
         public warn(data: Json);
     } 
 
-    export class Communication extends EventEmitter {
-        constructor(logger: Logger);
-        public logger: Logger;
-        public init(): Promise<void>;
-        public send(instance: string, clusterID: string, event: string, data: Json);
-        public awaitResponse(instance: string, clusterID: string, event: string, data: Json): Promise<Json>;
-        public broadcast(instance: string, event: string, data: Json);
-        public awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
+    export class Queue {
+
     }
 
-    export class Clustering {
-        constructor(options: ClusteringOptions, communication: Communication, sharding: Sharding, logger: Logger);
-        public options: ClusteringOptions;
+    export class Registry {
+        constructor();
+    }
+
+    export class Sharder {
+        constructor(modules: Modules, options: SharderOptions);
+        public modules: Modules;
+        public config: Configuration;
         public communication: Communication;
-        public sharding: Sharding;
         public logger: Logger;
-        get isMaster(): boolean;
-        public init();
+        public queue: Queue;
+        public registry: Registry;
+        public sharding: Sharding;
+        public stats: Stats;
+        public create();
+        public init: Promise<void>;
+        public addInstace(instanceID: string, options: InstanceOptions);
+        public updateInstance(instanceID, options: InstanceOptions);
     }
 
     export class Sharding {
@@ -67,6 +95,24 @@ declare module 'eris-sharder' {
         public warn(data: Json);
     }
 
+    type ClusteringOptions = {
+
+    }
+
+    type Config = {
+        clustering: ClusteringOptions,
+        sharding: ShardingOptions,
+        stats: StatsOptions
+    }
+
+    type InstanceOptions = {
+        
+    }
+
+    type LoggerOptions = {
+
+    }
+
     type Modules = {
         logger?: Logger,
         communication?: Communication,
@@ -87,15 +133,7 @@ declare module 'eris-sharder' {
 
     }
 
-    type ClusteringOptions = {
-
-    }
-
     type StatsOptions = {
-
-    }
-
-    type LoggerOptions = {
 
     }
 
