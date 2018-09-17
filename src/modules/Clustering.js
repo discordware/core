@@ -20,7 +20,7 @@ class Clustering {
         let clusterID;
 
         try {
-            clusterID = await this.registry.get(`workers.${this.instanceID}.${workerID}`);
+            clusterID = await this.registry.getWorker(this.instanceID, workerID);
         } catch (err) {
             this.logger.error({
                 src: 'Clustering',
@@ -35,7 +35,7 @@ class Clustering {
         let clusterConfig;
 
         try {
-            clusterConfig = await this.registry.get(`clusters.${this.instanceID}.${clusterID}`);
+            clusterConfig = await this.registry.getCluster(this.instanceID, clusterID);
         } catch (err) {
             this.logger.error({
                 src: 'Clustering',
@@ -116,14 +116,14 @@ class Clustering {
 
             let worker = master.fork(Object.assign({}, this.options.env, env));
 
-            this.registry.set(`clusters.${this.instanceID}.${clusterID}`, {
+            this.registry.registerCluster(this.instanceID, clusterID, {
                 firstShardID,
                 lastShardID,
                 maxShards,
                 instanceID
             });
 
-            this.registry.set(`workers.${this.instanceID}.${worker.id}`, clusterID);
+            this.registry.registerWorker(this.instanceID, worker.id, clusterID);
 
             process.nextTick(() => {
                 this.startCluster(clusterID + 1, total);
@@ -189,15 +189,17 @@ class Clustering {
 
         let worker = master.fork(Object.assign(this.options.env, env));
 
-        this.registry.set(`clusters.${this.instanceID}.${clusterID}`, {
+        this.registry.deleteCluster(this.instanceID, clusterID);
+
+        this.registry.registerCluster(this.instanceID, clusterID, {
             firstShardID,
             lastShardID,
             maxShards,
             instanceID
         });
 
-        this.registry.delete(`workers.${this.instanceID}.${workerID}`);
-        this.registry.set(`workers.${this.instanceID}.${worker.id}`, clusterID);
+        this.registry.deleteWorker(this.instanceID, workerID);
+        this.registry.registerWorker(this.instanceID, workerID, clusterID);
 
         this.alerts.alert({
             title: 'Cluster Restart',

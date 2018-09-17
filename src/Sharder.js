@@ -52,11 +52,15 @@ class Sharder {
     }
 
     addInstance(instanceID, options) {
+        this.registry.registerInstance(instanceID, options);
 
+        // TODO: Add support for connecting to instance through communication
     }
 
     updateInstance(instanceID, options) {
+        this.registry.deleteInstance(instanceID);
 
+        this.registry.registerInstance(instanceID, options);
     }
 }
 
