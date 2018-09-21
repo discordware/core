@@ -135,13 +135,14 @@ class Clustering {
         if (clusterID === total) {
 
         } else {
-            this.communication.send(this.instanceID, clusterID, 'connect', {});
-
-            // TODO: Add Queue
+            this.queue.schedule('clusters.connect', { event: 'connect', instance: this.instanceID, clusterID }, (data, cb) => {
+                this.communication.send(data.instanceID, data.clusterID, data.event, {});
+                cb();
+            });
         }
     }
 
-    async restartCluster(workerID, code) {
+    async restartCluster(workerID, code, cb) {
         let clusterID = await this.fetchClusterID(workerID);
 
         if (!clusterID) {
@@ -199,7 +200,7 @@ class Clustering {
         });
 
         this.registry.deleteWorker(this.instanceID, workerID);
-        this.registry.registerWorker(this.instanceID, workerID, clusterID);
+        this.registry.registerWorker(this.instanceID, worker.id, clusterID);
 
         this.alerts.alert({
             title: 'Cluster Restart',
@@ -212,12 +213,14 @@ class Clustering {
             src: 'Clustering',
             msg: `Restarted cluster ${clusterID}`
         });
+
+        cb();
     }
 
     onExit(worker, code) {
-
-        // TODO: add restart queueing
-        this.restartCluster(worker.id, code);
+        this.queue.schedule('clusters.connect', { workerID: worker.id, code }, (data, cb) => {
+            this.restartCluster(data.workerID, data.code, cb);
+        });
     }
 }
 
