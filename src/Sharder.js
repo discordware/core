@@ -27,14 +27,14 @@ class Sharder {
     async create() {
         await this.config.init();
 
-        let { sharding, clustering, stats } = await this.config.getConfig();
+        let { token, sharding, clustering, stats, communication } = await this.config.getConfig();
 
         this.logger = this.modules.logger || new Logger();
         this.alerts = this.modules.alerts || new Alerts();
         this.registry = this.modules.registry || new Registry();
         this.queue = this.modules.queue || new Queue();
-        this.communication = this.modules.communication || new Communication(this.logger, this.registry);
-        this.sharding = this.modules.sharding || new Sharding(sharding, this.options.token, this.instanceID, this.logger, this.alerts);
+        this.communication = this.modules.communication || new Communication(communication, this.logger, this.registry);
+        this.sharding = this.modules.sharding || new Sharding(sharding, token, this.instanceID, this.logger, this.alerts);
         this.clustering = this.modules.clustering || new Clustering(clustering, this.instanceID, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
         this.stats = this.modules.stats || new Stats(stats, this.communication, this.logger);
 
