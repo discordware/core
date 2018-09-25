@@ -3,10 +3,19 @@ class Stats {
         this.options = options;
         this.communication = communication;
         this.logger = logger;
+        this.metrics = {};
     }
 
     init() {
-        
+
+    }
+
+    addMetric(name, type) {
+
+    }
+
+    disableMetric(name) {
+
     }
 }
 

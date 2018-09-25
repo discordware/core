@@ -1,5 +1,5 @@
 const EventEmitter = require('events').EventEmitter;
-const cluster = require('cluster');
+const master = require('cluster');
 const uuid = require('uuid/v1');
 
 class Communication extends EventEmitter {
@@ -13,31 +13,52 @@ class Communication extends EventEmitter {
         return Promise.resolve();
     }
 
-    send(instance, clusterID, event, data) {
+    send(instanceID, clusterID, event, data) {
         let payload = {
             event,
             data
         };
     }
 
-    awaitResponse(instance, clusterID, event, data, callback) {
+    awaitResponse(instanceID, clusterID, event, data, callback) {
         return new Promise((res, rej) => {
             let payload = {
                 event,
                 data,
                 id: uuid()
             };
+
+            let err;
+
+            this.registry.getCluster(instanceID, clusterID).then(cluster => {
+                master.workers[cluster.workerID].send(payload);
+
+                this.once(payload.id, msg => {
+                    if (callback) {
+                        callback(err, msg.data);
+                    } else {
+                        res(msg.data);
+                    }
+                });
+            }).catch(() => {
+                err = new Error('Unable to fetch workerID');
+                if (callback) {
+                    callback(err, null);
+                } else {
+                    rej(err);
+                }
+            });
         });
     }
 
-    broadcast(instance, event, data) {
+    broadcast(instanceID, event, data) {
         let payload = {
             event,
             data
         };
     }
 
-    awaitBroadcast(instance, event, data, callback) {
+    awaitBroadcast(instanceID, event, data, callback) {
         return new Promise((res, rej) => {
             let payload = {
                 event,

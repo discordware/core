@@ -10,7 +10,7 @@ class Registry {
     }
 
     getInstance(instanceID) {
-        return this._instances[instanceID];
+        return Promise.resolve(this._instances[instanceID]);
     }
 
     deleteInstance(instanceID) {
@@ -22,7 +22,7 @@ class Registry {
     }
 
     getCluster(instanceID, clusterID) {
-        return this._clusters[instanceID][clusterID];
+        return Promise.resolve(this._clusters[instanceID][clusterID]);
     }
 
     deleteCluster(instanceID, clusterID) {
@@ -34,7 +34,7 @@ class Registry {
     }
 
     getWorker(instanceID, workerID) {
-        return this._workers[instanceID][workerID];
+        return Promise.resolve(this._workers[instanceID][workerID]);
     }
 
     deleteWorker(instanceID, workerID) {

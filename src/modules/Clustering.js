@@ -120,7 +120,8 @@ class Clustering {
                 firstShardID,
                 lastShardID,
                 maxShards,
-                instanceID
+                instanceID, 
+                workerID: worker.id
             });
 
             this.registry.registerWorker(this.instanceID, worker.id, clusterID);
@@ -196,7 +197,8 @@ class Clustering {
             firstShardID,
             lastShardID,
             maxShards,
-            instanceID
+            instanceID, 
+            workerID: worker.id
         });
 
         this.registry.deleteWorker(this.instanceID, workerID);
