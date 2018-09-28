@@ -5,23 +5,65 @@ declare module 'eris-sharder' {
 
     }
 
-    export class Clustering {
+    export interface IClustering {
+        readonly isMaster: boolean;
+        init(): Promise<void>;
+    }
+
+    export interface IConfiguration {
+        init(): Promise<void>;
+        getConfig(): Promise<Config>;
+    }
+
+    export interface ICommunication {
+        init(): Promise<void>;
+        send(instance: string, clusterID: string, event: string, data: Json);
+        awaitResponse(instance: string, clusterID: string, event: string, data: Json): Promise<Json>;
+        broadcast(instance: string, event: string, data: Json);
+        awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
+    }
+
+    export interface ILogger {
+
+    }
+
+    export interface IQueue {
+
+    }
+
+    export interface IRegistry {
+
+    }
+
+    export interface ISharding {
+
+    }
+
+    export interface IStats {
+
+    }
+
+    export interface ITransport {
+
+    }
+
+    export class Clustering implements IClustering {
         constructor(options: ClusteringOptions, communication: Communication, sharding: Sharding, logger: Logger);
         public options: ClusteringOptions;
         public communication: Communication;
         public sharding: Sharding;
         public logger: Logger;
         get isMaster(): boolean;
-        public init();
+        public init(): Promise<void>;
     }
 
-    export class Configuration {
+    export class Configuration implements IConfiguration {
         constructor(instanceID: string, options?: SharderOptions);
         init(): Promise<void>;
         getConfig(): Promise<Config>;
     }
 
-    export class Communication extends EventEmitter {
+    export class Communication extends EventEmitter implements ICommunication {
         constructor(logger: Logger);
         public logger: Logger;
         public init(): Promise<void>;
@@ -31,7 +73,7 @@ declare module 'eris-sharder' {
         public awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
     }
 
-    export class Logger {
+    export class Logger implements ILogger {
         constructor(options: LoggerOptions);
         public options: LoggerOptions;
         public transports: Transport[];
@@ -42,13 +84,13 @@ declare module 'eris-sharder' {
         public info(data: Json);
         public log(data: Json);
         public warn(data: Json);
-    } 
+    }
 
-    export class Queue {
+    export class Queue implements IQueue {
 
     }
 
-    export class Registry {
+    export class Registry implements IRegistry {
         constructor();
     }
 
@@ -68,7 +110,7 @@ declare module 'eris-sharder' {
         public updateInstance(instanceID, options: InstanceOptions);
     }
 
-    export class Sharding {
+    export class Sharding implements ISharding {
         constructor(options: ShardingOptions, token: string, logger: Logger);
         public options: ShardingOptions;
         public token: string;
@@ -76,7 +118,7 @@ declare module 'eris-sharder' {
         public init();
     }
 
-    export class Stats {
+    export class Stats implements IStats{
         constructor(options: StatsOptions, communication: Communication, logger: Logger);
         public options: StatsOptions;
         public communication: Communication;
@@ -84,7 +126,7 @@ declare module 'eris-sharder' {
         public init();
     }
 
-    export class Transport {
+    export class Transport implements ITransport {
         constructor(options: TransportOptions);
         public options: TransportOptions;
         public init(): Promise<void>;
@@ -106,7 +148,7 @@ declare module 'eris-sharder' {
     }
 
     type InstanceOptions = {
-        
+
     }
 
     type LoggerOptions = {
@@ -142,8 +184,8 @@ declare module 'eris-sharder' {
     }
 
     interface Json {
-        [x: string]: string|number|boolean|Date|Json|JsonArray;
+        [x: string]: string | number | boolean | Date | Json | JsonArray;
     }
 
-    interface JsonArray extends Array<string|number|boolean|Date|Json|JsonArray> { }
+    interface JsonArray extends Array<string | number | boolean | Date | Json | JsonArray> { }
 }
