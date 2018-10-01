@@ -1,6 +1,7 @@
 // Modules
 const Alerts = require('./modules/Alerts');
 const Clustering = require('./modules/Clustering');
+const Cluster = require('./cluster/Cluster');
 const Communication = require('./modules/Communication');
 const Configuration = require('./modules/Configuration');
 const Logger = require('./modules/Logger');

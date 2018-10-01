@@ -1,4 +1,5 @@
 const IPC = require('./IPC.js');
+
 class Base {
     constructor(setup) {
         this.bot = setup.bot;

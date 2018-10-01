@@ -1,6 +1,6 @@
 class Queue {
     constructor() {
-        this._queues = {};
+        this.queues = {};
     }
 
     init() {
@@ -8,29 +8,34 @@ class Queue {
     }
 
     schedule(queue, job, callback) {
-        if (!this._queues[queue]) this._queues[queue] = [];
+        if (!this.queues[queue]) this.queues[queue] = [];
 
-        this._enqueue(queue, { data: job, callback });
+        this.enqueue(queue, { data: job, callback });
     }
 
-    _enqueue(queue, job) {
+    enqueue(queue, job) {
         if (this.queue[queue].length === 0) {
-            this._queues[queue].push(job);
+            this.queues[queue].push(job);
 
-            this._process(queue);
+            this.process(queue);
         } else {
-            this._queues[queue].push(job);
+            this.queues[queue].push(job);
         }
     }
 
-    _process(queue) {
-        let job = this._queues[queue][0];
+    process(queue) {
+        let job = this.queues[queue][0];
 
-        let callback = () => {
-            this.queue.shift();
+        let callback = (err) => {
 
-            if (this._queues[queue].length > 0) {
-                this._process(queue);
+            this.queues.shift();
+
+            if (err) {
+                this.queues[queue].push(job);
+            }
+
+            if (this.queues[queue].length > 0) {
+                this.process(queue);
             }
         };
 

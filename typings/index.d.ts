@@ -2,7 +2,9 @@ declare module 'eris-sharder' {
     import { EventEmitter } from 'events';
 
     export class Alerts {
-
+        public init(): Promise<void>;
+        public registerDestination(destination: IDestination);
+        public alert(data: AlertData);
     }
 
     export interface IClustering {
@@ -23,16 +25,36 @@ declare module 'eris-sharder' {
         awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
     }
 
-    export interface ILogger {
+    export interface IDestination {
+        init(): Promise<void>;
+        alert(data: AlertData);
+    }
 
+    export interface ILogger {
+        init(): Promise<[]>;
+        registerTransport(transport: Transport);
+        debug(data: Json);
+        error(data: Json);
+        info(data: Json);
+        log(data: Json);
+        warn(data: Json);
     }
 
     export interface IQueue {
-
+        init(): Promise<void>;
+        schedule(queue: string, job: Json, callback: (err?: boolean) => void);
     }
 
     export interface IRegistry {
-
+        registerInstance(instanceID: string, config: Json): Promise<void>;
+        getInstance(instanceID: string)
+        deleteInstance(instanceID: string): Promise<void>;
+        registerCluster(instanceID: string, clusterID: number, config: ClusterConfig);
+        getCluster(instanceID: string, clusterID: number): Promise<ClusterConfig>;
+        deleteCluster(instanceID: string, clusterID: number): Promise<void>;
+        registerWorker(instanceID: string, workerID: number, clusterID: number): Promise<void>;
+        getWorker(instanceID: string, workerID: number): Promise<number>;
+        deleteWorker(instanceID: string, workerID: number): Promise<void>;
     }
 
     export interface ISharding {
@@ -53,7 +75,7 @@ declare module 'eris-sharder' {
         public communication: Communication;
         public sharding: Sharding;
         public logger: Logger;
-        get isMaster(): boolean;
+        public isMaster: boolean;
         public init(): Promise<void>;
     }
 
@@ -87,11 +109,24 @@ declare module 'eris-sharder' {
     }
 
     export class Queue implements IQueue {
-
+        constructor()
+        public init(): Promise<void>;
+        public schedule(queue: string, job: Json, callback: (err?: boolean) => void);
+        private enqueue(queeu: string, job: { data: Json, callback: (job: Json, callback: (err?: boolean) => void) => void });
+        private process(queue);
     }
 
     export class Registry implements IRegistry {
         constructor();
+        public registerInstance(instanceID: string, config: Json): Promise<void>;
+        public getInstance(instanceID: string)
+        public deleteInstance(instanceID: string): Promise<void>;
+        public registerCluster(instanceID: string, clusterID: number, config: ClusterConfig);
+        public getCluster(instanceID: string, clusterID: number): Promise<ClusterConfig>;
+        public deleteCluster(instanceID: string, clusterID: number): Promise<void>;
+        public registerWorker(instanceID: string, workerID: number, clusterID: number): Promise<void>;
+        public getWorker(instanceID: string, workerID: number): Promise<number>;
+        public deleteWorker(instanceID: string, workerID: number): Promise<void>;
     }
 
     export class Sharder {
@@ -118,7 +153,7 @@ declare module 'eris-sharder' {
         public init();
     }
 
-    export class Stats implements IStats{
+    export class Stats implements IStats {
         constructor(options: StatsOptions, communication: Communication, logger: Logger);
         public options: StatsOptions;
         public communication: Communication;
@@ -137,25 +172,40 @@ declare module 'eris-sharder' {
         public warn(data: Json);
     }
 
-    type ClusteringOptions = {
+    export type ClusteringOptions = {
 
     }
 
-    type Config = {
+    export type ClusterConfig = {
+        firstShardID: number,
+        lastShardID: number,
+        maxShards: number,
+        instanceID: string,
+        workerID: number
+    }
+
+    export type AlertData = {
+        title: string,
+        msg: string,
+        date: Date,
+        type: string
+    }
+
+    export type Config = {
         clustering: ClusteringOptions,
         sharding: ShardingOptions,
         stats: StatsOptions
     }
 
-    type InstanceOptions = {
+    export type InstanceOptions = {
 
     }
 
-    type LoggerOptions = {
+    export type LoggerOptions = {
 
     }
 
-    type Modules = {
+    export type Modules = {
         logger?: Logger,
         communication?: Communication,
         clustering?: Clustering,
@@ -163,7 +213,7 @@ declare module 'eris-sharder' {
         stats?: Stats
     }
 
-    type SharderOptions = {
+    export type SharderOptions = {
         token: string,
         sharding: ShardingOptions,
         clustering: ClusteringOptions,
@@ -171,21 +221,21 @@ declare module 'eris-sharder' {
         logger?: LoggerOptions
     }
 
-    type ShardingOptions = {
+    export type ShardingOptions = {
 
     }
 
-    type StatsOptions = {
+    export type StatsOptions = {
 
     }
 
-    type TransportOptions = {
+    export type TransportOptions = {
 
     }
 
-    interface Json {
+    export interface Json {
         [x: string]: string | number | boolean | Date | Json | JsonArray;
     }
 
-    interface JsonArray extends Array<string | number | boolean | Date | Json | JsonArray> { }
+    export interface JsonArray extends Array<string | number | boolean | Date | Json | JsonArray> { }
 }
