@@ -6,13 +6,15 @@
   "types": "./typings/index.d.ts",
   "dependencies": {
     "chalk": "^2.4.1",
-    "eris": "^0.9.0",
     "jethro": "^4.4.0",
     "uuid": "^3.3.2"
   },
+  "optionalDependencies": {
+    "eris": "^0.9.0"
+  },
   "devDependencies": {
-    "tui-jsdoc-template": "^1.2.2",
-    "@types/node": "^10.9.4"
+    "@types/node": "^10.9.4",
+    "tui-jsdoc-template": "^1.2.2"
   },
   "scripts": {
     "test": "node ./tests/test.js"

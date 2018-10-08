@@ -59,4 +59,4 @@ jspm_packages/
 
 # Custom
 package-lock.json
-
+yarn.lock
