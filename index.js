@@ -1,7 +1,7 @@
-const Sharder = require('./src/sharding/clustermanager');
+const Sharder = require('./src/Sharder');
 
 Object.assign(Sharder, {
-    Base: require('./src/structures/Base.js'),
+    // Base: require('./src/cluster/Base.js'),
     Modules: {
         Alerts: require('./src/modules/Alerts'),
         Clustering: require('./src/modules/Clustering'),

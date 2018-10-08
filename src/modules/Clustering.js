@@ -10,6 +10,7 @@ class Clustering {
         this.logger = logger;
         this.alerts = alerts;
         this.queue = queue;
+        this.callbacks = {};
     }
 
     get isMaster() {
@@ -78,23 +79,54 @@ class Clustering {
     async init() {
         const numClusters = this.options.clusters || require('os').cpus().length;
 
+        this.logger.info({
+            src: 'Clustering',
+            msg: `Starting with ${numClusters} clusters`
+        });
+
         master.on('exit', (...args) => {
             this.onExit(...args);
         });
 
+        this.communication.on('cluster.connected', data => {
+            this.callbacks[data.clusterID]();
+
+            this.alerts.alert({
+                title: 'Cluster Ready',
+                msg: `Cluster ${data.clusterID}`,
+                date: new Date(),
+                type: 'cluster'
+            });
+    
+            this.logger.log({
+                src: 'Clustering',
+                msg: `Cluster ${data.clusterID} ready`
+            });
+
+            delete this.callbacks[data.clusterID];
+        });
+
         await this.sharding.shard(numClusters);
 
-        this.startCluster(1, numClusters + 1);
+        this.startCluster(0, numClusters);
+    }
+
+    createCluster(clusterID, env, state) {
+        let worker = master.fork(Object.assign({}, this.options.env, env));
+
+        this.registry.registerCluster(this.instanceID, clusterID, Object.assign(state, { workerID: worker.id }));
+
+        this.registry.registerWorker(this.instanceID, worker.id, clusterID);
     }
 
     async startCluster(clusterID, total) {
         if (clusterID === total) {
             this.logger.log({
                 src: 'Clustering',
-                msg: 'Started clusters'
+                msg: 'All clusters started'
             });
 
-            this.connectCluster(1, total);
+            this.connectClusters(total);
         } else {
             let clusterConfig = await this.sharding.getConfig(clusterID);
 
@@ -103,28 +135,23 @@ class Clustering {
                 msg: `Unable to fetch cluster config for cluster ${clusterID}`
             });
 
-            let { firstShardID, lastShardID, maxShards, instanceID, token } = clusterConfig;
+            let { firstShardID, lastShardID, maxShards } = clusterConfig;
 
             let env = {
-                TOKEN: token,
+                TOKEN: this.sharding.token,
                 FIRST_SHARD_ID: firstShardID,
                 LAST_SHARD_ID: lastShardID,
                 MAX_SHARDS: maxShards,
-                INSTANCE_ID: instanceID,
+                INSTANCE_ID: this.instanceID,
                 CLUSTER_ID: clusterID
             };
 
-            let worker = master.fork(Object.assign({}, this.options.env, env));
-
-            this.registry.registerCluster(this.instanceID, clusterID, {
+            this.createCluster(clusterID, env, {
                 firstShardID,
                 lastShardID,
                 maxShards,
-                instanceID, 
-                workerID: worker.id
+                instanceID: this.instanceID
             });
-
-            this.registry.registerWorker(this.instanceID, worker.id, clusterID);
 
             process.nextTick(() => {
                 this.startCluster(clusterID + 1, total);
@@ -132,18 +159,18 @@ class Clustering {
         }
     }
 
-    connectCluster(clusterID, total) {
-        if (clusterID === total) {
+    connectClusters(clusterCount) {
+        let clusters = [...Array(clusterCount).keys()];
 
-        } else {
-            this.queue.schedule('clusters.connect', { event: 'connect', instance: this.instanceID, clusterID }, (data, cb) => {
+        for (let cluster of clusters) {
+            this.queue.schedule('clusters.connect', { event: 'connect', instanceID: this.instanceID, clusterID: cluster }, (data, cb) => {
                 this.communication.send(data.instanceID, data.clusterID, data.event, {});
-                cb();
+                this.callbacks[cluster] = cb;
             });
         }
     }
 
-    async restartCluster(workerID, code, cb) {
+    async restartCluster(workerID, code) {
         let clusterID = await this.fetchClusterID(workerID);
 
         if (!clusterID) {
@@ -178,51 +205,35 @@ class Clustering {
             msg: `Cluster ${clusterID} died. Restarting...`
         });
 
-        let { firstShardID, lastShardID, maxShards, instanceID } = config;
+        let { firstShardID, lastShardID, maxShards } = config;
 
         let env = {
             TOKEN: this.sharding.token,
             FIRST_SHARD_ID: firstShardID,
             LAST_SHARD_ID: lastShardID,
             MAX_SHARDS: maxShards,
-            INSTANCE_ID: instanceID,
+            INSTANCE_ID: this.instanceID,
             CLUSTER_ID: clusterID
         };
 
-        let worker = master.fork(Object.assign(this.options.env, env));
-
         this.registry.deleteCluster(this.instanceID, clusterID);
+        this.registry.deleteWorker(this.instanceID, workerID);
 
-        this.registry.registerCluster(this.instanceID, clusterID, {
+        this.createCluster(clusterID, env, {
             firstShardID,
             lastShardID,
             maxShards,
-            instanceID, 
-            workerID: worker.id
+            instanceID: this.instanceID
         });
 
-        this.registry.deleteWorker(this.instanceID, workerID);
-        this.registry.registerWorker(this.instanceID, worker.id, clusterID);
-
-        this.alerts.alert({
-            title: 'Cluster Restart',
-            msg: `Cluster ${clusterID} restarted!`,
-            date: new Date(),
-            type: 'cluster'
+        this.queue.schedule('clusters.connect', { event: 'connect', instanceID: this.instanceID, clusterID: clusterID }, (data, cb) => {
+            this.communication.send(data.instanceID, data.clusterID, data.event, {});
+            this.callbacks[clusterID] = cb;
         });
-
-        this.logger.log({
-            src: 'Clustering',
-            msg: `Restarted cluster ${clusterID}`
-        });
-
-        cb();
     }
 
     onExit(worker, code) {
-        this.queue.schedule('clusters.connect', { workerID: worker.id, code }, (data, cb) => {
-            this.restartCluster(data.workerID, data.code, cb);
-        });
+        this.restartCluster(worker.id, code);
     }
 }
 

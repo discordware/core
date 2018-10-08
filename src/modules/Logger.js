@@ -16,15 +16,15 @@ class Logger {
         }));
     }
 
-    async registerTransport(transport) {
+    async registerTransport(name, transport) {
         if (!this.started) {
-            this.transports[transport.name] = transport;
+            this.transports[name] = transport;
         } else {
             if (typeof transport.init === 'function') {
                 await transport.init();
             }
             
-            this.transports[transport.name] = transport;
+            this.transports[name] = transport;
         }
     }
 

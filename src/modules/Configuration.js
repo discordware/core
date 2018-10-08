@@ -14,7 +14,8 @@ class Configuration {
             clustering: this.options.clustering || {},
             sharding: this.options.sharding || {},
             stats: this.options.stats || {},
-            communication: this.options.communication || {}
+            communication: this.options.communication || {},
+            logger: this.options.logger || {}
         };
     }
 }

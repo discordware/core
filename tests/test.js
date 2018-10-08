@@ -1,10 +1,29 @@
 const Sharder = require('../index');
-const path = require('path');
+const master = require('cluster');
 
-let sharder = new Sharder('test', path.join(__dirname, 'main.js'), {
-    name: 'Travis CLI',
-    stats: true,
-    shards: 8,
-    clusters: 4,
-    debug: true
-});
+if (master.isMaster) {
+    let sharder = new Sharder('jet', {
+        token: 'asdf',
+        sharding: {
+            firstShardID: 0,
+            shards: 160
+        }
+    });
+
+    sharder.create().then(() => {
+        sharder.init().then(() => {
+        });
+    });
+} else {
+    process.on('message', (msg) => {
+        let firstShardID = process.env.FIRST_SHARD_ID;
+        let lastShardID = process.env.LAST_SHARD_ID;
+        console.log(`Cluster ${process.env.CLUSTER_ID} | Shards ${firstShardID} - ${lastShardID} | Total: ${lastShardID - firstShardID + 1}`);
+        process.send({
+            event: 'cluster.connected',
+            data: {
+                clusterID: process.env.CLUSTER_ID
+            }
+        });
+    });
+}

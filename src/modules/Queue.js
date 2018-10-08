@@ -14,7 +14,7 @@ class Queue {
     }
 
     enqueue(queue, job) {
-        if (this.queue[queue].length === 0) {
+        if (this.queues[queue].length === 0) {
             this.queues[queue].push(job);
 
             this.process(queue);
@@ -28,7 +28,7 @@ class Queue {
 
         let callback = (err) => {
 
-            this.queues.shift();
+            this.queues[queue].shift();
 
             if (err) {
                 this.queues[queue].push(job);

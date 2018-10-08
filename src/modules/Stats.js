@@ -10,7 +10,7 @@ class Stats {
 
     }
 
-    addMetric(name, type) {
+    addMetric(name, method, type) {
 
     }
 

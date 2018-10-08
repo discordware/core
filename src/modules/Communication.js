@@ -12,7 +12,13 @@ class Communication extends EventEmitter {
     }
 
     init() {
-        return Promise.resolve();
+        return new Promise(res => {
+            master.on('message', (worker, msg) => {
+                this.emit(msg.event, msg.data);
+            });
+
+            res();
+        });
     }
 
     send(instanceID, clusterID, event, data) {
@@ -20,6 +26,10 @@ class Communication extends EventEmitter {
             event,
             data
         };
+
+        this.registry.getCluster(instanceID, clusterID).then(cluster => {
+            master.workers[cluster.workerID].send(payload);
+        });
     }
 
     awaitResponse(instanceID, clusterID, event, data, callback) {

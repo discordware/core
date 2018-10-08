@@ -32,7 +32,7 @@ declare module 'eris-sharder' {
 
     export interface ILogger {
         init(): Promise<[]>;
-        registerTransport(transport: Transport);
+        registerTransport(name: string, transport: Transport);
         debug(data: Json);
         error(data: Json);
         info(data: Json);
@@ -46,6 +46,7 @@ declare module 'eris-sharder' {
     }
 
     export interface IRegistry {
+        init(): Promise<void>;
         registerInstance(instanceID: string, config: Json): Promise<void>;
         getInstance(instanceID: string)
         deleteInstance(instanceID: string): Promise<void>;
@@ -55,10 +56,15 @@ declare module 'eris-sharder' {
         registerWorker(instanceID: string, workerID: number, clusterID: number): Promise<void>;
         getWorker(instanceID: string, workerID: number): Promise<number>;
         deleteWorker(instanceID: string, workerID: number): Promise<void>;
+        registerShardConfig(instanceID: string, clusterID: number, config: ShardConfig);
+        getShardConfig(instanceID: string, clusterID: number): Promise<ShardConfig>;
+        deleteShardConfig(instanceID: string, clusterID: number): Promise<void>;
     }
 
     export interface ISharding {
-
+        init(): Promise<void>;
+        shard(clusterCount: number): Promise<void>;
+        getConfig(cluster: number): Promise<void>;
     }
 
     export interface IStats {
@@ -66,7 +72,12 @@ declare module 'eris-sharder' {
     }
 
     export interface ITransport {
-
+        init(): Promise<void>;
+        debug(data: Json);
+        error(data: Json);
+        info(data: Json);
+        log(data: Json);
+        warn(data: Json);
     }
 
     export class Clustering implements IClustering {
@@ -100,7 +111,7 @@ declare module 'eris-sharder' {
         public options: LoggerOptions;
         public transports: Transport[];
         public init(): Promise<[]>;
-        public registerTransport(transport: Transport);
+        public registerTransport(name: string,transport: Transport);
         public debug(data: Json);
         public error(data: Json);
         public info(data: Json);
@@ -118,6 +129,7 @@ declare module 'eris-sharder' {
 
     export class Registry implements IRegistry {
         constructor();
+        public init(): Promise<void>;
         public registerInstance(instanceID: string, config: Json): Promise<void>;
         public getInstance(instanceID: string)
         public deleteInstance(instanceID: string): Promise<void>;
@@ -127,6 +139,9 @@ declare module 'eris-sharder' {
         public registerWorker(instanceID: string, workerID: number, clusterID: number): Promise<void>;
         public getWorker(instanceID: string, workerID: number): Promise<number>;
         public deleteWorker(instanceID: string, workerID: number): Promise<void>;
+        public registerShardConfig(instanceID: string, clusterID: number, config: ClusterConfig);
+        public getShardConfig(instanceID: string, clusterID: number): Promise<ClusterConfig>;
+        public deleteShardConfig(instanceID: string, clusterID: number): Promise<void>;
     }
 
     export class Sharder {
@@ -150,7 +165,9 @@ declare module 'eris-sharder' {
         public options: ShardingOptions;
         public token: string;
         public logger: Logger;
-        public init();
+        public init(): Promise<void>;
+        public shard(clusterCount: number): Promise<void>;
+        public getConfig(cluster: number): Promise<void>;
     }
 
     export class Stats implements IStats {
@@ -211,6 +228,12 @@ declare module 'eris-sharder' {
         clustering?: Clustering,
         sharding?: Sharding,
         stats?: Stats
+    }
+
+    export type ShardConfig = {
+        firstShardID: number,
+        lastShardID: number,
+        maxShards: number
     }
 
     export type SharderOptions = {

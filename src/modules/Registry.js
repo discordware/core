@@ -3,10 +3,18 @@ class Registry {
         this._clusters = {};
         this._instances = {};
         this._workers = {};
+        this._shards = {};
+    }
+
+    init() {
+        return Promise.resolve();
     }
 
     registerInstance(instanceID, config) {
         this._instances[instanceID] = config;
+        this._clusters[instanceID] = {};
+        this._workers[instanceID] = {};
+        this._shards[instanceID] = {};
         return Promise.resolve();
     }
 
@@ -44,6 +52,19 @@ class Registry {
 
     deleteWorker(instanceID, workerID) {
         delete this._workers[instanceID][workerID];
+        return Promise.resolve();
+    }
+
+    registerShardConfig(instanceID, clusterID, config) {
+        this._shards[instanceID][clusterID] = config;
+    }
+
+    getShardConfig(instanceID, clusterID) {
+        return Promise.resolve(this._shards[instanceID][clusterID]);
+    }
+
+    deleteShardConfig(instanceID, clusterID) {
+        delete this._shards[instanceID][clusterID];
         return Promise.resolve();
     }
 }

@@ -1,10 +1,16 @@
 const chalk = require('chalk');
 const Jethro = require('jethro');
 
-class Console extends Jethro {
+class Console {
     constructor(options) {
-        super();
-        this.options = options;
+        this.options = {
+            debug: false,
+            error: true,
+            info: true,
+            warn: true
+        };
+
+        Object.assign(this.options, options);
     }
 
     fixTime(time) {
@@ -28,6 +34,7 @@ class Console extends Jethro {
     }
 
     init() {
+        Jethro.transports.console.getTimestamp = this.getTime.bind(this);
         return Promise.resolve();
     }
 
@@ -35,7 +42,7 @@ class Console extends Jethro {
         if (this.options.debug) {
             let message = this.format(data.msg, chalk.blueBright);
             let source = this.format(data.src, chalk.cyanBright);
-            super.debug(source, message);
+            Jethro.debug(source, message);
         }
     }
 
@@ -43,7 +50,7 @@ class Console extends Jethro {
         if (this.options.error) {
             let message = this.format(data.msg, chalk.redBright);
             let source = this.format(data.src, chalk.cyanBright);
-            super.error(source, message);
+            Jethro.error(source, message);
         }
     }
 
@@ -51,7 +58,7 @@ class Console extends Jethro {
         if (this.options.info) {
             let message = this.format(data.msg, chalk.magentaBright);
             let source = this.format(data.src, chalk.cyanBright);
-            super.info(source, message);
+            Jethro.info(source, message);
         }
     }
 
@@ -63,7 +70,7 @@ class Console extends Jethro {
         if (this.options.warn) {
             let message = this.format(data.msg, chalk.yellowBright);
             let source = this.format(data.src, chalk.cyanBright);
-            super.warn(source, message);
+            Jethro.warn(source, message);
         }
     }
 }
