@@ -53,23 +53,29 @@ class Sharder {
         await this.sharding.init();
 
         // TODO: register own address
-        await this.registry.registerInstance(this.instanceID, {});
+        await this.registry.registerInstance(this.instanceID, this.options.instanceOptions);
         
         this.clustering.init();
 
         return Promise.resolve();
     }
 
-    addInstance(instanceID, options) {
-        this.registry.registerInstance(instanceID, options);
+    async updateConfig(config) {
+        await this.registry.deleteInstance(this.instanceID);
 
-        // TODO: Add support for connecting to instance through communication
+        this.registry.registerInstance(this.instanceID, config);
     }
 
-    updateInstance(instanceID, options) {
-        this.registry.deleteInstance(instanceID);
+    async addPeer(instanceID) {
+        let peer = await this.registry.getInstance(instanceID);
 
-        this.registry.registerInstance(instanceID, options);
+        this.communication.connectToPeer(peer);
+    }
+
+    async peerUpdate(instanceID) {
+        let peer = await this.registry.getInstance(instanceID);
+
+        this.communication.updateConnection(peer);
     }
 }
 

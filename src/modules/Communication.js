@@ -21,6 +21,14 @@ class Communication extends EventEmitter {
         });
     }
 
+    connectToPeer() {
+        this.logger.error('Communication', 'Peer connections not supported. Different communication module required.');
+    }
+
+    updateConnection() {
+        this.logger.error('Communication', 'Peer connections not supported. Different communication module required.');
+    }
+
     send(instanceID, clusterID, event, data) {
         let payload = {
             event,

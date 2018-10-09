@@ -156,8 +156,8 @@ declare module 'eris-sharder' {
         public stats: Stats;
         public create();
         public init: Promise<void>;
-        public addInstace(instanceID: string, options: InstanceOptions);
-        public updateInstance(instanceID, options: InstanceOptions);
+        public addPeer(instanceID: string);
+        public peerUpdate(instanceID);
     }
 
     export class Sharding implements ISharding {
@@ -201,6 +201,10 @@ declare module 'eris-sharder' {
         workerID: number
     }
 
+    export type CommunicationOptions = {
+        
+    }
+
     export type AlertData = {
         title: string,
         msg: string,
@@ -209,9 +213,13 @@ declare module 'eris-sharder' {
     }
 
     export type Config = {
+        token: string,
+        instanceOptions: InstanceOptions
         clustering: ClusteringOptions,
         sharding: ShardingOptions,
-        stats: StatsOptions
+        stats: StatsOptions,
+        Communication: CommunicationOptions,
+        logger: LoggerOptions
     }
 
     export type InstanceOptions = {

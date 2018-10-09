@@ -16,14 +16,16 @@ if (master.isMaster) {
     });
 } else {
     process.on('message', (msg) => {
-        let firstShardID = process.env.FIRST_SHARD_ID;
-        let lastShardID = process.env.LAST_SHARD_ID;
-        console.log(`Cluster ${process.env.CLUSTER_ID} | Shards ${firstShardID} - ${lastShardID} | Total: ${lastShardID - firstShardID + 1}`);
-        process.send({
-            event: 'cluster.connected',
-            data: {
-                clusterID: process.env.CLUSTER_ID
-            }
-        });
+        if (msg.event === 'connect') {
+            let firstShardID = process.env.FIRST_SHARD_ID;
+            let lastShardID = process.env.LAST_SHARD_ID;
+            console.log(`Cluster ${process.env.CLUSTER_ID} | Shards ${firstShardID} - ${lastShardID} | Total: ${lastShardID - firstShardID + 1}`);
+            process.send({
+                event: 'cluster.connected',
+                data: {
+                    clusterID: process.env.CLUSTER_ID
+                }
+            });
+        }
     });
 }

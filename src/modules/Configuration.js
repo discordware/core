@@ -11,6 +11,7 @@ class Configuration {
     getConfig() {
         return {
             token: this.options.token,
+            instanceOptions: this.options.instanceOptions || {},
             clustering: this.options.clustering || {},
             sharding: this.options.sharding || {},
             stats: this.options.stats || {},
