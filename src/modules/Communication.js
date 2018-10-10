@@ -36,7 +36,12 @@ class Communication extends EventEmitter {
         };
 
         this.registry.getCluster(instanceID, clusterID).then(cluster => {
-            master.workers[cluster.workerID].send(payload);
+            master.workers[cluster.workerID].send(payload, null, err => {
+                if (err) return Promise.reject(err);
+                return Promise.resolve();
+            });
+        }).catch(err => {
+            return Promise.reject(err);
         });
     }
 
@@ -66,8 +71,8 @@ class Communication extends EventEmitter {
                         res(msg.data);
                     }
                 });
-            }).catch(() => {
-                err = new Error('Unable to fetch workerID');
+            }).catch(error => {
+                err = new Error(error.message);
                 if (callback) {
                     callback(err, null);
                 } else {
