@@ -6,8 +6,9 @@ Object.assign(Sharder, {
         Alerts: require('./src/modules/Alerts'),
         Clustering: require('./src/modules/Clustering'),
         Communication: require('./src/modules/Communication'),
+        Configuration: require('./src/modules/Configuration'),
         Logger: require('./src/modules/Logger'),
-        Notification: require('./src/modules/Alerts'),
+        Queue: require('./src/modules/Queue'),
         Registry: require('./src/modules/Registry'),
         Sharding: require('./src/modules/Sharding'),
         Stats: require('./src/modules/Stats')

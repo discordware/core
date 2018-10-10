@@ -60,6 +60,10 @@ class Sharder {
         return Promise.resolve();
     }
 
+    reshard() {
+        
+    }
+
     async updateConfig(config) {
         await this.registry.deleteInstance(this.instanceID);
 
