@@ -60,8 +60,10 @@ class Sharder {
         return Promise.resolve();
     }
 
-    reshard() {
-        
+    reshard(firstShardID, lastShardID, maxShards) {
+        this.sharding.updateShardCount(firstShardID, lastShardID, maxShards);
+
+        this.clustering.reshard();
     }
 
     async updateConfig(config) {

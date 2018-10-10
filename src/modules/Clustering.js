@@ -111,6 +111,10 @@ class Clustering {
         this.startCluster(0, numClusters);
     }
 
+    reshard() {
+        
+    }
+
     createCluster(clusterID, env, state) {
         let worker = master.fork(Object.assign({}, this.options.env, env));
 
