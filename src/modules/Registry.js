@@ -19,7 +19,12 @@ class Registry {
     }
 
     getInstance(instanceID) {
+        if (!this._instances[instanceID]) return Promise.reject(new Error(`No registered instance with ID ${instanceID}.`));
         return Promise.resolve(this._instances[instanceID]);
+    }
+
+    getInstances() {
+        return Promise.resolve(Object.values(this._instances));
     }
 
     deleteInstance(instanceID) {
@@ -33,7 +38,12 @@ class Registry {
     }
 
     getCluster(instanceID, clusterID) {
+        if (!this._clusters[instanceID][clusterID]) return Promise.reject(new Error(`No registered cluster with ID ${clusterID}.`));
         return Promise.resolve(this._clusters[instanceID][clusterID]);
+    }
+
+    getClusters(instanceID) {
+        return Promise.resolve(Object.values(this._clusters[instanceID]));
     }
 
     deleteCluster(instanceID, clusterID) {
@@ -47,7 +57,12 @@ class Registry {
     }
 
     getWorker(instanceID, workerID) {
+        if (!this._workers[instanceID][workerID]) return Promise.reject(new Error(`No registered worker with ID ${workerID}.`));
         return Promise.resolve(this._workers[instanceID][workerID]);
+    }
+
+    getWorkers(instanceID) {
+        return Promise.resolve(Object.values(this._workers[instanceID]));
     }
 
     deleteWorker(instanceID, workerID) {
@@ -60,6 +75,7 @@ class Registry {
     }
 
     getShardConfig(instanceID, clusterID) {
+        if (!this._shards[instanceID][clusterID]) return Promise.reject(new Error(`No registered shardConfig for cluster ${clusterID}.`));
         return Promise.resolve(this._shards[instanceID][clusterID]);
     }
 

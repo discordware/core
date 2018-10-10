@@ -48,13 +48,16 @@ declare module 'eris-sharder' {
     export interface IRegistry {
         init(): Promise<void>;
         registerInstance(instanceID: string, config: Json): Promise<void>;
+        getInstances(): Promise<{ [instanceID: string]: InstanceOptions }[]>;
         getInstance(instanceID: string)
         deleteInstance(instanceID: string): Promise<void>;
         registerCluster(instanceID: string, clusterID: number, config: ClusterConfig);
         getCluster(instanceID: string, clusterID: number): Promise<ClusterConfig>;
+        getClusters(): Promise<{ [clusterID: number]: ClusterConfig }[]>;
         deleteCluster(instanceID: string, clusterID: number): Promise<void>;
         registerWorker(instanceID: string, workerID: number, clusterID: number): Promise<void>;
         getWorker(instanceID: string, workerID: number): Promise<number>;
+        getWorkers(): Promise<{ [workerID: number]: number }[]>;
         deleteWorker(instanceID: string, workerID: number): Promise<void>;
         registerShardConfig(instanceID: string, clusterID: number, config: ShardConfig);
         getShardConfig(instanceID: string, clusterID: number): Promise<ShardConfig>;
@@ -111,7 +114,7 @@ declare module 'eris-sharder' {
         public options: LoggerOptions;
         public transports: Transport[];
         public init(): Promise<[]>;
-        public registerTransport(name: string,transport: Transport);
+        public registerTransport(name: string, transport: Transport);
         public debug(data: Json);
         public error(data: Json);
         public info(data: Json);
@@ -131,16 +134,19 @@ declare module 'eris-sharder' {
         constructor();
         public init(): Promise<void>;
         public registerInstance(instanceID: string, config: Json): Promise<void>;
+        public getInstances(): Promise<{ [instanceID: string]: InstanceOptions }[]>;
         public getInstance(instanceID: string)
         public deleteInstance(instanceID: string): Promise<void>;
         public registerCluster(instanceID: string, clusterID: number, config: ClusterConfig);
         public getCluster(instanceID: string, clusterID: number): Promise<ClusterConfig>;
+        public getClusters(): Promise<{ [clusterID: number]: ClusterConfig }[]>;
         public deleteCluster(instanceID: string, clusterID: number): Promise<void>;
         public registerWorker(instanceID: string, workerID: number, clusterID: number): Promise<void>;
         public getWorker(instanceID: string, workerID: number): Promise<number>;
+        public getWorkers(): Promise<{ [workerID: number]: number }[]>;
         public deleteWorker(instanceID: string, workerID: number): Promise<void>;
-        public registerShardConfig(instanceID: string, clusterID: number, config: ClusterConfig);
-        public getShardConfig(instanceID: string, clusterID: number): Promise<ClusterConfig>;
+        public registerShardConfig(instanceID: string, clusterID: number, config: ShardConfig);
+        public getShardConfig(instanceID: string, clusterID: number): Promise<ShardConfig>;
         public deleteShardConfig(instanceID: string, clusterID: number): Promise<void>;
     }
 
@@ -202,7 +208,7 @@ declare module 'eris-sharder' {
     }
 
     export type CommunicationOptions = {
-        
+
     }
 
     export type AlertData = {
