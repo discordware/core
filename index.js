@@ -1,7 +1,10 @@
 const Sharder = require('./src/Sharder');
 
 Object.assign(Sharder, {
-    // Base: require('./src/cluster/Base.js'),
+    Cluster: require('./src/Cluster'),
+    ClusterModules: {
+        Communication: require('./src/cluster/Communication')
+    },
     Modules: {
         Alerts: require('./src/modules/Alerts'),
         Clustering: require('./src/modules/Clustering'),
