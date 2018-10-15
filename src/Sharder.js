@@ -15,17 +15,38 @@ const Console = require('./transports/Console');
 
 /**
  * Represents the main Sharder class
+ * 
  * @prop {String} instanceID The instance ID
+ * @prop {Object} [modules] Custom moduled
+ * @prop {Alerts?} [modules.alerts] Custom alert module
+ * @prop {Clustering?} [modules.clustering] Custom clustering module
+ * @prop {Communication?} [modules.communication] Custom communication module
+ * @prop {Configuration?} [modules.configuration] Custom configuration module
+ * @prop {Logger?} [modules.logger] Custom logger module
+ * @prop {Queue?} [modules.queue] Custom queue module
+ * @prop {Registry?} [modules.registry] Custom registry module
+ * @prop {Sharding?} [modules.sharding] Custom sharding module
+ * @prop {Stats?} [modules.stats] Custom stats module
  * @class Sharder
  */
 class Sharder {
 
     /**
      *Creates an instance of Sharder.
+
      * @arg {String} instanceID The unique instanceID of the current sharder
      * @arg {Object} options Options to pass on to modules
-     * @arg {String} [options.token] Bot token
+     * @arg {String?} [options.token] Bot token
      * @arg {Object} [modules] Custom modules
+     * @arg {Alerts?} [modules.alerts] Custom alert module
+     * @arg {Clustering?} [modules.clustering] Custom clustering module
+     * @arg {Communication?} [modules.communication] Custom communication module
+     * @arg {Configuration?} [modules.configuration] Custom configuration module
+     * @arg {Logger?} [modules.logger] Custom logger module
+     * @arg {Queue?} [modules.queue] Custom queue module
+     * @arg {Registry?} [modules.registry] Custom registry module
+     * @arg {Sharding?} [modules.sharding] Custom sharding module
+     * @arg {Stats?} [modules.stats] Custom stats module
      * @memberof Sharder
      */
     constructor(instanceID, options, modules) {
@@ -42,6 +63,7 @@ class Sharder {
 
     /**
      * Create a new instance
+     * 
      * @returns {Promise<void>} Resolves when config is fetched and modules are created
      * @memberof Sharder
      */
@@ -65,6 +87,7 @@ class Sharder {
 
     /**
      *  Initiate the instance
+     * 
      * @returns {Promise<void>} Resolves when the instance is fully initiated
      * @memberof Sharder
      */
@@ -90,6 +113,7 @@ class Sharder {
 
     /**
      * Reshard the clusters managed by the current instance
+     * 
      * @param {*} firstShardID The first shard ID of the new set
      * @param {*} lastShardID The last shard ID of the new set
      * @param {*} maxShards The total amount of shards for the bot
@@ -105,6 +129,7 @@ class Sharder {
 
     /**
      * Update local instance's configuration
+     * 
      * @param {Object} config New instance configuration
      * @return {void}
      * @memberof Sharder
@@ -118,6 +143,7 @@ class Sharder {
 
     /**
      *  Connect to a new peer instance
+     * 
      * @param {String} instanceID The registered instanceID of the new peer
      * @return {void}
      * @memberof Sharder
@@ -131,6 +157,7 @@ class Sharder {
 
     /**
      *  Fetch updated peer instance configuration
+     * 
      * @param {String} instanceID The registered instanceID of the updated peer
      * @return {void}
      * @memberof Sharder
