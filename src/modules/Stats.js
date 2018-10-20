@@ -8,9 +8,9 @@ class Stats {
 
     /**
      *Creates an instance of Stats.
-     * @param {*} options
-     * @param {*} communication
-     * @param {*} logger
+     * @param {Object} options Stats options
+     * @param {Communication} communication Communication modu;e
+     * @param {Logger} logger Logger module
      * @memberof Stats
      */
     constructor(options, communication, logger) {
@@ -22,9 +22,9 @@ class Stats {
     }
 
     /**
+     * Initiate the Stats module
      *
-     *
-     * @returns
+     * @returns {Promise<void>} Resolves once the Stats module is initiated
      * @memberof Stats
      */
     init() {
@@ -32,11 +32,12 @@ class Stats {
     }
 
     /**
+     * Add a new metric to track
      *
-     *
-     * @param {*} name
-     * @param {*} method
-     * @param {*} type
+     * @param {String} name Name of the metric
+     * @param {String} method The method through which the metric is collected
+     * @param {String} type The aggregation type
+     * @returns {void}
      * @memberof Stats
      */
     addMetric(name, method, type) {
@@ -48,9 +49,10 @@ class Stats {
     }
 
     /**
+     * Disable a metric
      *
-     *
-     * @param {*} name
+     * @param {String} name Name of the metric to disable
+     * @returns {void}
      * @memberof Stats
      */
     disableMetric(name) {

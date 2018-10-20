@@ -13,9 +13,9 @@ class Communication extends EventEmitter {
 
     /**
      *Creates an instance of Communication.
-     * @param {*} options
-     * @param {*} logger
-     * @param {*} registry
+     * @param {Object} options
+     * @param {Logger} logger
+     * @param {Registry} registry
      * @memberof Communication
      */
     constructor(options, logger, registry) {

@@ -12,7 +12,7 @@ class Clustering {
     /**
      *Creates an instance of Clustering.
      * @param {Object} options Clustering options
-     * @param {string} instanceID ID of the instance
+     * @param {String} instanceID ID of the instance
      * @param {Communication} communication Communication module
      * @param {Sharding} sharding Sharding module
      * @param {Registry} registry Registry module

@@ -9,8 +9,8 @@ class Configuration {
 
     /**
      *Creates an instance of Configuration.
-     * @param {*} instanceID
-     * @param {*} options
+     * @param {String} instanceID ID of the local instance
+     * @param {Object} options Configuration options
      * @memberof Configuration
      */
     constructor(instanceID, options) {
