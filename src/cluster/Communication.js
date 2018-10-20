@@ -1,7 +1,8 @@
 const EventEmitter = require('events').EventEmitter;
 const uuid = require('uuid/v1');
+const cluster = require('cluster');
 
-class Communication extends EventEmitter {
+class ClusterCommunication extends EventEmitter {
     constructor(options) {
         super();
         this.options = options;
@@ -50,6 +51,11 @@ class Communication extends EventEmitter {
                     instanceID,
                     clusterID,
                     payload
+                },
+                resp: {
+                    instanceID: process.env.INSTANCE_ID,
+                    clusterID: process.env.CLUSTER_ID,
+                    workerID: cluster.worker.id
                 }
             });
 
@@ -61,8 +67,16 @@ class Communication extends EventEmitter {
                 clearTimeout(timeout);
 
                 if (callback) {
+                    if (msg.err) {
+                        err = msg.message;
+                    }
+
                     callback(err, msg.data);
                 } else {
+                    if (msg.err) {
+                        return rej(msg.message);
+                    }
+                    
                     res(msg.data);
                 }
             });
@@ -119,4 +133,4 @@ class Communication extends EventEmitter {
     }
 }
 
-module.exports = Communication;
+module.exports = ClusterCommunication;

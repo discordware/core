@@ -35,7 +35,24 @@ class Communication extends EventEmitter {
     init() {
         return new Promise(res => {
             master.on('message', (worker, msg) => {
-                this.emit(msg.event, msg.data);
+                this.emit(msg.event, msg.data, worker.id);
+            });
+
+            this.on('send', data => {
+                this.send(data.instanceID, data.clusterID, data.payload.event, data.payload.data);
+            });
+
+            this.on('awaitResponse', (data, workerID) => {
+                this.awaitResponse(data.instanceID, data.clusterID, data.payload.event, data.payload.data).then(response => {
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, response);
+                }).catch(err => {
+                    this.logger.error({
+                        src: 'Communication',
+                        msg: err
+                    });
+
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                });
             });
 
             res();
