@@ -1,4 +1,21 @@
+
+/**
+ *
+ *
+ * @class Sharding
+ */
 class Sharding {
+
+    /**
+     *Creates an instance of Sharding.
+     * @param {*} options
+     * @param {*} token
+     * @param {*} instanceID
+     * @param {*} registry
+     * @param {*} logger
+     * @param {*} alerts
+     * @memberof Sharding
+     */
     constructor(options, token, instanceID, registry, logger, alerts) {
         this.firstShardID = options.firstShardID || 0;
         this.lastShardID = options.lastShardID || options.shards - 1;
@@ -10,6 +27,12 @@ class Sharding {
         this.alerts = alerts;
     }
 
+    /**
+     *
+     *
+     * @returns
+     * @memberof Sharding
+     */
     init() {
         return Promise.resolve();
     }
@@ -39,6 +62,12 @@ class Sharding {
         return out;
     }
 
+    /**
+     *
+     *
+     * @param {*} clusterCount
+     * @memberof Sharding
+     */
     shard(clusterCount) {
         let shards = [];
 
@@ -57,6 +86,14 @@ class Sharding {
         });
     }
 
+    /**
+     *
+     *
+     * @param {*} firstShardID
+     * @param {*} lastShardID
+     * @param {*} maxShards
+     * @memberof Sharding
+     */
     updateShardCount(firstShardID, lastShardID, maxShards) {
         this.firstShardID = firstShardID;
         this.lastShardID = lastShardID;
@@ -67,6 +104,13 @@ class Sharding {
         return this.registry.registerShardConfig(this.instanceID, clusterID, config);
     }
 
+    /**
+     *
+     *
+     * @param {*} cluster
+     * @returns
+     * @memberof Sharding
+     */
     getConfig(cluster) {
         return this.registry.getShardConfig(this.instanceID, cluster);
     }

@@ -1,12 +1,37 @@
+
+/**
+ *
+ *
+ * @class Queue
+ */
 class Queue {
+
+    /**
+     *Creates an instance of Queue.
+     * @memberof Queue
+     */
     constructor() {
         this.queues = {};
     }
 
+    /**
+     *
+     *
+     * @returns
+     * @memberof Queue
+     */
     init() {
         return Promise.resolve();
     }
 
+    /**
+     *
+     *
+     * @param {*} queue
+     * @param {*} job
+     * @param {*} callback
+     * @memberof Queue
+     */
     schedule(queue, job, callback) {
         if (!this.queues[queue]) this.queues[queue] = [];
 

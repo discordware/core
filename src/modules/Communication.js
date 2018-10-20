@@ -2,7 +2,22 @@ const EventEmitter = require('events').EventEmitter;
 const master = require('cluster');
 const uuid = require('uuid/v1');
 
+/**
+ *
+ *
+ * @class Communication
+ * @extends {EventEmitter}
+ * @interface
+ */
 class Communication extends EventEmitter {
+
+    /**
+     *Creates an instance of Communication.
+     * @param {*} options
+     * @param {*} logger
+     * @param {*} registry
+     * @memberof Communication
+     */
     constructor(options, logger, registry) {
         super();
         this.options = options;
@@ -11,6 +26,12 @@ class Communication extends EventEmitter {
         this.reqTimeout = this.options.timeout || 5;
     }
 
+    /**
+     *
+     *
+     * @returns
+     * @memberof Communication
+     */
     init() {
         return new Promise(res => {
             master.on('message', (worker, msg) => {
@@ -21,14 +42,33 @@ class Communication extends EventEmitter {
         });
     }
 
+    /**
+     *
+     *
+     * @memberof Communication
+     */
     connectToPeer() {
         this.logger.error('Communication', 'Peer connections not supported. Different communication module required.');
     }
 
+    /**
+     *
+     *
+     * @memberof Communication
+     */
     updateConnection() {
         this.logger.error('Communication', 'Peer connections not supported. Different communication module required.');
     }
 
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} clusterID
+     * @param {*} event
+     * @param {*} data
+     * @memberof Communication
+     */
     send(instanceID, clusterID, event, data) {
         let payload = {
             event,
@@ -45,6 +85,17 @@ class Communication extends EventEmitter {
         });
     }
 
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} clusterID
+     * @param {*} event
+     * @param {*} data
+     * @param {*} callback
+     * @returns
+     * @memberof Communication
+     */
     awaitResponse(instanceID, clusterID, event, data, callback) {
         return new Promise((res, rej) => {
             let payload = {
@@ -82,6 +133,14 @@ class Communication extends EventEmitter {
         });
     }
 
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} event
+     * @param {*} data
+     * @memberof Communication
+     */
     broadcast(instanceID, event, data) {
         let payload = {
             event,
@@ -89,6 +148,16 @@ class Communication extends EventEmitter {
         };
     }
 
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} event
+     * @param {*} data
+     * @param {*} callback
+     * @returns
+     * @memberof Communication
+     */
     awaitBroadcast(instanceID, event, data, callback) {
         return new Promise((res, rej) => {
             let payload = {

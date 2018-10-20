@@ -1,6 +1,26 @@
 const master = require('cluster');
 
+
+/**
+ *
+ *
+ * @class Clustering
+ * @interface
+ */
 class Clustering {
+
+    /**
+     *Creates an instance of Clustering.
+     * @param {Object} options Clustering options
+     * @param {string} instanceID ID of the instance
+     * @param {Communication} communication Communication module
+     * @param {Sharding} sharding Sharding module
+     * @param {Registry} registry Registry module
+     * @param {Logger} logger Logger module
+     * @param {Alerts} alerts Alerts module
+     * @param {Queue} queue Queue module
+     * @memberof Clustering
+     */
     constructor(options, instanceID, communication, sharding, registry, logger, alerts, queue) {
         this.options = options;
         this.instanceID = instanceID;
@@ -13,6 +33,12 @@ class Clustering {
         this.callbacks = {};
     }
 
+    /**
+     * 
+     *
+     * @readonly
+     * @memberof Clustering
+     */
     get isMaster() {
         return master.isMaster;
     }
@@ -76,6 +102,11 @@ class Clustering {
         return clusterConfig;
     }
 
+    /**
+     * Initiated the clustering module
+     * @returns {void}
+     * @memberof Clustering
+     */
     async init() {
         const numClusters = this.options.clusters || require('os').cpus().length;
 
@@ -111,9 +142,15 @@ class Clustering {
         this.startCluster(0, numClusters);
     }
 
+    /**
+     *
+     *
+     * @memberof Clustering
+     */
     reshard() {
         
     }
+
 
     createCluster(clusterID, env, state) {
         let worker = master.fork(Object.assign({}, this.options.env, env));
