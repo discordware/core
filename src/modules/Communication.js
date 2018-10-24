@@ -55,6 +55,23 @@ class Communication extends EventEmitter {
                 });
             });
 
+            this.on('broadcast', data => {
+                this.broadcast(data.instanceID, data.payload.event, data.payload.data);
+            });
+
+            this.on('awaitResponse', data => {
+                this.awaitBroadcast(data.instanceID, data.payload.event, data.payload.data).then(responses => {
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, responses);
+                }).catch(err => {
+                    this.logger.error({
+                        src: 'Communication',
+                        msg: err
+                    });
+
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                });
+            });
+
             res();
         });
     }
@@ -159,10 +176,13 @@ class Communication extends EventEmitter {
      * @memberof Communication
      */
     broadcast(instanceID, event, data) {
-        let payload = {
-            event,
-            data
-        };
+        this.registry.getClusters(instanceID).then(clusters => {
+            return Promise.all(...clusters.forEach(cluster => {
+                return this.send(instanceID, cluster.clusterID, event, data);
+            }));
+        }).catch(err => {
+            return Promise.reject(err);
+        });
     }
 
     /**
@@ -171,17 +191,17 @@ class Communication extends EventEmitter {
      * @param {*} instanceID
      * @param {*} event
      * @param {*} data
-     * @param {*} callback
+     * @param {Function} callback Called every time a response is received/timed out from a cluster
      * @returns
      * @memberof Communication
      */
     awaitBroadcast(instanceID, event, data, callback) {
-        return new Promise((res, rej) => {
-            let payload = {
-                event,
-                data,
-                id: uuid()
-            };
+        this.registry.getClusters(instanceID).then(clusters => {
+            return Promise.all(...clusters.forEach(cluster => {
+                return this.awaitResponse(instanceID, cluster.clusterID, event, data, callback);
+            }));
+        }).catch(err => {
+            return Promise.reject(err);
         });
     }
 }

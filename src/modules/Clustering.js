@@ -155,7 +155,7 @@ class Clustering {
     createCluster(clusterID, env, state) {
         let worker = master.fork(Object.assign({}, this.options.env, env));
 
-        this.registry.registerCluster(this.instanceID, clusterID, Object.assign(state, { workerID: worker.id }));
+        this.registry.registerCluster(this.instanceID, clusterID, Object.assign(state, { clusterID, workerID: worker.id }));
 
         this.registry.registerWorker(this.instanceID, worker.id, clusterID);
     }
