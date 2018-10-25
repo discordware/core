@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+       "target": "es6",
+       "module": "commonjs",
+       "outDir": "dist",
+       "sourceMap": false,
+       "declaration": true,
+       "lib": [
+         "es2017.object",
+         "es2015",
+         "es2017"
+       ]
+    },
+    "files": [
+       "./node_modules/@types/node/index.d.ts"
+    ],
+    "include": [
+       "typings/index.d.ts"
+    ],
+    "exclude": [
+       "node_modules"
+    ]
+ }

@@ -1,23 +1,26 @@
 {
-  "name": "eris-sharder",
-  "version": "1.7.10",
-  "description": "A sharder for the discord eris library",
-  "main": "./src/index.js",
+  "name": "@eris-sharder/core",
+  "version": "1.0.0",
+  "description": "A lib-agnostic Discord sharding control plane",
+  "main": "./index.js",
+  "types": "./typings/index.d.ts",
   "dependencies": {
-    "asciiart-logo": "^0.1.7",
-    "colors": "^1.1.2",
-    "eris": "^0.9.0",
-    "fancy-log": "^1.3.0"
+    "chalk": "^2.4.1",
+    "jethro": "^4.4.0",
+    "uuid": "^3.3.2"
+  },
+  "optionalDependencies": {
+    "eris": "^0.9.0"
   },
   "devDependencies": {
-    "tui-jsdoc-template": "^1.2.2"
+    "@types/node": "^10.9.4"
   },
   "scripts": {
     "test": "node ./tests/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Discord-Sharders/eris-sharder.git"
+    "url": "git+https://github.com/Discord-Sharders/core.git"
   },
   "keywords": [
     "eris",
@@ -31,7 +34,7 @@
   "author": "John Smith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Discord-Sharders/eris-sharder/issues"
+    "url": "https://github.com/Discord-Sharders/core/issues"
   },
-  "homepage": "https://github.com/Discord-Sharders/eris-sharder#readme"
+  "homepage": "https://github.com/Discord-Sharders/core#readme"
 }

@@ -1,0 +1,209 @@
+const EventEmitter = require('events').EventEmitter;
+const master = require('cluster');
+const uuid = require('uuid/v1');
+
+/**
+ *
+ *
+ * @class Communication
+ * @extends {EventEmitter}
+ * @interface
+ */
+class Communication extends EventEmitter {
+
+    /**
+     *Creates an instance of Communication.
+     * @param {Object} options
+     * @param {Logger} logger
+     * @param {Registry} registry
+     * @memberof Communication
+     */
+    constructor(options, logger, registry) {
+        super();
+        this.options = options;
+        this.logger = logger;
+        this.registry = registry;
+        this.reqTimeout = this.options.timeout || 5;
+    }
+
+    /**
+     *
+     *
+     * @returns
+     * @memberof Communication
+     */
+    init() {
+        return new Promise(res => {
+            master.on('message', (worker, msg) => {
+                this.emit(msg.event, msg.data, worker.id);
+            });
+
+            this.on('send', data => {
+                this.send(data.instanceID, data.clusterID, data.payload.event, data.payload.data);
+            });
+
+            this.on('awaitResponse', (data, workerID) => {
+                this.awaitResponse(data.instanceID, data.clusterID, data.payload.event, data.payload.data).then(response => {
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, response);
+                }).catch(err => {
+                    this.logger.error({
+                        src: 'Communication',
+                        msg: err
+                    });
+
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                });
+            });
+
+            this.on('broadcast', data => {
+                this.broadcast(data.instanceID, data.payload.event, data.payload.data);
+            });
+
+            this.on('awaitResponse', data => {
+                this.awaitBroadcast(data.instanceID, data.payload.event, data.payload.data).then(responses => {
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, responses);
+                }).catch(err => {
+                    this.logger.error({
+                        src: 'Communication',
+                        msg: err
+                    });
+
+                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                });
+            });
+
+            res();
+        });
+    }
+
+    /**
+     *
+     *
+     * @memberof Communication
+     */
+    connectToPeer() {
+        this.logger.error('Communication', 'Peer connections not supported. Different communication module required.');
+    }
+
+    /**
+     *
+     *
+     * @memberof Communication
+     */
+    updateConnection() {
+        this.logger.error('Communication', 'Peer connections not supported. Different communication module required.');
+    }
+
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} clusterID
+     * @param {*} event
+     * @param {*} data
+     * @memberof Communication
+     */
+    send(instanceID, clusterID, event, data) {
+        let payload = {
+            event,
+            data
+        };
+
+        this.registry.getCluster(instanceID, clusterID).then(cluster => {
+            master.workers[cluster.workerID].send(payload, null, err => {
+                if (err) return Promise.reject(err);
+                return Promise.resolve();
+            });
+        }).catch(err => {
+            return Promise.reject(err);
+        });
+    }
+
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} clusterID
+     * @param {*} event
+     * @param {*} data
+     * @param {*} callback
+     * @returns
+     * @memberof Communication
+     */
+    awaitResponse(instanceID, clusterID, event, data, callback) {
+        return new Promise((res, rej) => {
+            let payload = {
+                event,
+                data,
+                id: uuid()
+            };
+
+            let err;
+
+            this.registry.getCluster(instanceID, clusterID).then(cluster => {
+                master.workers[cluster.workerID].send(payload);
+
+                let timeout = setTimeout(() => {
+                    rej(new Error(`Request ${payload.id} timed out`));
+                }, 1000 * this.reqTimeout);
+
+                this.once(payload.id, msg => {
+                    clearTimeout(timeout);
+
+                    if (callback) {
+                        callback(err, msg.data);
+                    } else {
+                        res(msg.data);
+                    }
+                });
+            }).catch(error => {
+                err = new Error(error.message);
+                if (callback) {
+                    callback(err, null);
+                } else {
+                    rej(err);
+                }
+            });
+        });
+    }
+
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} event
+     * @param {*} data
+     * @memberof Communication
+     */
+    broadcast(instanceID, event, data) {
+        this.registry.getClusters(instanceID).then(clusters => {
+            return Promise.all(...clusters.forEach(cluster => {
+                return this.send(instanceID, cluster.clusterID, event, data);
+            }));
+        }).catch(err => {
+            return Promise.reject(err);
+        });
+    }
+
+    /**
+     *
+     *
+     * @param {*} instanceID
+     * @param {*} event
+     * @param {*} data
+     * @param {Function} callback Called every time a response is received/timed out from a cluster
+     * @returns
+     * @memberof Communication
+     */
+    awaitBroadcast(instanceID, event, data, callback) {
+        this.registry.getClusters(instanceID).then(clusters => {
+            return Promise.all(...clusters.forEach(cluster => {
+                return this.awaitResponse(instanceID, cluster.clusterID, event, data, callback);
+            }));
+        }).catch(err => {
+            return Promise.reject(err);
+        });
+    }
+}
+
+module.exports = Communication;

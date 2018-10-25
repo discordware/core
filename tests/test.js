@@ -1,17 +1,31 @@
-const Sharder = require("../src/index").Master;
+const Sharder = require('../index');
+const master = require('cluster');
 
-let sharder = new Sharder("test", "/tests/main.js", {
-    name: "Travis CLI",
-    stats: true,
-    clusters: 2,
-    shards: 4,
-    debug: true
-});
+if (master.isMaster) {
+    let sharder = new Sharder('jet', {
+        token: 'asdf',
+        sharding: {
+            firstShardID: 0,
+            shards: 160
+        }
+    });
 
-sharder.on("stats", stats => {
-    console.log(stats)
-});
-
-setTimeout(() => {
-    process.exit();
-}, 1000 * 30);
+    sharder.create().then(() => {
+        sharder.init().then(() => {
+        });
+    });
+} else {
+    process.on('message', (msg) => {
+        if (msg.event === 'connect') {
+            let firstShardID = process.env.FIRST_SHARD_ID;
+            let lastShardID = process.env.LAST_SHARD_ID;
+            console.log(`Cluster ${process.env.CLUSTER_ID} | Shards ${firstShardID} - ${lastShardID} | Total: ${lastShardID - firstShardID + 1}`);
+            process.send({
+                event: 'cluster.connected',
+                data: {
+                    clusterID: process.env.CLUSTER_ID
+                }
+            });
+        }
+    });
+}
