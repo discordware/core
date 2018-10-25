@@ -12,6 +12,9 @@
   </p>
 </div>
 
+# Deprecation Notice
+eris-sharder is deprecated. Version 2 of eris-sharder is full rewrite and has been renamed [discord-sharder](https://github.com/Discord-Sharders/core).
+
 # About
 
 discord-sharder is a pluggable control plane for splitting up shards into groups of "clusters"
