@@ -13,9 +13,9 @@ class Communication extends EventEmitter {
 
     /**
      *Creates an instance of Communication.
-     * @param {Object} options
-     * @param {Logger} logger
-     * @param {Registry} registry
+     * @param {Object} options Communication options
+     * @param {Logger} logger Logger module
+     * @param {Registry} registry Registry module
      * @memberof Communication
      */
     constructor(options, logger, registry) {
@@ -27,9 +27,9 @@ class Communication extends EventEmitter {
     }
 
     /**
+     *  Initiate the Communication module
      *
-     *
-     * @returns
+     * @returns {Promise<void>} Resolves once the Communication module is fully initiated
      * @memberof Communication
      */
     init() {
@@ -77,8 +77,8 @@ class Communication extends EventEmitter {
     }
 
     /**
-     *
-     *
+     * Connect to a peer instance
+     * @returns {void}
      * @memberof Communication
      */
     connectToPeer() {
@@ -86,8 +86,8 @@ class Communication extends EventEmitter {
     }
 
     /**
-     *
-     *
+     * Update connection to peer instance
+     * @returns {void}
      * @memberof Communication
      */
     updateConnection() {
@@ -95,12 +95,13 @@ class Communication extends EventEmitter {
     }
 
     /**
+     * Send an event
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @param {*} event
-     * @param {*} data
+     * @param {String} instanceID InstanceID of the instance the destination cluster is part of
+     * @param {Number} clusterID The clusterID of the destination cluster
+     * @param {String} event Name of the event
+     * @param {*} data Event data 
+     * @returns {Promise<void | Error>} Resolves once the message has been sent
      * @memberof Communication
      */
     send(instanceID, clusterID, event, data) {
@@ -120,17 +121,16 @@ class Communication extends EventEmitter {
     }
 
     /**
+     * Send an event and wait for response
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @param {*} event
-     * @param {*} data
-     * @param {*} callback
-     * @returns
+     * @param {String} instanceID InstanceID of the instance the destination cluster is part of
+     * @param {Number} clusterID The clusterID of the destination cluster
+     * @param {String} event Name of the event
+     * @param {*} data Event data 
+     * @returns {Promise<Object | Error>} Resolves once the message has been sent
      * @memberof Communication
      */
-    awaitResponse(instanceID, clusterID, event, data, callback) {
+    awaitResponse(instanceID, clusterID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
                 event,
@@ -149,20 +149,12 @@ class Communication extends EventEmitter {
 
                 this.once(payload.id, msg => {
                     clearTimeout(timeout);
-
-                    if (callback) {
-                        callback(err, msg.data);
-                    } else {
-                        res(msg.data);
-                    }
+                    
+                    res(msg.data);
                 });
             }).catch(error => {
                 err = new Error(error.message);
-                if (callback) {
-                    callback(err, null);
-                } else {
-                    rej(err);
-                }
+                rej(err);
             });
         });
     }
@@ -195,10 +187,10 @@ class Communication extends EventEmitter {
      * @returns
      * @memberof Communication
      */
-    awaitBroadcast(instanceID, event, data, callback) {
+    awaitBroadcast(instanceID, event, data) {
         this.registry.getClusters(instanceID).then(clusters => {
             return Promise.all(...clusters.forEach(cluster => {
-                return this.awaitResponse(instanceID, cluster.clusterID, event, data, callback);
+                return this.awaitResponse(instanceID, cluster.clusterID, event, data);
             }));
         }).catch(err => {
             return Promise.reject(err);

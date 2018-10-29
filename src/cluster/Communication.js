@@ -35,15 +35,13 @@ class ClusterCommunication extends EventEmitter {
         });
     }
 
-    awaitResponse(instanceID, clusterID, event, data, callback) {
+    awaitResponse(instanceID, clusterID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
                 event,
                 data,
                 id: uuid()
             };
-
-            let err;
 
             process.send({
                 event: 'awaitResponse',
@@ -66,19 +64,11 @@ class ClusterCommunication extends EventEmitter {
             this.once(payload.id, msg => {
                 clearTimeout(timeout);
 
-                if (callback) {
-                    if (msg.err) {
-                        err = msg.message;
-                    }
-
-                    callback(err, msg.data);
-                } else {
-                    if (msg.err) {
-                        return rej(msg.message);
-                    }
-                    
-                    res(msg.data);
+                if (msg.err) {
+                    return rej(msg.message);
                 }
+
+                res(msg.data);
             });
         });
     }
@@ -98,15 +88,13 @@ class ClusterCommunication extends EventEmitter {
         });
     }
 
-    awaitBroadcast(instanceID, event, data, callback) {
+    awaitBroadcast(instanceID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
                 event,
                 data,
                 id: uuid()
             };
-
-            let err;
 
             process.send({
                 event: 'awaitBroadcast',
@@ -123,11 +111,7 @@ class ClusterCommunication extends EventEmitter {
             this.once(payload.id, msg => {
                 clearTimeout(timeout);
 
-                if (callback) {
-                    callback(err, msg.data);
-                } else {
-                    res(msg.data);
-                }
+                res(msg.data);
             });
         });
     }

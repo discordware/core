@@ -17,16 +17,16 @@ const Console = require('./transports/Console');
  * Represents the main Sharder class
  * 
  * @prop {String} instanceID The instance ID
- * @prop {Object} [modules] Custom moduled
- * @prop {Alerts?} [modules.alerts] Custom alert module
- * @prop {Clustering?} [modules.clustering] Custom clustering module
- * @prop {Communication?} [modules.communication] Custom communication module
- * @prop {Configuration?} [modules.configuration] Custom configuration module
- * @prop {Logger?} [modules.logger] Custom logger module
- * @prop {Queue?} [modules.queue] Custom queue module
- * @prop {Registry?} [modules.registry] Custom registry module
- * @prop {Sharding?} [modules.sharding] Custom sharding module
- * @prop {Stats?} [modules.stats] Custom stats module
+ * @prop {Object} modules Custom moduled
+ * @prop {Alerts} modules.alerts Custom alert module
+ * @prop {Clustering} modules.clustering Custom clustering module
+ * @prop {Communication} modules.communication Custom communication module
+ * @prop {Configuration} modules.configuration Custom configuration module
+ * @prop {Logger} modules.logger Custom logger module
+ * @prop {Queue} modules.queue Custom queue module
+ * @prop {Registry} modules.registry Custom registry module
+ * @prop {Sharding} modules.sharding Custom sharding module
+ * @prop {Stats} modules.stats Custom stats module
  * @class Sharder
  */
 class Sharder {

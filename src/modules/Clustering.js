@@ -103,7 +103,7 @@ class Clustering {
     }
 
     /**
-     * Initiated the clustering module
+     * Initiate the clustering module
      * @returns {void}
      * @memberof Clustering
      */

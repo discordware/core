@@ -20,7 +20,7 @@ class Alerts {
     /**
      * Initiate the Alert class
      *
-     * @returns {Promise<void>} Resolves when thee Alert class is and all destinations are initiated
+     * @returns {Promise<void>} Resolves when the Alert module and all destinations are initiated
      * @memberof Alerts
      */
     init() {
