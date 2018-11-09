@@ -19,9 +19,9 @@ class Configuration {
     }
 
     /**
+     * Initiate the configuration module
      *
-     *
-     * @returns
+     * @returns {Promise<void>} Resolves once the configuration module is initiated
      * @memberof Configuration
      */
     init() {
@@ -29,13 +29,13 @@ class Configuration {
     }
 
     /**
+     * Fetches the configuration for the instance
      *
-     *
-     * @returns
+     * @returns {Promise<Object>} Resolves once the configuration has been fetched
      * @memberof Configuration
      */
     getConfig() {
-        return {
+        return Promise.resolve({
             token: this.options.token,
             instanceOptions: this.options.instanceOptions || {},
             clustering: this.options.clustering || {},
@@ -43,7 +43,7 @@ class Configuration {
             stats: this.options.stats || {},
             communication: this.options.communication || {},
             logger: this.options.logger || {}
-        };
+        });
     }
 }
 

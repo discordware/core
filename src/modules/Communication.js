@@ -42,7 +42,7 @@ class Communication extends EventEmitter {
                 this.send(data.instanceID, data.clusterID, data.payload.event, data.payload.data);
             });
 
-            this.on('awaitResponse', (data, workerID) => {
+            this.on('awaitResponse', (data) => {
                 this.awaitResponse(data.instanceID, data.clusterID, data.payload.event, data.payload.data).then(response => {
                     this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, response);
                 }).catch(err => {
@@ -149,7 +149,7 @@ class Communication extends EventEmitter {
 
                 this.once(payload.id, msg => {
                     clearTimeout(timeout);
-                    
+
                     res(msg.data);
                 });
             }).catch(error => {
@@ -160,11 +160,12 @@ class Communication extends EventEmitter {
     }
 
     /**
+     * Broadcast an event to all clusters part of the specified instance
      *
-     *
-     * @param {*} instanceID
-     * @param {*} event
-     * @param {*} data
+     * @param {String} instanceID InstanceID of the instance the destination cluster is part of
+     * @param {String} event Name of the event
+     * @param {*} data Event data 
+     * @returns {Promise<Array>} Resolves once all clusters have received the broadcast
      * @memberof Communication
      */
     broadcast(instanceID, event, data) {
@@ -178,14 +179,12 @@ class Communication extends EventEmitter {
     }
 
     /**
+     * Broadcast an event to all clusters part of the specified instanceand wait for a response
      *
-     *
-     * @param {*} instanceID
-     * @param {*} event
-     * @param {*} data
-     * @param {Function} callback Called every time a response is received/timed out from a cluster
-     * @returns
-     * @memberof Communication
+     * @param {String} instanceID InstanceID of the instance the destination cluster is part of
+     * @param {String} event Name of the event
+     * @param {*} data Event data 
+     * @returns {Promise<Array>} Resolves once all clusters have received the broadcast and responded
      */
     awaitBroadcast(instanceID, event, data) {
         this.registry.getClusters(instanceID).then(clusters => {

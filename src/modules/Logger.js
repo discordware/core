@@ -7,8 +7,9 @@
  */
 class Logger {
 
+    
     /**
-     *Creates an instance of Logger.
+     * Creates an instance of Logger.
      * @memberof Logger
      */
     constructor() {
@@ -17,9 +18,9 @@ class Logger {
     }
 
     /**
+     * Initiate the logger module
      *
-     *
-     * @returns
+     * @returns {Promise<void>} Resolves once the logger and all transports are initiated
      * @memberof Logger
      */
     init() {
@@ -35,10 +36,11 @@ class Logger {
     }
 
     /**
-     *
-     *
-     * @param {*} name
-     * @param {*} transport
+     * Register a new logging transport
+     * 
+     * @param {String} name The unique name of the transport
+     * @param {Transport} transport The transport class
+     * @returns {void}
      * @memberof Logger
      */
     async registerTransport(name, transport) {
@@ -54,9 +56,12 @@ class Logger {
     }
 
     /**
+     * Log a debug
      *
-     *
-     * @param {*} data
+     * @param {Object} data The log object
+     * @param {String} data.src The source of the log
+     * @param {*} data.msg The log message
+     * @returns {void}
      * @memberof Logger
      */
     debug(data) {
@@ -68,9 +73,12 @@ class Logger {
     }
 
     /**
+     * Log an error
      *
-     *
-     * @param {*} data
+     * @param {Object} data The log object
+     * @param {String} data.src The source of the log
+     * @param {*} data.msg The log message
+     * @returns {void}
      * @memberof Logger
      */
     error(data) {
@@ -82,9 +90,12 @@ class Logger {
     }
 
     /**
+     * Log some info
      *
-     *
-     * @param {*} data
+     * @param {Object} data The log object
+     * @param {String} data.src The source of the log
+     * @param {*} data.msg The log message
+     * @returns {void}
      * @memberof Logger
      */
     info(data) {
@@ -96,9 +107,12 @@ class Logger {
     }
 
     /**
+     * Default log
      *
-     *
-     * @param {*} data
+     * @param {Object} data The log object
+     * @param {String} data.src The source of the log
+     * @param {*} data.msg The log message
+     * @returns {void}
      * @memberof Logger
      */
     log(data) {
@@ -110,9 +124,12 @@ class Logger {
     }
 
     /**
+     * Log a warning
      *
-     *
-     * @param {*} data
+     * @param {Object} data The log object
+     * @param {String} data.src The source of the log
+     * @param {*} data.msg The log message
+     * @returns {void}
      * @memberof Logger
      */
     warn(data) {
