@@ -12,6 +12,25 @@ declare module 'eris-sharder' {
         init(): Promise<void>;
     }
 
+    export interface ICluster {
+        readonly token: string;
+        readonly firstShardID: number;
+        readonly lastShardID: number;
+        readonly maxShards: number;
+        readonly instanceID: string;
+        readonly clusterID: number;
+        communication: IClusterCommunication;
+        init(): Promise<void>;
+    }
+
+    export interface IClusterCommunication {
+        init(): Promise<void>;
+        send(instance: string, clusterID: string, event: string, data: Json);
+        awaitResponse(instance: string, clusterID: string, event: string, data: Json): Promise<Json>;
+        broadcast(instance: string, event: string, data: Json);
+        awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
+    }
+
     export interface IConfiguration {
         init(): Promise<void>;
         getConfig(): Promise<Config>;
@@ -83,6 +102,27 @@ declare module 'eris-sharder' {
         warn(data: Json);
     }
 
+    export class Cluster implements ICluster {
+        constructor(options: ClusterOptions, modules: ClusterModules);
+        public token: string;
+        public firstShardID: number;
+        public lastShardID: number;
+        public maxShards: number;
+        public instanceID: string;
+        public clusterID: number;
+        public communication: IClusterCommunication;
+        init(): Promise<void>;
+    }
+
+    export class ClusterCommunication implements IClusterCommunication {
+        constructor(options: ClusterCommunicationOptions);
+        public init(): Promise<void>;
+        public send(instance: string, clusterID: string, event: string, data: Json);
+        public awaitResponse(instance: string, clusterID: string, event: string, data: Json): Promise<Json>;
+        public broadcast(instance: string, event: string, data: Json);
+        public awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
+    }
+
     export class Clustering implements IClustering {
         constructor(options: ClusteringOptions, communication: Communication, sharding: Sharding, logger: Logger);
         public options: ClusteringOptions;
@@ -99,6 +139,16 @@ declare module 'eris-sharder' {
         getConfig(): Promise<Config>;
     }
 
+    export class ConsoleTransport implements ITransport {
+        constructor(options: ConsoleOptions);
+        init(): Promise<void>;
+        debug(data: Json);
+        error(data: Json);
+        info(data: Json);
+        log(data: Json);
+        warn(data: Json);
+    }
+
     export class Communication extends EventEmitter implements ICommunication {
         constructor(logger: Logger);
         public logger: Logger;
@@ -107,6 +157,12 @@ declare module 'eris-sharder' {
         public awaitResponse(instance: string, clusterID: string, event: string, data: Json): Promise<Json>;
         public broadcast(instance: string, event: string, data: Json);
         public awaitBroadcast(instance: string, event: string, data: Json): Promise<Json>;
+    }
+
+    export class DiscordDestination implements IDestination {
+        constructor(token: string, instanceID: string, options: DiscordDestinationOptions);
+        public init(): Promise<void>;
+        public alert(data: AlertData);
     }
 
     export class Logger implements ILogger {
@@ -164,6 +220,27 @@ declare module 'eris-sharder' {
         public init: Promise<void>;
         public addPeer(instanceID: string);
         public peerUpdate(instanceID);
+        public Cluster: Cluster;
+        public ClusterModules: {
+            Communication: ClusterCommunication
+        };
+        public Modules: {
+            Alerts: Alerts,
+            Clustering: Clustering,
+            Communication: Communication,
+            Configuration: Configuration,
+            Logger: Logger,
+            Queue: Queue,
+            Registry: Registry,
+            Sharding: Sharding,
+            Stats: Stats
+        };
+        public Transports: {
+            Console: ConsoleTransport
+        };
+        public Destinations: {
+            Discord: DiscordDestination
+        };
     }
 
     export class Sharding implements ISharding {
@@ -200,32 +277,55 @@ declare module 'eris-sharder' {
     }
 
     export type ClusterConfig = {
-        firstShardID: number,
-        lastShardID: number,
-        maxShards: number,
-        instanceID: string,
-        workerID: number
+        firstShardID: number;
+        lastShardID: number;
+        maxShards: number;
+        instanceID: string;
+        workerID: number;
+    }
+
+    export type ClusterOptions = {
+        communication: ClusterCommunicationOptions;
+    }
+
+    export type ClusterModules = {
+        communication: IClusterCommunication;
+    }
+
+    export type ClusterCommunicationOptions = {
+        timeout: number;
+    }
+
+    export type ConsoleOptions = {
+        debug: boolean;
+        error: boolean;
+        info: boolean;
+        warn: boolean;
     }
 
     export type CommunicationOptions = {
 
     }
 
+    export interface DiscordDestinationOptions {
+        [type: string]: { id: string, token: string };
+    }
+
     export type AlertData = {
-        title: string,
-        msg: string,
-        date: Date,
-        type: string
+        title: string;
+        msg: string;
+        date: Date;
+        type: string;
     }
 
     export type Config = {
-        token: string,
-        instanceOptions: InstanceOptions
-        clustering: ClusteringOptions,
-        sharding: ShardingOptions,
-        stats: StatsOptions,
-        Communication: CommunicationOptions,
-        logger: LoggerOptions
+        token: string;
+        instanceOptions: InstanceOptions;
+        clustering: ClusteringOptions;
+        sharding: ShardingOptions;
+        stats: StatsOptions;
+        Communication: CommunicationOptions;
+        logger: LoggerOptions;
     }
 
     export type InstanceOptions = {
@@ -237,25 +337,25 @@ declare module 'eris-sharder' {
     }
 
     export type Modules = {
-        logger?: Logger,
-        communication?: Communication,
-        clustering?: Clustering,
-        sharding?: Sharding,
-        stats?: Stats
+        logger?: ILogger;
+        communication?: ICommunication;
+        clustering?: IClustering;
+        sharding?: ISharding;
+        stats?: IStats;
     }
 
     export type ShardConfig = {
-        firstShardID: number,
-        lastShardID: number,
-        maxShards: number
+        firstShardID: number;
+        lastShardID: number;
+        maxShards: number;
     }
 
     export type SharderOptions = {
-        token: string,
-        sharding: ShardingOptions,
-        clustering: ClusteringOptions,
-        stats?: StatsOptions,
-        logger?: LoggerOptions
+        token: string;
+        sharding: ShardingOptions;
+        clustering: ClusteringOptions;
+        stats?: StatsOptions;
+        logger?: LoggerOptions;
     }
 
     export type ShardingOptions = {
