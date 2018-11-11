@@ -30,7 +30,10 @@ class Clustering {
         this.logger = logger;
         this.alerts = alerts;
         this.queue = queue;
-        this.callbacks = {};
+        this.callbacks = {
+            restart: {},
+            connect: {}
+        };
     }
 
     /**
@@ -120,7 +123,14 @@ class Clustering {
         });
 
         this.communication.on('cluster.connected', data => {
-            this.callbacks[data.clusterID]();
+            let connectCallback = this.callbacks.connect[data.clusterID];
+            let restartCallback = this.callbacks.restart[data.clusterID];
+
+            connectCallback();
+
+            if (restartCallback) {
+                restartCallback();
+            }
 
             this.alerts.alert({
                 title: 'Cluster Ready',
@@ -128,13 +138,17 @@ class Clustering {
                 date: new Date(),
                 type: 'cluster'
             });
-    
+
             this.logger.log({
                 src: 'Clustering',
                 msg: `Cluster ${data.clusterID} ready`
             });
 
-            delete this.callbacks[data.clusterID];
+            delete this.callbacks.connect[data.clusterID];
+
+            if (restartCallback) {
+                delete this.callbacks.restart[data.clusterID];
+            }
         });
 
         await this.sharding.shard(numClusters);
@@ -148,9 +162,19 @@ class Clustering {
      * @memberof Clustering
      */
     reshard() {
-        
+
     }
 
+    restart(start, end) {
+        let clusters = [...Array((end + 1) - start).values()];
+
+        for (let cluster of clusters) {
+            this.queue.schedule('clusters.restart', { event: 'restart', instanceID: this.instanceID, clusterID: cluster }, (data, cb) => {
+                this.communication.send(data.instanceID, data.clusterID, data.event, {});
+                this.callbacks.restart[data.clusterID] = cb;
+            });
+        }
+    }
 
     createCluster(clusterID, env, state) {
         let worker = master.fork(Object.assign({}, this.options.env, env));
@@ -206,7 +230,7 @@ class Clustering {
         for (let cluster of clusters) {
             this.queue.schedule('clusters.connect', { event: 'connect', instanceID: this.instanceID, clusterID: cluster }, (data, cb) => {
                 this.communication.send(data.instanceID, data.clusterID, data.event, {});
-                this.callbacks[cluster] = cb;
+                this.callbacks.connect[cluster] = cb;
             });
         }
     }
