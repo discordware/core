@@ -1,6 +1,6 @@
 
 /**
- *
+ * Registry to store all instance metadata
  *
  * @class Registry
  */
@@ -18,9 +18,9 @@ class Registry {
     }
 
     /**
+     * Initiate the Registry module
      *
-     *
-     * @returns
+     * @returns {Promise<void>} Resolves once the Registry has been initiated
      * @memberof Registry
      */
     init() {
@@ -28,11 +28,11 @@ class Registry {
     }
 
     /**
+     * Register an instance
      *
-     *
-     * @param {*} instanceID
-     * @param {*} config
-     * @returns
+     * @param {String} instanceID InstanceID of the instance being registered
+     * @param {Object} config Instance configuration
+     * @returns {Promise<void>} Resolves once the instance has been registered
      * @memberof Registry
      */
     registerInstance(instanceID, config) {
@@ -44,10 +44,10 @@ class Registry {
     }
 
     /**
+     * Fetch an instance configuration
      *
-     *
-     * @param {*} instanceID
-     * @returns
+     * @param {String} instanceID InstanceID of the instance fetching configuration for
+     * @returns {Promise<Object>} Resolves with the instance configuration
      * @memberof Registry
      */
     getInstance(instanceID) {
@@ -56,9 +56,9 @@ class Registry {
     }
 
     /**
+     * Get all registered instances
      *
-     *
-     * @returns
+     * @returns {Promise<Object[]>} Resolves with the configuration of all registered instances
      * @memberof Registry
      */
     getInstances() {
@@ -66,10 +66,10 @@ class Registry {
     }
 
     /**
+     * Delete an instance from the registry
      *
-     *
-     * @param {*} instanceID
-     * @returns
+     * @param {String} instanceID InstanceID of the instance to delete
+     * @returns {Promise<void>} Resolves once the instance has been deleted from registry
      * @memberof Registry
      */
     deleteInstance(instanceID) {
@@ -78,12 +78,12 @@ class Registry {
     }
 
     /**
+     * Register a cluster configuration
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @param {*} config
-     * @returns
+     * @param {String} instanceID InstanceID of the instance the cluster is part of
+     * @param {Number} clusterID ClusterID to register the configuration as
+     * @param {Object} config The cluster configuration
+     * @returns {Promise<void>} Resolves once the cluster has been registered
      * @memberof Registry
      */
     registerCluster(instanceID, clusterID, config) {
@@ -92,11 +92,11 @@ class Registry {
     }
 
     /**
+     * Fetch a cluster configuration
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @returns
+     * @param {String} instanceID InstanceID of the instance the cluster is part of
+     * @param {Number} clusterID ClusterID to fetch the configuration for
+     * @returns {Promise<Object>} Resolves with the configuration of specified cluster
      * @memberof Registry
      */
     getCluster(instanceID, clusterID) {
@@ -105,10 +105,10 @@ class Registry {
     }
 
     /**
+     * Fetch all cluster configurations for a specified instance
      *
-     *
-     * @param {*} instanceID
-     * @returns
+     * @param {String} instanceID InstanceID of the instance the cluster is part of
+     * @returns {Promise<Object[]>} Resolves with all cluster configurations
      * @memberof Registry
      */
     getClusters(instanceID) {
@@ -116,11 +116,11 @@ class Registry {
     }
 
     /**
+     * Delete a cluster configuration
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @returns
+     * @param {String} instanceID InstanceID of the instance the cluster is part of
+     * @param {Number} clusterID ClusterID to delete
+     * @returns {Promise<void>} Resolves once cluster has been deleted from registry
      * @memberof Registry
      */
     deleteCluster(instanceID, clusterID) {
@@ -129,12 +129,12 @@ class Registry {
     }
 
     /**
+     * Register a worker configuration
      *
-     *
-     * @param {*} instanceID
-     * @param {*} workerID
-     * @param {*} clusterID
-     * @returns
+     * @param {String} instanceID Instance the cluster is part of
+     * @param {Number} workerID WorkerID to register the configuration as
+     * @param {Number} clusterID ClusterID the worker serves
+     * @returns {Promise<void>} Resolves once the configuration has been registered
      * @memberof Registry
      */
     registerWorker(instanceID, workerID, clusterID) {
@@ -143,11 +143,11 @@ class Registry {
     }
 
     /**
+     * Fetch a worker configuration
      *
-     *
-     * @param {*} instanceID
-     * @param {*} workerID
-     * @returns
+     * @param {String} instanceID Instance the worker is part of
+     * @param {Number} workerID WorkerID to fetch configuration for
+     * @returns {Promise<Object>} Resolves with the worker configuration
      * @memberof Registry
      */
     getWorker(instanceID, workerID) {
@@ -156,10 +156,10 @@ class Registry {
     }
 
     /**
+     * Fetch all worker configurations part of the specified instance
      *
-     *
-     * @param {*} instanceID
-     * @returns
+     * @param {String} instanceID Instance the workers are part of
+     * @returns {Promise<Object[]>} Resolves with all worker configurations
      * @memberof Registry
      */
     getWorkers(instanceID) {
@@ -167,11 +167,11 @@ class Registry {
     }
 
     /**
+     * Delete a worker configuration
      *
-     *
-     * @param {*} instanceID
-     * @param {*} workerID
-     * @returns
+     * @param {String} instanceID Instance the worker is controlled by
+     * @param {Number} workerID WorkerID of the worker
+     * @returns {Promise<void>} Resolves once the worker configuration has been deleted
      * @memberof Registry
      */
     deleteWorker(instanceID, workerID) {
@@ -180,23 +180,25 @@ class Registry {
     }
 
     /**
+     * Register a ShardConfig
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @param {*} config
+     * @param {String} instanceID Instance the cluster is part of
+     * @param {Number} clusterID ClusterID the ShardConfig is for
+     * @param {Object} config Shard configuration
+     * @returns {Promise<void>} Resolves once the ShardConfig has been registered
      * @memberof Registry
      */
     registerShardConfig(instanceID, clusterID, config) {
         this._shards[instanceID][clusterID] = config;
+        return Promise.resolve();
     }
 
     /**
+     * Fetch a ShardConfig
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @returns
+     * @param {String} instanceID Instance the cluster is part of
+     * @param {Number} clusterID ClusterID of the cluster fetching ShardConfig for
+     * @returns {Promise<Object>} Resolves with the ShardConfig
      * @memberof Registry
      */
     getShardConfig(instanceID, clusterID) {
@@ -205,11 +207,11 @@ class Registry {
     }
 
     /**
+     * Delete a ShardConfig from registry
      *
-     *
-     * @param {*} instanceID
-     * @param {*} clusterID
-     * @returns
+     * @param {*} instanceID Instance the cluster is part of
+     * @param {*} clusterID Cluster the ShardConfig is for
+     * @returns {Promise<void>} Resolves once ShardConfig has been deleted
      * @memberof Registry
      */
     deleteShardConfig(instanceID, clusterID) {

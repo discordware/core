@@ -185,6 +185,7 @@ class Communication extends EventEmitter {
      * @param {String} event Name of the event
      * @param {*} data Event data 
      * @returns {Promise<Array>} Resolves once all clusters have received the broadcast and responded
+     * @memberof Communication
      */
     awaitBroadcast(instanceID, event, data) {
         this.registry.getClusters(instanceID).then(clusters => {
