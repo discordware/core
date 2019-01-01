@@ -57,7 +57,7 @@ class Sharder {
             throw new Error('instanceID not provided');
         }
 
-        this.config = modules.Configuration || new Configuration(instanceID, options);
+        this.config = this.modules.Configuration || new Configuration(instanceID, options);
     }
 
 
