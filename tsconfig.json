@@ -9,13 +9,14 @@
          "es2017.object",
          "es2015",
          "es2017"
-       ]
+       ],
     },
     "files": [
        "./node_modules/@types/node/index.d.ts"
     ],
     "include": [
-       "typings/index.d.ts"
+       "index.ts",
+       "src/**/*"
     ],
     "exclude": [
        "node_modules"
