@@ -2,18 +2,20 @@
   "name": "@eris-sharder/core",
   "version": "1.0.0",
   "description": "A lib-agnostic Discord sharding control plane",
-  "main": "./index.js",
-  "types": "./typings/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "chalk": "^2.4.1",
     "jethro": "^4.4.0",
+    "typescript": "^3.3.3333",
     "uuid": "^3.3.2"
   },
   "optionalDependencies": {
     "eris": "^0.9.0"
   },
   "devDependencies": {
-    "@types/node": "^10.9.4"
+    "@types/node": "^10.9.4",
+    "typedoc": "^0.14.2"
   },
   "scripts": {
     "test": "node ./tests/test.js"
