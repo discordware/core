@@ -207,4 +207,5 @@ class Registry {
         return Promise.resolve();
     }
 }
+exports.Registry = Registry;
 exports.default = Registry;

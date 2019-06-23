@@ -3,7 +3,7 @@ export interface IStatsOptions {
 }
 
 export enum StatType {
-    SUM = 0,
+    SUM,
     AVERAGE,
 }
 

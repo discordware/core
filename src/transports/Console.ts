@@ -1,9 +1,9 @@
 import { ILog, ITransport, ITransportOptions } from '../typings';
 
 import chalk from 'chalk';
-import Jethro from 'jethro';
+import * as jethro from 'jethro';
 
-export default class Console implements ITransport {
+export class Console implements ITransport {
     public name: string;
     private options: ITransportOptions;
 
@@ -41,7 +41,7 @@ export default class Console implements ITransport {
     }
 
     public init() {
-        Jethro.transports.console.getTimestamp = this.getTime.bind(this);
+        jethro.transports.console.getTimestamp = this.getTime.bind(this);
         return Promise.resolve();
     }
 
@@ -49,7 +49,7 @@ export default class Console implements ITransport {
         if (this.options.debug) {
             let message = this.format(data.msg, chalk.blueBright);
             let source = this.format(data.src, chalk.cyanBright);
-            Jethro.debug(source, message);
+            jethro.debug(source, message);
         }
     }
 
@@ -57,7 +57,7 @@ export default class Console implements ITransport {
         if (this.options.error) {
             let message = this.format(data.msg, chalk.redBright);
             let source = this.format(data.src, chalk.cyanBright);
-            Jethro.error(source, message);
+            jethro.error(source, message);
         }
     }
 
@@ -65,7 +65,7 @@ export default class Console implements ITransport {
         if (this.options.info) {
             let message = this.format(data.msg, chalk.magentaBright);
             let source = this.format(data.src, chalk.cyanBright);
-            Jethro.info(source, message);
+            jethro.info(source, message);
         }
     }
 
@@ -77,7 +77,9 @@ export default class Console implements ITransport {
         if (this.options.warn) {
             let message = this.format(data.msg, chalk.yellowBright);
             let source = this.format(data.src, chalk.cyanBright);
-            Jethro.warn(source, message);
+            jethro.warn(source, message);
         }
     }
 }
+
+export default Console;

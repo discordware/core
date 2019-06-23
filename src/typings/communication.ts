@@ -2,11 +2,11 @@ import { IJSON } from './common';
 import { IInstanceConfig } from './registry';
 
 export interface IClusterCommunicationOptions {
-    timeout: number;
+    timeout?: number;
 }
 
 export interface ICommunicationOptions {
-    timeout: number;
+    timeout?: number;
 }
 
 export interface IClusterConnected {

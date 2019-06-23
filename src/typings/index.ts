@@ -1,7 +1,5 @@
 import * as alerts from './alerts';
-import * as cluster from './cluster';
 import * as clustering from './clustering';
-import * as common from './common';
 import * as communication from './communication';
 import * as configuration from './configuration';
 import * as logger from './logger';
@@ -38,6 +36,7 @@ export * from './clustering';
 export * from './common';
 export * from './communication';
 export * from './configuration';
+export * from './discovery';
 export * from './logger';
 export * from './queue';
 export * from './registry';

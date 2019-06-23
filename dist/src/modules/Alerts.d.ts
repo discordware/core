@@ -5,7 +5,7 @@ import { IAlerts, IDestination } from '../typings';
  * @class Alerts
  * @interface
  */
-export default class Alerts implements IAlerts {
+export declare class Alerts implements IAlerts {
     private destinations;
     private started;
     /**
@@ -38,3 +38,4 @@ export default class Alerts implements IAlerts {
      */
     alert(data: any): Promise<void>;
 }
+export default Alerts;

@@ -37,7 +37,7 @@ class Sharder {
         if (!instanceID) {
             throw new Error('instanceID not provided');
         }
-        this.config = modules.configuration || new Configuration_1.default(instanceID, options);
+        this.config = this.modules.configuration || new Configuration_1.default(instanceID, options);
     }
     /**
      * Create a new instance
@@ -138,4 +138,5 @@ class Sharder {
         });
     }
 }
+exports.Sharder = Sharder;
 exports.default = Sharder;

@@ -8,7 +8,7 @@ import { ICommunication, ICommunicationOptions, IJSON, ILogger, IRegistry } from
  * @extends {EventEmitter}
  * @interface
  */
-export default class Communication extends EventEmitter implements ICommunication {
+export declare class Communication extends EventEmitter implements ICommunication {
     private options;
     private logger;
     private registry;
@@ -83,3 +83,4 @@ export default class Communication extends EventEmitter implements ICommunicatio
      */
     awaitBroadcast(instanceID: any, event: any, data: any): Promise<IJSON[]>;
 }
+export default Communication;

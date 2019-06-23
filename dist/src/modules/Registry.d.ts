@@ -4,7 +4,7 @@ import { IClusterConfig, IInstanceConfig, IRegistry, IShardConfig } from '../typ
  *
  * @class Registry
  */
-export default class Registry implements IRegistry {
+export declare class Registry implements IRegistry {
     private instances;
     private clusters;
     private workers;
@@ -158,3 +158,4 @@ export default class Registry implements IRegistry {
      */
     deleteShardConfig(instanceID: string, clusterID: number): Promise<void>;
 }
+export default Registry;

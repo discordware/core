@@ -43,6 +43,13 @@ class Sharding {
     init() {
         return Promise.resolve();
     }
+    getShardConfig() {
+        return {
+            firstShardID: this.firstShardID,
+            lastShardID: this.lastShardID,
+            shards: this.maxShards,
+        };
+    }
     chunk(array, n) {
         if (n < 2)
             return [array];
@@ -115,4 +122,5 @@ class Sharding {
         });
     }
 }
+exports.Sharding = Sharding;
 exports.default = Sharding;

@@ -6,7 +6,7 @@ import { IConfiguration, ISharderOptions } from '../typings';
  * @class Configuration
  * @interface
  */
-export default class Configuration implements IConfiguration {
+export class Configuration implements IConfiguration {
     private instanceID: string;
     private options: ISharderOptions;
 
@@ -39,13 +39,15 @@ export default class Configuration implements IConfiguration {
      */
     public getConfig() {
         return Promise.resolve({
-            token: this.options.token,
-            instanceOptions: this.options.instanceOptions,
             clustering: this.options.clustering,
-            sharding: this.options.sharding,
-            stats: this.options.stats,
             communication: this.options.communication,
             console: this.options.console,
+            instanceOptions: this.options.instanceOptions,
+            sharding: this.options.sharding,
+            stats: this.options.stats,
+            token: this.options.token,
         });
     }
 }
+
+export default Configuration;

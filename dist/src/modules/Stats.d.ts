@@ -4,7 +4,7 @@ import { ICommunication, ILogger, IStats, IStatsOptions, StatType } from '../typ
  *
  * @class Stats
  */
-export default class Stats implements IStats {
+export declare class Stats implements IStats {
     private options;
     private communication;
     private logger;
@@ -44,3 +44,4 @@ export default class Stats implements IStats {
      */
     disableMetric(name: string): void;
 }
+export default Stats;

@@ -5,7 +5,7 @@ import { ICommunication, ILogger, IStats, IStatsOptions, StatType } from '../typ
  *
  * @class Stats
  */
-export default class Stats implements IStats {
+export class Stats implements IStats {
     private options: IStatsOptions;
     private communication: ICommunication;
     private logger: ILogger;
@@ -48,9 +48,9 @@ export default class Stats implements IStats {
      */
     public addMetric(name: string, method: string, type: StatType) {
         this.metrics[name] = {
+            enabled: true,
             method,
             type,
-            enabled: true,
         };
     }
 
@@ -65,3 +65,5 @@ export default class Stats implements IStats {
         this.metrics[name].enabled = false;
     }
 }
+
+export default Stats;

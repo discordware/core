@@ -1,12 +1,12 @@
 import { IAlertData, IAlerts, IDestination } from '../typings';
 
 /**
- * 
+ *
  *
  * @class Alerts
  * @interface
  */
-export default class Alerts implements IAlerts {
+export class Alerts implements IAlerts {
     private destinations: { [name: string]: IDestination };
     private started: boolean;
 
@@ -76,3 +76,5 @@ export default class Alerts implements IAlerts {
         return Promise.resolve();
     }
 }
+
+export default Alerts;

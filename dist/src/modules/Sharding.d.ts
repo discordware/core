@@ -4,7 +4,7 @@ import { IShardConfig, ISharding, IShardingOptions } from '../typings';
  *
  * @class Sharding
  */
-export default class Sharding implements ISharding {
+export declare class Sharding implements ISharding {
     token: string;
     private firstShardID;
     private lastShardID;
@@ -31,6 +31,11 @@ export default class Sharding implements ISharding {
      * @memberof Sharding
      */
     init(): Promise<void>;
+    getShardConfig(): {
+        firstShardID: number;
+        lastShardID: number;
+        shards: number;
+    };
     chunk(array: number[], n: number): number[][];
     /**
      *
@@ -58,3 +63,4 @@ export default class Sharding implements ISharding {
      */
     getConfig(cluster: number): Promise<IShardConfig>;
 }
+export default Sharding;

@@ -10,4 +10,5 @@ export interface ISharding {
     shard(clusterCount: number): Promise<void>;
     getConfig(cluster: number): Promise<IShardConfig>;
     updateShardCount(firstShardID: number, lastShardID: number, maxShards: number): Promise<void>;
+    getShardConfig(): IShardingOptions;
 }

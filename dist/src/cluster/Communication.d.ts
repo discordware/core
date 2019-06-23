@@ -4,7 +4,7 @@ import { IClusterCommunication, IClusterCommunicationOptions, IJSON } from '../t
 /**
  * Cluster-side communication module
  */
-export default class ClusterCommunication extends EventEmitter implements IClusterCommunication {
+export declare class ClusterCommunication extends EventEmitter implements IClusterCommunication {
     private options;
     private reqTimeout;
     /**
@@ -63,3 +63,4 @@ export default class ClusterCommunication extends EventEmitter implements IClust
      */
     awaitBroadcast(instanceID: string, event: string, data: IJSON): Promise<IJSON[]>;
 }
+export default ClusterCommunication;

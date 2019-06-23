@@ -91,4 +91,5 @@ class Cluster {
         });
     }
 }
-module.exports = Cluster;
+exports.Cluster = Cluster;
+exports.default = Cluster;

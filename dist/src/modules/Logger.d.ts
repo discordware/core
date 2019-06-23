@@ -13,7 +13,7 @@ export interface ITransport {
  * @class Logger
  * @interface
  */
-export default class Logger implements ILogger {
+export declare class Logger implements ILogger {
     private transports;
     private started;
     /**
@@ -88,3 +88,4 @@ export default class Logger implements ILogger {
      */
     warn(data: ILog): void;
 }
+export default Logger;

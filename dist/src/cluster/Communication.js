@@ -41,16 +41,16 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     send(instanceID, clusterID, event, data) {
         let payload = {
-            event,
             data,
+            event,
         };
         process.send({
-            event: 'send',
             data: {
-                instanceID,
                 clusterID,
+                instanceID,
                 payload,
             },
+            event: 'core.send',
         });
         return Promise.resolve();
     }
@@ -67,20 +67,20 @@ class ClusterCommunication extends events_1.EventEmitter {
     awaitResponse(instanceID, clusterID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
+                event,
                 id: v1_1.default(),
             };
             process.send({
-                event: 'awaitResponse',
                 data: {
-                    instanceID,
                     clusterID,
+                    instanceID,
                     payload,
                 },
+                event: 'core.awaitResponse',
                 resp: {
-                    instanceID: process.env.INSTANCE_ID,
                     clusterID: process.env.CLUSTER_ID,
+                    instanceID: process.env.INSTANCE_ID,
                     workerID: cluster.worker.id,
                 },
             });
@@ -107,15 +107,15 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     broadcast(instanceID, event, data) {
         let payload = {
-            event,
             data,
+            event,
         };
         process.send({
-            event: 'broadcast',
             data: {
                 instanceID,
                 payload,
             },
+            event: 'core.broadcast',
         });
         return Promise.resolve([]);
     }
@@ -131,16 +131,16 @@ class ClusterCommunication extends events_1.EventEmitter {
     awaitBroadcast(instanceID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
+                event,
                 id: v1_1.default(),
             };
             process.send({
-                event: 'awaitBroadcast',
                 data: {
                     instanceID,
                     payload,
                 },
+                event: 'core.awaitBroadcast',
             });
             let timeout = setTimeout(() => {
                 rej(new Error(`Request ${payload.id} timed out`));
@@ -152,4 +152,5 @@ class ClusterCommunication extends events_1.EventEmitter {
         });
     }
 }
+exports.ClusterCommunication = ClusterCommunication;
 exports.default = ClusterCommunication;

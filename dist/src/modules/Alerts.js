@@ -77,4 +77,5 @@ class Alerts {
         return Promise.resolve();
     }
 }
+exports.Alerts = Alerts;
 exports.default = Alerts;

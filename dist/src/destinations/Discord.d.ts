@@ -1,8 +1,8 @@
-import { IDestination, IAlertData } from '../typings';
+import { IAlertData, IDestination } from '../typings';
 /**
  * Discord webhook destination for alerts
  */
-export default class DiscordDestination implements IDestination {
+export declare class DiscordDestination implements IDestination {
     private token;
     private instanceID;
     private options;
@@ -31,3 +31,4 @@ export default class DiscordDestination implements IDestination {
      */
     alert(data: IAlertData): Promise<void>;
 }
+export default DiscordDestination;

@@ -17,7 +17,7 @@ import Console from './transports/Console';
 /**
  * Main Sharder class
  */
-export default class Sharder {
+export class Sharder {
     private instanceID: string;
     private modules: IModules;
     private config: IConfiguration;
@@ -46,7 +46,7 @@ export default class Sharder {
             throw new Error('instanceID not provided');
         }
 
-        this.config = modules.configuration || new Configuration(instanceID, options);
+        this.config = this.modules.configuration || new Configuration(instanceID, options);
     }
 
     /**
@@ -158,3 +158,5 @@ export default class Sharder {
         return Promise.resolve();
     }
 }
+
+export default Sharder;

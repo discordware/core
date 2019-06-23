@@ -1,16 +1,14 @@
 import * as eris from 'eris';
-import { IDestination, IDiscordDestinationOptions, IAlertData } from '../typings';
-
+import { IAlertData, IDestination, IDiscordDestinationOptions } from '../typings';
 
 /**
  * Discord webhook destination for alerts
  */
-export default class DiscordDestination implements IDestination {
+export class DiscordDestination implements IDestination {
     private token: string;
     private instanceID: string;
     private options: IDiscordDestinationOptions;
     private eris: eris.Client;
-
 
     /**
      * Creates an instance of DiscordDestination.
@@ -25,7 +23,6 @@ export default class DiscordDestination implements IDestination {
         this.options = options;
     }
 
-
     /**
      * Initialize the Discord destination
      *
@@ -36,7 +33,6 @@ export default class DiscordDestination implements IDestination {
         this.eris = new eris.Client(this.token);
         return Promise.resolve();
     }
-
 
     /**
      * Send out an alert
@@ -58,10 +54,10 @@ export default class DiscordDestination implements IDestination {
         this.eris.executeWebhook(id, token, {
             embeds: [
                 {
-                    title,
                     description: msg,
                     footer: { text: this.instanceID },
                     timestamp: date.toString(),
+                    title,
                 },
             ],
         });
@@ -69,3 +65,5 @@ export default class DiscordDestination implements IDestination {
         return Promise.resolve();
     }
 }
+
+export default DiscordDestination;

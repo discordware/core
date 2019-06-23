@@ -33,6 +33,7 @@ export * from './clustering';
 export * from './common';
 export * from './communication';
 export * from './configuration';
+export * from './discovery';
 export * from './logger';
 export * from './queue';
 export * from './registry';
