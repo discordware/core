@@ -4,7 +4,7 @@ const Eris = require('eris');
 
 if (master.isMaster) {
     let sharder = new Sharder('test', {
-        token: 'MzUxMzUxMzQxMzMyOTU1MTM2.XQ_woA.REGVEzddaljEsBI1bZ_LxJS-9rY',
+        token: 'asdf',
         sharding: {
             firstShardID: 0,
             shards: 2
