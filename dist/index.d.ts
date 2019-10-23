@@ -10,7 +10,7 @@ import Queue from './src/modules/Queue';
 import Registry from './src/modules/Registry';
 import Sharder from './src/Sharder';
 import Sharding from './src/modules/Sharding';
-import Stats from './src/modules/Stats';
+
 export * from './src/Cluster';
 export * from './src/Sharder';
 export declare const ClusterModules: {
@@ -28,7 +28,6 @@ export declare const Modules: {
     Queue: typeof Queue;
     Registry: typeof Registry;
     Sharding: typeof Sharding;
-    Stats: typeof Stats;
 };
 export declare const Transports: {
     Console: typeof Console;

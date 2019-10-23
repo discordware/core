@@ -1,7 +1,7 @@
 import * as cluster from 'cluster';
 import { EventEmitter } from 'events';
-import uuid from 'uuid/v1';
-import { IClusterCommunication, IClusterCommunicationOptions, IJSON } from '../typings';
+import { v1 as uuid } from 'uuid';
+import { IClusterCommunication, IClusterCommunicationOptions, IJSON, IReplyPayload } from '../typings';
 
 /**
  * Cluster-side communication module
@@ -17,7 +17,7 @@ export class ClusterCommunication extends EventEmitter implements IClusterCommun
      */
     constructor(options: IClusterCommunicationOptions) {
         super();
-        this.options = options;
+        this.options = options || {};
         this.reqTimeout = this.options.timeout || 5;
     }
 
@@ -29,7 +29,7 @@ export class ClusterCommunication extends EventEmitter implements IClusterCommun
      */
     public init(): Promise<void> {
         process.on('message', (msg) => {
-            this.emit(msg.event, msg.data);
+            this.emit(msg.event, msg);
         });
 
         return Promise.resolve();
@@ -59,6 +59,17 @@ export class ClusterCommunication extends EventEmitter implements IClusterCommun
             },
             event: 'core.send',
         });
+
+        return Promise.resolve();
+    }
+
+    public reply(instanceID: string, msg: IReplyPayload, data: IJSON): Promise<void> {
+        let payload = {
+            event: msg.id,
+            data,
+        };
+
+        process.send(payload);
 
         return Promise.resolve();
     }

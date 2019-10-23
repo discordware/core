@@ -1,291 +1,287 @@
 {
   "program": {
     "fileInfos": {
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es5.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es5.d.ts": {
         "version": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0",
         "signature": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.d.ts": {
         "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
         "signature": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2016.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2016.d.ts": {
         "version": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1",
         "signature": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.d.ts": {
         "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
         "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.core.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.core.d.ts": {
         "version": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52",
         "signature": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
         "version": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0",
         "signature": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
         "version": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3",
         "signature": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
         "version": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21",
         "signature": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
         "version": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2",
         "signature": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
         "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
         "signature": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
         "version": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976",
         "signature": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
         "version": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230",
         "signature": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
         "version": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303",
         "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
         "version": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0",
         "signature": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.object.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.object.d.ts": {
         "version": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4",
         "signature": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
         "version": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f",
         "signature": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.string.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.string.d.ts": {
         "version": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c",
         "signature": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
         "version": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6",
         "signature": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6"
       },
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
         "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
         "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/events/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/events/index.d.ts": {
         "version": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935",
         "signature": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/node/inspector.d.ts": {
-        "version": "6215001ad565ae40d8a73f08b9ac6108058e497f122b2466ef9910be219980fa",
-        "signature": "6215001ad565ae40d8a73f08b9ac6108058e497f122b2466ef9910be219980fa"
+      "d:/coding/discordsharders/core/node_modules/@types/node/inspector.d.ts": {
+        "version": "fac7fe63a20eee1db9ea3424d9291e525346420032994da8e227cad64596d22d",
+        "signature": "fac7fe63a20eee1db9ea3424d9291e525346420032994da8e227cad64596d22d"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts": {
-        "version": "1d121662e9f04242cedfc0096d6a3024063fece3df94db69cfdf60e4cbb25dda",
-        "signature": "1d121662e9f04242cedfc0096d6a3024063fece3df94db69cfdf60e4cbb25dda"
+      "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts": {
+        "version": "729ada468568f72da9950232466f0ff65390a93e127076f597ac2b86152b34e0",
+        "signature": "729ada468568f72da9950232466f0ff65390a93e127076f597ac2b86152b34e0"
       },
-      "d:/coding/discord-sharders/core/src/typings/alerts.ts": {
+      "d:/coding/discordsharders/core/src/typings/alerts.ts": {
         "version": "3b445ff6115d38515321738d4c9f5d094d2b023147dd67ca87a3ebe5427f444e",
         "signature": "d6463a143d415c1644f4de0bfa47a8b03cf6eb7039c37979c1ed93b15b6e6fb1"
       },
-      "d:/coding/discord-sharders/core/src/typings/clustering.ts": {
+      "d:/coding/discordsharders/core/src/typings/clustering.ts": {
         "version": "d1d976346d2e7a84325f606beb729d575d1869e8970b7645da572e7fcb83f360",
         "signature": "b87cb80f1aabb481262007359f22d269acd7021041fb218db7e7957f29e7aadd"
       },
-      "d:/coding/discord-sharders/core/src/typings/common.ts": {
+      "d:/coding/discordsharders/core/src/typings/common.ts": {
         "version": "e7a077168f2e8149f8d8716ecda9c7d9291037770d41ff1fe79b84d367ef421b",
         "signature": "003e6e6f2c70fb750325033bf034e47fb06e63f700f3495aae6e264167d2b79a"
       },
-      "d:/coding/discord-sharders/core/src/typings/registry.ts": {
+      "d:/coding/discordsharders/core/src/typings/registry.ts": {
         "version": "886bd63055b0cde02fe8e3a9e336883c0f6adbe71443f24462ed6e893456448f",
         "signature": "543faddca448ffb5916e24e418afb2ed0bb1c03d8b7abb48e30785328d72d352"
       },
-      "d:/coding/discord-sharders/core/src/typings/communication.ts": {
-        "version": "cebd9a4c0f74581cbfcc93ea24ec7eb4a762e0fddb9a51e9ebfefde9300d3128",
-        "signature": "b4eec93a55dee4bf3b820b3828abee78f421afe9f7304a218a4851a188491c71"
+      "d:/coding/discordsharders/core/src/typings/communication.ts": {
+        "version": "a84c99a1885bdccd69aa987f9de80d920b1a4f495c53994c7101b2d83cb00520",
+        "signature": "ad547c2ada6ecbda6ffe71699ad5dea067f9d81efdccbfec88b8acdc21d3fc55"
       },
-      "d:/coding/discord-sharders/core/src/typings/configuration.ts": {
+      "d:/coding/discordsharders/core/src/typings/configuration.ts": {
         "version": "3bcdcf3b9ddad16bc4bf58d086737b284cbdf6e5cf92113f3a9bd3ea354a77b2",
         "signature": "5af844b33ed4b97f37fd35098d17d21613f67fdac9b89ddc17fb0b3ab7577bff"
       },
-      "d:/coding/discord-sharders/core/src/typings/logger.ts": {
+      "d:/coding/discordsharders/core/src/typings/logger.ts": {
         "version": "35644fe1480e5a6d92813b6740ec20c5686a6ee76023a311228fbdf957e79e60",
         "signature": "1f79929b8fc9aac74cff1b93d6715a9e30c9eda29c4132da8be268482c2e4683"
       },
-      "d:/coding/discord-sharders/core/src/typings/queue.ts": {
+      "d:/coding/discordsharders/core/src/typings/queue.ts": {
         "version": "c124a3c51b4f7755f7bb90d9f93efbc387f288bcc885153a3c64f65663cc5ae0",
         "signature": "e4e315fde2bfa354235524eee406ef67515efb018fc4a04ccab5fe343969a7f7"
       },
-      "d:/coding/discord-sharders/core/src/typings/sharding.ts": {
+      "d:/coding/discordsharders/core/src/typings/sharding.ts": {
         "version": "c05f1c8fe8a5fbec8a82c18cb8acabcec9dd8a148654d18873e85d1d6230155f",
         "signature": "fd865a13884b19db0933be6b70bb2c21cdec84721734ca31f416516583b1aaf1"
       },
-      "d:/coding/discord-sharders/core/src/typings/stats.ts": {
+      "d:/coding/discordsharders/core/src/typings/stats.ts": {
         "version": "2749e85300dd964183d2c1a36eb118611067952bc87dd325ec7b8f0af0d9e6f4",
         "signature": "ed0aec6814c79f3e888212fba9dce6ed770d24361b991cdb7c1fd69318da0a85"
       },
-      "d:/coding/discord-sharders/core/src/typings/cluster.ts": {
-        "version": "b6f7788a3de13d90db66d4a8cd266d4102f2f079dd453834b44f98a0a7aadd5d",
-        "signature": "c9c85cbbc1e0a579c3df0898ca5935ce5482c3c9ff0f75a7b1d0a4a1cedb0842"
+      "d:/coding/discordsharders/core/src/typings/cluster.ts": {
+        "version": "0cee07feafee3fa320df1f02a94fff673b77fdec62340b6514251f16d28cd0f8",
+        "signature": "31be02f0c3571722ac9114b25c2ccbfb25f99ff2aaf100c11ec03eb207cb3427"
       },
-      "d:/coding/discord-sharders/core/src/typings/discovery.ts": {
+      "d:/coding/discordsharders/core/src/typings/discovery.ts": {
         "version": "082e1920d8a0787b912e59c782a551a7da983676bc3816143ccb175a4fff227d",
         "signature": "48773de02b3884ba4ec7ddae51a25a749c92b1e50c1db26474f185cbc5347c95"
       },
-      "d:/coding/discord-sharders/core/src/typings/index.ts": {
+      "d:/coding/discordsharders/core/src/typings/index.ts": {
         "version": "6885f371a12401e647f7188b90ccd519ec65e2d32b0a4412730122342f9d66d5",
         "signature": "4761b6526fe5c37734edf7c7b105026459e2c9ac57c94de27a0c9f79ea99c7ce"
       },
-      "d:/coding/discord-sharders/core/src/cluster/communication.ts": {
-        "version": "a9471ffaa3c9bbb5fd0e76c59db919f995311566154c48b1f2ffedbf51c82d71",
-        "signature": "a8bdb6af1e42bafbd37312900dd4ebe2c314e2d52fe0d523b7e8f56d25fba811"
+      "d:/coding/discordsharders/core/src/cluster/communication.ts": {
+        "version": "d49fdba1ee23efbdb4e2f9ad5087c518b9bc3dd9b696d7fc1809e7d352f5e48c",
+        "signature": "8ba9f2c839ed73988f714c4e1a743dc5b141db1e546dc5b96fb8768e9607b62d"
       },
-      "d:/coding/discord-sharders/core/node_modules/eris/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/eris/index.d.ts": {
         "version": "a1954c0fc81ba6029a2f3649fc53eec44526e1621bed7069d883466e703a0a9e",
         "signature": "a1954c0fc81ba6029a2f3649fc53eec44526e1621bed7069d883466e703a0a9e"
       },
-      "d:/coding/discord-sharders/core/src/destinations/discord.ts": {
+      "d:/coding/discordsharders/core/src/destinations/discord.ts": {
         "version": "90efee1bebff72c3259e2617e982ca37271726b6c5cb46e4f67e5c9182d0a61a",
         "signature": "56d65b7ea98a7eb4da98c8903186134cdcf567483d756e0bbc0c32454b632457"
       },
-      "d:/coding/discord-sharders/core/src/modules/alerts.ts": {
+      "d:/coding/discordsharders/core/src/modules/alerts.ts": {
         "version": "047d7b3ffb2ebcfcc2903cfe81dce106a8c1f337a5403e1b11cdf7acffb2059b",
         "signature": "beed3390dfe3d244bbf8cd4db9ab47c890e6cf3f062e25e18e2b57f2888600e9"
       },
-      "d:/coding/discord-sharders/core/src/modules/clustering.ts": {
-        "version": "e842389277a9ac028be8c2ede00323e4b35cdfeef33f1834931ab24dd21d5841",
+      "d:/coding/discordsharders/core/src/modules/clustering.ts": {
+        "version": "1e77d061416c5d4122d8a4236f914e9893f99645aa39d3ffc68d5cb8ab336218",
         "signature": "4ca10aa25c46ec79570f2502501b6bf175d17eb856de5e99c53392a2cea51754"
       },
-      "d:/coding/discord-sharders/core/src/modules/communication.ts": {
-        "version": "613a63b174a903c22adeaaff5e0d56baa6126ab673ec26e8765d37552c40e804",
+      "d:/coding/discordsharders/core/src/modules/communication.ts": {
+        "version": "5f346e948888406cc505c3ccbd87d4615a0787f72da772464a1b00b38138f267",
         "signature": "a730828f0412abbff9ab765ee94f2c76f7d6c163f0c58eb6540315a117da8cba"
       },
-      "d:/coding/discord-sharders/core/src/modules/configuration.ts": {
+      "d:/coding/discordsharders/core/src/modules/configuration.ts": {
         "version": "8ba1ea86a8e3cf3ff311bc3d5ff4698346e0e4b33f208742d1a3efea8e1670fd",
         "signature": "9275ef0ebe254d996d5f39abd4017e3ff37fdbb289b6e3de9bc1a48a2fc8e0a7"
       },
-      "d:/coding/discord-sharders/core/node_modules/chalk/types/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/chalk/types/index.d.ts": {
         "version": "091f417275a51ab3c47b949723e9e8a193012157ecc64a96e2d7b1505e82f395",
         "signature": "091f417275a51ab3c47b949723e9e8a193012157ecc64a96e2d7b1505e82f395"
       },
-      "d:/coding/discord-sharders/core/src/transports/console.ts": {
+      "d:/coding/discordsharders/core/src/transports/console.ts": {
         "version": "a67202c11ec4aa1e86995bcf0fad8ca6ae8d15befbe7bd29033515e65105df2e",
         "signature": "478c85d9863d8f0a048c7d2b2e493f5471bc4bd6ba138276f38b670287217c17"
       },
-      "d:/coding/discord-sharders/core/src/modules/logger.ts": {
+      "d:/coding/discordsharders/core/src/modules/logger.ts": {
         "version": "7bb6323d220a7bddfc107bb4d0c01c9fd2687a56139cfa2226ae28a9c17c6329",
         "signature": "a1e8e2e5ddbf0c7c8eb9da34a02d8775210300ad27f35148ea435eed7fc50fcb"
       },
-      "d:/coding/discord-sharders/core/src/modules/queue.ts": {
+      "d:/coding/discordsharders/core/src/modules/queue.ts": {
         "version": "b3ef6e9f677ded0d8bbfe86e8f56b1611cd578615f47df17ba5d029a174c2175",
         "signature": "8579ec8fbb6b5f4bfa2bd85a1c0d18cd0a09d0d9613a1e9419d8fb8b2f7f0035"
       },
-      "d:/coding/discord-sharders/core/src/modules/registry.ts": {
+      "d:/coding/discordsharders/core/src/modules/registry.ts": {
         "version": "c8ce548001716f57a199cdcba82dd3a6f5f8719b6bd374e470949f3a650a02f4",
         "signature": "b58be801455e4c324f88fc9e943e246f0eb53c64a170ab72da7a7df920e0540b"
       },
-      "d:/coding/discord-sharders/core/src/modules/sharding.ts": {
+      "d:/coding/discordsharders/core/src/modules/sharding.ts": {
         "version": "f220785442e2e584afbc4b943b6b6979fd76d8a1c8906aa1a48450b5e8bea729",
         "signature": "62416143c100e8a0555729c68c7a1dbfc4362fe6aba341cc725e8dcf0e12484a"
       },
-      "d:/coding/discord-sharders/core/src/modules/stats.ts": {
+      "d:/coding/discordsharders/core/src/modules/stats.ts": {
         "version": "622c24c68b2c4a00ced3feac18c3141e14d95079f2de7ff8ac9e0d016a9eed9d",
         "signature": "eae1db1f7c759be6aaf54a4da23db40a44080340402fa8ea2cc2e2ac83dac373"
       },
-      "d:/coding/discord-sharders/core/src/sharder.ts": {
+      "d:/coding/discordsharders/core/src/sharder.ts": {
         "version": "4baa5b668d9276ffa71fc74eaa19a132a35ee819938400462d89f8377883a0d4",
         "signature": "6d3a12111e157ad9103ba38274d5cabcff989c4e385b788f73866829712b83aa"
       },
-      "d:/coding/discord-sharders/core/src/cluster.ts": {
-        "version": "bd4533f549a4afe68aa3ce596d364e6416a2ca28c9130ac4da4d624790906875",
+      "d:/coding/discordsharders/core/src/cluster.ts": {
+        "version": "16ce88968178fdcc7c9e14f8708d251d51fc6fa6967a62adc16287ebd3cc3e27",
         "signature": "03436d39b89683548dadd7bdc3594d78359720c545b43a4d542da6d1c6b61689"
       },
-      "d:/coding/discord-sharders/core/index.ts": {
+      "d:/coding/discordsharders/core/index.ts": {
         "version": "b1ddf1292aaa871e4535f8fdeea2ca80421d2fee4ad8de165d70dfaec1cfed87",
         "signature": "e76fb0ae091f9341520e5c7a81ffd69b424abc8e1e5b4893ca830acb67d8502c"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/fs-extra/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/fs-extra/index.d.ts": {
         "version": "a609600956f9652b488fe0cd3687deed05ee276a3d6a76000386add895ec9450",
         "signature": "a609600956f9652b488fe0cd3687deed05ee276a3d6a76000386add895ec9450"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/minimatch/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/minimatch/index.d.ts": {
         "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
         "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/glob/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/glob/index.d.ts": {
         "version": "d852d6282c8dc8156d26d6bda83ab4bde51fee05ba2fe0ecdc165ddda009d3ee",
         "signature": "d852d6282c8dc8156d26d6bda83ab4bde51fee05ba2fe0ecdc165ddda009d3ee"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/handlebars/index.d.ts": {
-        "version": "2e8b9f9f3f0f170b2e073b0a418d4b2fffc3a58a839f1757ea47b4d99ee0fd4d",
-        "signature": "2e8b9f9f3f0f170b2e073b0a418d4b2fffc3a58a839f1757ea47b4d99ee0fd4d"
-      },
-      "d:/coding/discord-sharders/core/node_modules/@types/highlight.js/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/highlight.js/index.d.ts": {
         "version": "128ffe0fd9465c6b64611d673132e2c8865454788d85f39a5553d2782c11ede5",
         "signature": "128ffe0fd9465c6b64611d673132e2c8865454788d85f39a5553d2782c11ede5"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts": {
         "version": "826e226ef4293d2e692c796d7cc81c94f353c57fd6016685b79d68134e5df047",
         "signature": "826e226ef4293d2e692c796d7cc81c94f353c57fd6016685b79d68134e5df047"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts": {
         "version": "24f73778cc712f3d2ff4b69227957577487118bd41652b63c5f913ba12f7631a",
         "signature": "24f73778cc712f3d2ff4b69227957577487118bd41652b63c5f913ba12f7631a"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts": {
         "version": "b645de8e8084e4cb7fb9ba2d8e3fd893dc3b5a6568fb7a5027aec4f779ef814d",
         "signature": "b645de8e8084e4cb7fb9ba2d8e3fd893dc3b5a6568fb7a5027aec4f779ef814d"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts": {
         "version": "6e88e36ca6d6953fde31898701899e61239b22f09906d5970caac88107a4b01a",
         "signature": "6e88e36ca6d6953fde31898701899e61239b22f09906d5970caac88107a4b01a"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts": {
         "version": "8d0b0656ffc2f973bdea853fc00a3f99122db54fd7a0e13bf87d6f358fbc3c6e",
         "signature": "8d0b0656ffc2f973bdea853fc00a3f99122db54fd7a0e13bf87d6f358fbc3c6e"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts": {
-        "version": "5ded11c97be84de8fc472b3639230daa947232f25da04803508539880e3939aa",
-        "signature": "5ded11c97be84de8fc472b3639230daa947232f25da04803508539880e3939aa"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts": {
+        "version": "213590e0f4f916d3be462f03cf3373ac760895f010cf2a08707931b0aaf35a6d",
+        "signature": "213590e0f4f916d3be462f03cf3373ac760895f010cf2a08707931b0aaf35a6d"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts": {
         "version": "90e654b460f8ff7a3ff73ec54996290afebf00c8acc0fc634961af1509416db5",
         "signature": "90e654b460f8ff7a3ff73ec54996290afebf00c8acc0fc634961af1509416db5"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts": {
         "version": "81fdef0cbc4aeed4e29f7ed43d7b768ebe39e068da55c95bd710f47be289d6ac",
         "signature": "81fdef0cbc4aeed4e29f7ed43d7b768ebe39e068da55c95bd710f47be289d6ac"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts": {
-        "version": "17d66f8a355e76a5a1ee0a82e3428541abdebe80db47f93586a21a2cd79d89bc",
-        "signature": "17d66f8a355e76a5a1ee0a82e3428541abdebe80db47f93586a21a2cd79d89bc"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts": {
+        "version": "5b862cc75ad50ea22d5a94c8e8be788541d831689b0533abeb280f638e0e7328",
+        "signature": "5b862cc75ad50ea22d5a94c8e8be788541d831689b0533abeb280f638e0e7328"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts": {
         "version": "e4db201366aed6e8ec28c4f9e998729477b0825ae7e517441e8000f192b8b033",
         "signature": "e4db201366aed6e8ec28c4f9e998729477b0825ae7e517441e8000f192b8b033"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts": {
         "version": "20fb7144dd7a3e5007cc44e96c843879216fd082bf5761bd420715d645eb683e",
         "signature": "20fb7144dd7a3e5007cc44e96c843879216fd082bf5761bd420715d645eb683e"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts": {
         "version": "026742bab94860543fde035a6bfd5d5103fab08afbdacf9a207a44b2bb6fccba",
         "signature": "026742bab94860543fde035a6bfd5d5103fab08afbdacf9a207a44b2bb6fccba"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts": {
-        "version": "beaa6c48cebaa792b431771985e91ae8ae12a4f4701bfba305ca00a74947a576",
-        "signature": "beaa6c48cebaa792b431771985e91ae8ae12a4f4701bfba305ca00a74947a576"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts": {
+        "version": "eaa8d56bff006bd59e748e0af3354f32a934f58db4835e0f1026e091087a49bf",
+        "signature": "eaa8d56bff006bd59e748e0af3354f32a934f58db4835e0f1026e091087a49bf"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/marked/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/marked/index.d.ts": {
         "version": "c08a5e873738f5576ae1ca5810b5ebc30509f05bde56c3a3bbdd75d6c0806e6a",
         "signature": "c08a5e873738f5576ae1ca5810b5ebc30509f05bde56c3a3bbdd75d6c0806e6a"
       },
-      "d:/coding/discord-sharders/core/node_modules/@types/shelljs/index.d.ts": {
+      "d:/coding/discordsharders/core/node_modules/@types/shelljs/index.d.ts": {
         "version": "0598e40610876b70040e07aaeaad607264379d2ac706db7599cd0d8a9f3e3b59",
         "signature": "0598e40610876b70040e07aaeaad607264379d2ac706db7599cd0d8a9f3e3b59"
       }
@@ -293,7 +289,7 @@
     "options": {
       "target": 2,
       "module": 1,
-      "outDir": "D:/Coding/Discord-Sharders/core/dist",
+      "outDir": "D:/Coding/DiscordSharders/core/dist",
       "sourceMap": false,
       "declaration": true,
       "lib": [
@@ -304,700 +300,874 @@
       "incremental": true,
       "pretty": true,
       "project": "tsconfig.json",
-      "configFilePath": "D:/Coding/Discord-Sharders/core/tsconfig.json"
+      "configFilePath": "D:/Coding/DiscordSharders/core/tsconfig.json"
     },
     "referencedMap": {
-      "d:/coding/discord-sharders/core/node_modules/@types/node/inspector.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/node/inspector.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/node/inspector.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/inspector.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/registry.ts": [
-        "d:/coding/discord-sharders/core/src/typings/common.ts"
+      "d:/coding/discordsharders/core/src/typings/registry.ts": [
+        "d:/coding/discordsharders/core/src/typings/common.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/communication.ts": [
-        "d:/coding/discord-sharders/core/src/typings/common.ts",
-        "d:/coding/discord-sharders/core/src/typings/registry.ts"
+      "d:/coding/discordsharders/core/src/typings/communication.ts": [
+        "d:/coding/discordsharders/core/src/typings/common.ts",
+        "d:/coding/discordsharders/core/src/typings/registry.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/configuration.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/typings/configuration.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/logger.ts": [
-        "d:/coding/discord-sharders/core/src/typings/common.ts"
+      "d:/coding/discordsharders/core/src/typings/logger.ts": [
+        "d:/coding/discordsharders/core/src/typings/common.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/queue.ts": [
-        "d:/coding/discord-sharders/core/src/typings/common.ts"
+      "d:/coding/discordsharders/core/src/typings/queue.ts": [
+        "d:/coding/discordsharders/core/src/typings/common.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/sharding.ts": [
-        "d:/coding/discord-sharders/core/src/typings/registry.ts"
+      "d:/coding/discordsharders/core/src/typings/sharding.ts": [
+        "d:/coding/discordsharders/core/src/typings/registry.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/cluster.ts": [
-        "d:/coding/discord-sharders/core/src/typings/communication.ts"
+      "d:/coding/discordsharders/core/src/typings/cluster.ts": [
+        "d:/coding/discordsharders/core/src/typings/communication.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/discovery.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/typings/discovery.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/index.ts": [
-        "d:/coding/discord-sharders/core/src/typings/alerts.ts",
-        "d:/coding/discord-sharders/core/src/typings/clustering.ts",
-        "d:/coding/discord-sharders/core/src/typings/communication.ts",
-        "d:/coding/discord-sharders/core/src/typings/configuration.ts",
-        "d:/coding/discord-sharders/core/src/typings/logger.ts",
-        "d:/coding/discord-sharders/core/src/typings/queue.ts",
-        "d:/coding/discord-sharders/core/src/typings/registry.ts",
-        "d:/coding/discord-sharders/core/src/typings/sharding.ts",
-        "d:/coding/discord-sharders/core/src/typings/stats.ts",
-        "d:/coding/discord-sharders/core/src/typings/cluster.ts",
-        "d:/coding/discord-sharders/core/src/typings/common.ts",
-        "d:/coding/discord-sharders/core/src/typings/discovery.ts"
+      "d:/coding/discordsharders/core/src/typings/index.ts": [
+        "d:/coding/discordsharders/core/src/typings/alerts.ts",
+        "d:/coding/discordsharders/core/src/typings/clustering.ts",
+        "d:/coding/discordsharders/core/src/typings/communication.ts",
+        "d:/coding/discordsharders/core/src/typings/configuration.ts",
+        "d:/coding/discordsharders/core/src/typings/logger.ts",
+        "d:/coding/discordsharders/core/src/typings/queue.ts",
+        "d:/coding/discordsharders/core/src/typings/registry.ts",
+        "d:/coding/discordsharders/core/src/typings/sharding.ts",
+        "d:/coding/discordsharders/core/src/typings/stats.ts",
+        "d:/coding/discordsharders/core/src/typings/cluster.ts",
+        "d:/coding/discordsharders/core/src/typings/common.ts",
+        "d:/coding/discordsharders/core/src/typings/discovery.ts"
       ],
-      "d:/coding/discord-sharders/core/src/cluster/communication.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/cluster/communication.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/eris/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/eris/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/destinations/discord.ts": [
-        "d:/coding/discord-sharders/core/node_modules/eris/index.d.ts",
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/destinations/discord.ts": [
+        "d:/coding/discordsharders/core/node_modules/eris/index.d.ts",
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/alerts.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/alerts.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/clustering.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/clustering.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/communication.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/communication.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/configuration.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/configuration.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/transports/console.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts",
-        "d:/coding/discord-sharders/core/node_modules/chalk/types/index.d.ts"
+      "d:/coding/discordsharders/core/src/transports/console.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts",
+        "d:/coding/discordsharders/core/node_modules/chalk/types/index.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/logger.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/logger.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/queue.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/queue.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/registry.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/registry.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/sharding.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/sharding.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/stats.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/modules/stats.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/sharder.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts",
-        "d:/coding/discord-sharders/core/src/modules/alerts.ts",
-        "d:/coding/discord-sharders/core/src/modules/clustering.ts",
-        "d:/coding/discord-sharders/core/src/modules/communication.ts",
-        "d:/coding/discord-sharders/core/src/modules/configuration.ts",
-        "d:/coding/discord-sharders/core/src/modules/logger.ts",
-        "d:/coding/discord-sharders/core/src/modules/queue.ts",
-        "d:/coding/discord-sharders/core/src/modules/registry.ts",
-        "d:/coding/discord-sharders/core/src/modules/sharding.ts",
-        "d:/coding/discord-sharders/core/src/modules/stats.ts",
-        "d:/coding/discord-sharders/core/src/transports/console.ts"
+      "d:/coding/discordsharders/core/src/sharder.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts",
+        "d:/coding/discordsharders/core/src/modules/alerts.ts",
+        "d:/coding/discordsharders/core/src/modules/clustering.ts",
+        "d:/coding/discordsharders/core/src/modules/communication.ts",
+        "d:/coding/discordsharders/core/src/modules/configuration.ts",
+        "d:/coding/discordsharders/core/src/modules/logger.ts",
+        "d:/coding/discordsharders/core/src/modules/queue.ts",
+        "d:/coding/discordsharders/core/src/modules/registry.ts",
+        "d:/coding/discordsharders/core/src/modules/sharding.ts",
+        "d:/coding/discordsharders/core/src/modules/stats.ts",
+        "d:/coding/discordsharders/core/src/transports/console.ts"
       ],
-      "d:/coding/discord-sharders/core/src/cluster.ts": [
-        "d:/coding/discord-sharders/core/src/cluster/communication.ts",
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/cluster.ts": [
+        "d:/coding/discordsharders/core/src/cluster/communication.ts",
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/index.ts": [
-        "d:/coding/discord-sharders/core/src/cluster/communication.ts",
-        "d:/coding/discord-sharders/core/src/destinations/discord.ts",
-        "d:/coding/discord-sharders/core/src/modules/alerts.ts",
-        "d:/coding/discord-sharders/core/src/modules/clustering.ts",
-        "d:/coding/discord-sharders/core/src/modules/communication.ts",
-        "d:/coding/discord-sharders/core/src/modules/configuration.ts",
-        "d:/coding/discord-sharders/core/src/transports/console.ts",
-        "d:/coding/discord-sharders/core/src/modules/logger.ts",
-        "d:/coding/discord-sharders/core/src/modules/queue.ts",
-        "d:/coding/discord-sharders/core/src/modules/registry.ts",
-        "d:/coding/discord-sharders/core/src/sharder.ts",
-        "d:/coding/discord-sharders/core/src/modules/sharding.ts",
-        "d:/coding/discord-sharders/core/src/modules/stats.ts",
-        "d:/coding/discord-sharders/core/src/cluster.ts"
+      "d:/coding/discordsharders/core/index.ts": [
+        "d:/coding/discordsharders/core/src/cluster/communication.ts",
+        "d:/coding/discordsharders/core/src/destinations/discord.ts",
+        "d:/coding/discordsharders/core/src/modules/alerts.ts",
+        "d:/coding/discordsharders/core/src/modules/clustering.ts",
+        "d:/coding/discordsharders/core/src/modules/communication.ts",
+        "d:/coding/discordsharders/core/src/modules/configuration.ts",
+        "d:/coding/discordsharders/core/src/transports/console.ts",
+        "d:/coding/discordsharders/core/src/modules/logger.ts",
+        "d:/coding/discordsharders/core/src/modules/queue.ts",
+        "d:/coding/discordsharders/core/src/modules/registry.ts",
+        "d:/coding/discordsharders/core/src/sharder.ts",
+        "d:/coding/discordsharders/core/src/modules/sharding.ts",
+        "d:/coding/discordsharders/core/src/modules/stats.ts",
+        "d:/coding/discordsharders/core/src/cluster.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/fs-extra/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/fs-extra/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/glob/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/minimatch/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/glob/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/minimatch/index.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/shelljs/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/glob/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/shelljs/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/glob/index.d.ts"
       ]
     },
     "exportedModulesMap": {
-      "d:/coding/discord-sharders/core/node_modules/@types/node/inspector.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es5.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/node/inspector.d.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/communication.ts": [
-        "d:/coding/discord-sharders/core/src/typings/common.ts",
-        "d:/coding/discord-sharders/core/src/typings/registry.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/configuration.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/logger.ts": [
-        "d:/coding/discord-sharders/core/src/typings/common.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/queue.ts": [
-        "d:/coding/discord-sharders/core/src/typings/common.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/sharding.ts": [
-        "d:/coding/discord-sharders/core/src/typings/registry.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/cluster.ts": [
-        "d:/coding/discord-sharders/core/src/typings/communication.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/discovery.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/typings/index.ts": [
-        "d:/coding/discord-sharders/core/src/typings/alerts.ts",
-        "d:/coding/discord-sharders/core/src/typings/cluster.ts",
-        "d:/coding/discord-sharders/core/src/typings/clustering.ts",
-        "d:/coding/discord-sharders/core/src/typings/common.ts",
-        "d:/coding/discord-sharders/core/src/typings/communication.ts",
-        "d:/coding/discord-sharders/core/src/typings/configuration.ts",
-        "d:/coding/discord-sharders/core/src/typings/discovery.ts",
-        "d:/coding/discord-sharders/core/src/typings/logger.ts",
-        "d:/coding/discord-sharders/core/src/typings/queue.ts",
-        "d:/coding/discord-sharders/core/src/typings/registry.ts",
-        "d:/coding/discord-sharders/core/src/typings/sharding.ts",
-        "d:/coding/discord-sharders/core/src/typings/stats.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/cluster/communication.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/eris/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/destinations/discord.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/alerts.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/clustering.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/communication.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/configuration.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/transports/console.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/logger.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/queue.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/events/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/registry.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/node/inspector.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/sharding.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/inspector.d.ts"
       ],
-      "d:/coding/discord-sharders/core/src/modules/stats.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/typings/communication.ts": [
+        "d:/coding/discordsharders/core/src/typings/common.ts",
+        "d:/coding/discordsharders/core/src/typings/registry.ts"
       ],
-      "d:/coding/discord-sharders/core/src/sharder.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/typings/configuration.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/src/cluster.ts": [
-        "d:/coding/discord-sharders/core/src/typings/index.ts"
+      "d:/coding/discordsharders/core/src/typings/logger.ts": [
+        "d:/coding/discordsharders/core/src/typings/common.ts"
       ],
-      "d:/coding/discord-sharders/core/index.ts": [
-        "d:/coding/discord-sharders/core/src/sharder.ts",
-        "d:/coding/discord-sharders/core/src/cluster.ts",
-        "d:/coding/discord-sharders/core/src/cluster/communication.ts",
-        "d:/coding/discord-sharders/core/src/destinations/discord.ts",
-        "d:/coding/discord-sharders/core/src/modules/alerts.ts",
-        "d:/coding/discord-sharders/core/src/modules/clustering.ts",
-        "d:/coding/discord-sharders/core/src/modules/communication.ts",
-        "d:/coding/discord-sharders/core/src/modules/configuration.ts",
-        "d:/coding/discord-sharders/core/src/modules/logger.ts",
-        "d:/coding/discord-sharders/core/src/modules/queue.ts",
-        "d:/coding/discord-sharders/core/src/modules/registry.ts",
-        "d:/coding/discord-sharders/core/src/modules/sharding.ts",
-        "d:/coding/discord-sharders/core/src/modules/stats.ts",
-        "d:/coding/discord-sharders/core/src/transports/console.ts"
+      "d:/coding/discordsharders/core/src/typings/queue.ts": [
+        "d:/coding/discordsharders/core/src/typings/common.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/fs-extra/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts"
+      "d:/coding/discordsharders/core/src/typings/sharding.ts": [
+        "d:/coding/discordsharders/core/src/typings/registry.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/glob/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/minimatch/index.d.ts"
+      "d:/coding/discordsharders/core/src/typings/cluster.ts": [
+        "d:/coding/discordsharders/core/src/typings/communication.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/typings/discovery.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/typings/index.ts": [
+        "d:/coding/discordsharders/core/src/typings/alerts.ts",
+        "d:/coding/discordsharders/core/src/typings/cluster.ts",
+        "d:/coding/discordsharders/core/src/typings/clustering.ts",
+        "d:/coding/discordsharders/core/src/typings/common.ts",
+        "d:/coding/discordsharders/core/src/typings/communication.ts",
+        "d:/coding/discordsharders/core/src/typings/configuration.ts",
+        "d:/coding/discordsharders/core/src/typings/discovery.ts",
+        "d:/coding/discordsharders/core/src/typings/logger.ts",
+        "d:/coding/discordsharders/core/src/typings/queue.ts",
+        "d:/coding/discordsharders/core/src/typings/registry.ts",
+        "d:/coding/discordsharders/core/src/typings/sharding.ts",
+        "d:/coding/discordsharders/core/src/typings/stats.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/cluster/communication.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/eris/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/events.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/stream.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/destinations/discord.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/modules/alerts.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/modules/clustering.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/modules/communication.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/events.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/modules/configuration.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/node_modules/chalk/types/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/transports/console.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts"
+      "d:/coding/discordsharders/core/src/modules/logger.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts"
+      "d:/coding/discordsharders/core/src/modules/queue.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
       ],
-      "d:/coding/discord-sharders/core/node_modules/@types/shelljs/index.d.ts": [
-        "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-        "d:/coding/discord-sharders/core/node_modules/@types/glob/index.d.ts"
+      "d:/coding/discordsharders/core/src/modules/registry.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
+      ],
+      "d:/coding/discordsharders/core/src/modules/sharding.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
+      ],
+      "d:/coding/discordsharders/core/src/modules/stats.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
+      ],
+      "d:/coding/discordsharders/core/src/sharder.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
+      ],
+      "d:/coding/discordsharders/core/src/cluster.ts": [
+        "d:/coding/discordsharders/core/src/typings/index.ts"
+      ],
+      "d:/coding/discordsharders/core/index.ts": [
+        "d:/coding/discordsharders/core/src/sharder.ts",
+        "d:/coding/discordsharders/core/src/cluster.ts",
+        "d:/coding/discordsharders/core/src/cluster/communication.ts",
+        "d:/coding/discordsharders/core/src/destinations/discord.ts",
+        "d:/coding/discordsharders/core/src/modules/alerts.ts",
+        "d:/coding/discordsharders/core/src/modules/clustering.ts",
+        "d:/coding/discordsharders/core/src/modules/communication.ts",
+        "d:/coding/discordsharders/core/src/modules/configuration.ts",
+        "d:/coding/discordsharders/core/src/modules/logger.ts",
+        "d:/coding/discordsharders/core/src/modules/queue.ts",
+        "d:/coding/discordsharders/core/src/modules/registry.ts",
+        "d:/coding/discordsharders/core/src/modules/sharding.ts",
+        "d:/coding/discordsharders/core/src/modules/stats.ts",
+        "d:/coding/discordsharders/core/src/transports/console.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/fs-extra/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/fs.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/minimatch/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/glob/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/events.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/minimatch/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/highlight.js/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/marked/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/coding/discordsharders/core/node_modules/@types/shelljs/index.d.ts": [
+        "d:/coding/discordsharders/core/node_modules/@types/node/child_process.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/glob/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/util.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+        "d:/coding/discordsharders/core/node_modules/@types/node/ts3.2/util.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es5.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2016.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.core.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.collection.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.generator.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.promise.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.object.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.string.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.intl.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/events/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/node/inspector.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/node/index.d.ts",
-      "d:/coding/discord-sharders/core/src/typings/alerts.ts",
-      "d:/coding/discord-sharders/core/src/typings/clustering.ts",
-      "d:/coding/discord-sharders/core/src/typings/common.ts",
-      "d:/coding/discord-sharders/core/src/typings/registry.ts",
-      "d:/coding/discord-sharders/core/src/typings/communication.ts",
-      "d:/coding/discord-sharders/core/src/typings/configuration.ts",
-      "d:/coding/discord-sharders/core/src/typings/logger.ts",
-      "d:/coding/discord-sharders/core/src/typings/queue.ts",
-      "d:/coding/discord-sharders/core/src/typings/sharding.ts",
-      "d:/coding/discord-sharders/core/src/typings/stats.ts",
-      "d:/coding/discord-sharders/core/src/typings/cluster.ts",
-      "d:/coding/discord-sharders/core/src/typings/discovery.ts",
-      "d:/coding/discord-sharders/core/src/typings/index.ts",
-      "d:/coding/discord-sharders/core/src/cluster/communication.ts",
-      "d:/coding/discord-sharders/core/node_modules/eris/index.d.ts",
-      "d:/coding/discord-sharders/core/src/destinations/discord.ts",
-      "d:/coding/discord-sharders/core/src/modules/alerts.ts",
-      "d:/coding/discord-sharders/core/src/modules/clustering.ts",
-      "d:/coding/discord-sharders/core/src/modules/communication.ts",
-      "d:/coding/discord-sharders/core/src/modules/configuration.ts",
-      "d:/coding/discord-sharders/core/node_modules/chalk/types/index.d.ts",
-      "d:/coding/discord-sharders/core/src/transports/console.ts",
-      "d:/coding/discord-sharders/core/src/modules/logger.ts",
-      "d:/coding/discord-sharders/core/src/modules/queue.ts",
-      "d:/coding/discord-sharders/core/src/modules/registry.ts",
-      "d:/coding/discord-sharders/core/src/modules/sharding.ts",
-      "d:/coding/discord-sharders/core/src/modules/stats.ts",
-      "d:/coding/discord-sharders/core/src/sharder.ts",
-      "d:/coding/discord-sharders/core/src/cluster.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/fs-extra/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/minimatch/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/glob/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/handlebars/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/highlight.js/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/common.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/array.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/collection.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/date.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/function.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/lang.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/math.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/number.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/object.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/seq.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/string.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/common/util.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/lodash/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/marked/index.d.ts",
-      "d:/coding/discord-sharders/core/node_modules/@types/shelljs/index.d.ts",
-      "d:/coding/discord-sharders/core/index.ts"
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es5.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2016.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "d:/coding/discordsharders/core/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/events/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/node/inspector.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/node/index.d.ts",
+      "d:/coding/discordsharders/core/src/typings/alerts.ts",
+      "d:/coding/discordsharders/core/src/typings/clustering.ts",
+      "d:/coding/discordsharders/core/src/typings/common.ts",
+      "d:/coding/discordsharders/core/src/typings/registry.ts",
+      "d:/coding/discordsharders/core/src/typings/logger.ts",
+      "d:/coding/discordsharders/core/src/typings/queue.ts",
+      "d:/coding/discordsharders/core/src/typings/sharding.ts",
+      "d:/coding/discordsharders/core/src/typings/stats.ts",
+      "d:/coding/discordsharders/core/node_modules/eris/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/chalk/types/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/fs-extra/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/minimatch/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/glob/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/highlight.js/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/common.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/array.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/collection.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/date.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/function.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/lang.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/math.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/number.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/object.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/seq.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/string.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/common/util.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/lodash/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/marked/index.d.ts",
+      "d:/coding/discordsharders/core/node_modules/@types/shelljs/index.d.ts",
+      "d:/coding/discordsharders/core/src/typings/communication.ts",
+      "d:/coding/discordsharders/core/src/typings/configuration.ts",
+      "d:/coding/discordsharders/core/src/typings/cluster.ts",
+      "d:/coding/discordsharders/core/src/typings/discovery.ts",
+      "d:/coding/discordsharders/core/src/typings/index.ts",
+      "d:/coding/discordsharders/core/src/cluster/communication.ts",
+      "d:/coding/discordsharders/core/src/destinations/discord.ts",
+      "d:/coding/discordsharders/core/src/modules/alerts.ts",
+      "d:/coding/discordsharders/core/src/modules/clustering.ts",
+      "d:/coding/discordsharders/core/src/modules/communication.ts",
+      "d:/coding/discordsharders/core/src/modules/configuration.ts",
+      "d:/coding/discordsharders/core/src/transports/console.ts",
+      "d:/coding/discordsharders/core/src/modules/logger.ts",
+      "d:/coding/discordsharders/core/src/modules/queue.ts",
+      "d:/coding/discordsharders/core/src/modules/registry.ts",
+      "d:/coding/discordsharders/core/src/modules/sharding.ts",
+      "d:/coding/discordsharders/core/src/modules/stats.ts",
+      "d:/coding/discordsharders/core/src/sharder.ts",
+      "d:/coding/discordsharders/core/src/cluster.ts",
+      "d:/coding/discordsharders/core/index.ts"
     ]
   },
   "version": "3.5.2"

@@ -1,6 +1,6 @@
 import * as master from 'cluster';
 import { EventEmitter } from 'events';
-import uuid from 'uuid/v1';
+import { v1 as uuid } from 'uuid';
 import { ICommunication, ICommunicationOptions, IJSON, ILogger, IRegistry } from '../typings';
 
 /**
@@ -40,40 +40,40 @@ export class Communication extends EventEmitter implements ICommunication {
     public init(): Promise<void> {
         return new Promise(res => {
             master.on('message', (worker, msg) => {
-                this.emit(msg.event, msg.data);
+                this.emit(msg.event, msg);
             });
 
-            this.on('core.send', data => {
-                this.send(data.instanceID, data.clusterID, data.payload.event, data.payload.data);
+            this.on('core.send', msg => {
+                this.send(msg.data.instanceID, msg.data.clusterID, msg.data.payload.event, msg.data.payload.data);
             });
 
-            this.on('core.awaitResponse', (data) => {
-                this.awaitResponse(data.instanceID, data.clusterID, data.payload.event, data.payload.data).then(response => {
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, response);
+            this.on('core.awaitResponse', msg => {
+                this.awaitResponse(msg.data.instanceID, msg.data.clusterID, msg.data.payload.event, msg.data.payload.data).then(response => {
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, response);
                 }).catch(err => {
                     this.logger.error({
                         msg: err,
                         src: 'Communication',
                     });
 
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, { err: true, message: err.message });
                 });
             });
 
-            this.on('core.broadcast', data => {
-                this.broadcast(data.instanceID, data.payload.event, data.payload.data);
+            this.on('core.broadcast', msg => {
+                this.broadcast(msg.data.instanceID, msg.data.payload.event, msg.data.payload.data);
             });
 
-            this.on('core.awaitBroadcast', data => {
-                this.awaitBroadcast(data.instanceID, data.payload.event, data.payload.data).then(responses => {
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, responses);
+            this.on('core.awaitBroadcast', msg => {
+                this.awaitBroadcast(msg.data.instanceID, msg.data.payload.event, msg.data.payload.data).then(responses => {
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, responses);
                 }).catch(err => {
                     this.logger.error({
                         msg: err,
                         src: 'Communication',
                     });
 
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, { err: true, message: err.message });
                 });
             });
 

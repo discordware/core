@@ -1,10 +1,12 @@
-const { Sharder } = require('../dist');
+const { Sharder, Cluster } = require('../dist');
 const master = require('cluster');
 const Eris = require('eris');
 
+require('dotenv').config();
+
 if (master.isMaster) {
     let sharder = new Sharder('test', {
-        token: 'asdf',
+        token: process.env.TOKEN,
         sharding: {
             firstShardID: 0,
             shards: 2
@@ -16,8 +18,12 @@ if (master.isMaster) {
         });
     });
 } else {
-    process.on('message', async (msg) => {
-        if (msg.event === 'connect') {
+    (async () => {
+        const cluster = new Cluster();
+
+        await cluster.init();
+
+        cluster.communication.on('connect', async (msg) => {
             const firstShardID = parseInt(process.env.FIRST_SHARD_ID);
             const lastShardID = parseInt(process.env.LAST_SHARD_ID);
             const maxShards = parseInt(process.env.MAX_SHARDS);
@@ -49,6 +55,16 @@ if (master.isMaster) {
             } catch (err) {
                 console.log(err);
             }
-        }
-    });
+
+            if (cluster.clusterID === 0) {
+                setTimeout(() => {
+                    cluster.communication.awaitResponse(cluster.instanceID, 1, 'hello', { ok: true });
+                }, 1000 * 6);
+            }
+        });
+
+        cluster.communication.on('hello', async msg => {
+            console.log(msg);
+        });
+    })();
 }

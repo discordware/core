@@ -16,8 +16,8 @@ export class Cluster implements ICluster {
      * @memberof Cluster
      */
     constructor(options: IClusterOptions, modules: IClusterModules) {
-        this.options = options;
-        this.modules = modules;
+        this.options = options || {};
+        this.modules = modules || {};
     }
 
     /**

@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { EventEmitter } from 'events';
-import { IClusterCommunication, IClusterCommunicationOptions, IJSON } from '../typings';
+import { IClusterCommunication, IClusterCommunicationOptions, IJSON, IReplyPayload } from '../typings';
 /**
  * Cluster-side communication module
  */
@@ -31,6 +31,7 @@ export declare class ClusterCommunication extends EventEmitter implements IClust
      * @memberof ClusterCommunication
      */
     send(instanceID: string, clusterID: number, event: string, data: IJSON): Promise<void>;
+    reply(instanceID: string, msg: IReplyPayload, data: IJSON): Promise<void>;
     /**
      * Send an event and wait for response
      *

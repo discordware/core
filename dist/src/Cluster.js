@@ -20,8 +20,8 @@ class Cluster {
      * @memberof Cluster
      */
     constructor(options, modules) {
-        this.options = options;
-        this.modules = modules;
+        this.options = options || {};
+        this.modules = modules || {};
     }
     /**
      * Bot token

@@ -88,7 +88,9 @@ export class Clustering implements IClustering {
             this.onExit(worker, code);
         });
 
-        this.communication.on('cluster.connected', data => {
+        this.communication.on('cluster.connected', msg => {
+            let data = msg.data;
+            
             let connectCallback = this.callbacks.connect[data.clusterID];
             let restartCallback = this.callbacks.restart[data.clusterID];
 
@@ -130,7 +132,7 @@ export class Clustering implements IClustering {
         } catch (err) {
             this.logger.error({
                 msg: err,
-                src: 'Clustering',
+                src: 'Registry',
             });
         }
 

@@ -1,4 +1,4 @@
-import { IAlerts, IClustering, ICommunication, IConfig, IConfiguration, IInstanceConfig, ILogger, IModules, IQueue, IRegistry, ISharderOptions, ISharding, IStats } from './typings';
+import { IAlerts, IClustering, ICommunication, IConfig, IConfiguration, IInstanceConfig, ILogger, IModules, IQueue, IRegistry, ISharderOptions, ISharding } from './typings';
 
 // Modules
 import Alerts from './modules/Alerts';
@@ -9,7 +9,6 @@ import Logger from './modules/Logger';
 import Queue from './modules/Queue';
 import Registry from './modules/Registry';
 import Sharding from './modules/Sharding';
-import Stats from './modules/Stats';
 
 // Default transport
 import Console from './transports/Console';
@@ -29,7 +28,6 @@ export class Sharder {
     private communication: ICommunication;
     private sharding: ISharding;
     private clustering: IClustering;
-    private stats: IStats;
 
     /**
      * Creates an instance of Sharder.
@@ -67,7 +65,6 @@ export class Sharder {
         this.communication = this.modules.communication || new Communication(this.options.communication, this.logger, this.registry);
         this.sharding = this.modules.sharding || new Sharding(this.options.sharding, this.options.token, this.instanceID, this.registry, this.logger, this.alerts);
         this.clustering = this.modules.clustering || new Clustering(this.options.clustering, this.instanceID, this.communication, this.sharding, this.registry, this.logger, this.alerts, this.queue);
-        this.stats = this.modules.stats || new Stats(this.options.stats, this.communication, this.logger);
 
         return Promise.resolve();
     }
@@ -92,8 +89,6 @@ export class Sharder {
         await this.registry.registerInstance(this.instanceID, this.options.instanceOptions);
 
         await this.clustering.init();
-
-        this.stats.init();
 
         return Promise.resolve();
     }

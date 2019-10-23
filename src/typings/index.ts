@@ -6,7 +6,6 @@ import * as logger from './logger';
 import * as queue from './queue';
 import * as registry from './registry';
 import * as sharding from './sharding';
-import * as stats from './stats';
 
 export interface IModules {
     alerts?: alerts.IAlerts;
@@ -16,7 +15,6 @@ export interface IModules {
     communication?: communication.ICommunication;
     clustering?: clustering.IClustering;
     sharding?: sharding.ISharding;
-    stats?: stats.IStats;
     configuration?: configuration.IConfiguration;
 }
 
@@ -26,7 +24,6 @@ export interface ISharderOptions {
     communication?: communication.ICommunicationOptions;
     sharding?: sharding.IShardingOptions;
     clustering: clustering.IClusteringOptions;
-    stats?: stats.IStatsOptions;
     console?: logger.ITransportOptions;
 }
 
@@ -41,4 +38,3 @@ export * from './logger';
 export * from './queue';
 export * from './registry';
 export * from './sharding';
-export * from './stats';

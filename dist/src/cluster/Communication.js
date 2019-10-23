@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const cluster = require("cluster");
 const events_1 = require("events");
-const v1_1 = require("uuid/v1");
+const uuid_1 = require("uuid");
 /**
  * Cluster-side communication module
  */
@@ -14,7 +14,7 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     constructor(options) {
         super();
-        this.options = options;
+        this.options = options || {};
         this.reqTimeout = this.options.timeout || 5;
     }
     /**
@@ -25,7 +25,7 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     init() {
         process.on('message', (msg) => {
-            this.emit(msg.event, msg.data);
+            this.emit(msg.event, msg);
         });
         return Promise.resolve();
     }
@@ -54,6 +54,14 @@ class ClusterCommunication extends events_1.EventEmitter {
         });
         return Promise.resolve();
     }
+    reply(instanceID, msg, data) {
+        let payload = {
+            event: msg.id,
+            data,
+        };
+        process.send(payload);
+        return Promise.resolve();
+    }
     /**
      * Send an event and wait for response
      *
@@ -69,7 +77,7 @@ class ClusterCommunication extends events_1.EventEmitter {
             let payload = {
                 data,
                 event,
-                id: v1_1.default(),
+                id: uuid_1.v1(),
             };
             process.send({
                 data: {
@@ -133,7 +141,7 @@ class ClusterCommunication extends events_1.EventEmitter {
             let payload = {
                 data,
                 event,
-                id: v1_1.default(),
+                id: uuid_1.v1(),
             };
             process.send({
                 data: {

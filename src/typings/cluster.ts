@@ -1,11 +1,11 @@
 import { IClusterCommunication, IClusterCommunicationOptions } from './communication';
 
 export interface IClusterOptions {
-    communication: IClusterCommunicationOptions;
+    communication?: IClusterCommunicationOptions;
 }
 
 export interface IClusterModules {
-    communication: IClusterCommunication;
+    communication?: IClusterCommunication;
 }
 
 export interface ICluster {
