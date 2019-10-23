@@ -40,9 +40,9 @@ class Stats {
      */
     addMetric(name, method, type) {
         this.metrics[name] = {
+            enabled: true,
             method,
             type,
-            enabled: true,
         };
     }
     /**
@@ -56,4 +56,5 @@ class Stats {
         this.metrics[name].enabled = false;
     }
 }
+exports.Stats = Stats;
 exports.default = Stats;

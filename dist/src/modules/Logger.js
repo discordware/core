@@ -137,4 +137,5 @@ class Logger {
         });
     }
 }
+exports.Logger = Logger;
 exports.default = Logger;

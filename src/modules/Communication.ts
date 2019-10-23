@@ -1,6 +1,6 @@
 import * as master from 'cluster';
 import { EventEmitter } from 'events';
-import uuid from 'uuid/v1';
+import { v1 as uuid } from 'uuid';
 import { ICommunication, ICommunicationOptions, IJSON, ILogger, IRegistry } from '../typings';
 
 /**
@@ -10,7 +10,7 @@ import { ICommunication, ICommunicationOptions, IJSON, ILogger, IRegistry } from
  * @extends {EventEmitter}
  * @interface
  */
-export default class Communication extends EventEmitter implements ICommunication {
+export class Communication extends EventEmitter implements ICommunication {
     private options: ICommunicationOptions;
     private logger: ILogger;
     private registry: IRegistry;
@@ -25,7 +25,7 @@ export default class Communication extends EventEmitter implements ICommunicatio
      */
     constructor(options: ICommunicationOptions, logger: ILogger, registry: IRegistry) {
         super();
-        this.options = options;
+        this.options = options || {};
         this.logger = logger;
         this.registry = registry;
         this.reqTimeout = this.options.timeout || 5;
@@ -40,40 +40,40 @@ export default class Communication extends EventEmitter implements ICommunicatio
     public init(): Promise<void> {
         return new Promise(res => {
             master.on('message', (worker, msg) => {
-                this.emit(msg.event, msg.data, worker.id);
+                this.emit(msg.event, msg);
             });
 
-            this.on('send', data => {
-                this.send(data.instanceID, data.clusterID, data.payload.event, data.payload.data);
+            this.on('core.send', msg => {
+                this.send(msg.data.instanceID, msg.data.clusterID, msg.data.payload.event, msg.data.payload.data);
             });
 
-            this.on('awaitResponse', (data) => {
-                this.awaitResponse(data.instanceID, data.clusterID, data.payload.event, data.payload.data).then(response => {
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, response);
+            this.on('core.awaitResponse', msg => {
+                this.awaitResponse(msg.data.instanceID, msg.data.clusterID, msg.data.payload.event, msg.data.payload.data).then(response => {
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, response);
                 }).catch(err => {
                     this.logger.error({
-                        src: 'Communication',
                         msg: err,
+                        src: 'Communication',
                     });
 
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, { err: true, message: err.message });
                 });
             });
 
-            this.on('broadcast', data => {
-                this.broadcast(data.instanceID, data.payload.event, data.payload.data);
+            this.on('core.broadcast', msg => {
+                this.broadcast(msg.data.instanceID, msg.data.payload.event, msg.data.payload.data);
             });
 
-            this.on('awaitResponse', data => {
-                this.awaitBroadcast(data.instanceID, data.payload.event, data.payload.data).then(responses => {
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, responses);
+            this.on('core.awaitBroadcast', msg => {
+                this.awaitBroadcast(msg.data.instanceID, msg.data.payload.event, msg.data.payload.data).then(responses => {
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, responses);
                 }).catch(err => {
                     this.logger.error({
-                        src: 'Communication',
                         msg: err,
+                        src: 'Communication',
                     });
 
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, { err: true, message: err.message });
                 });
             });
 
@@ -88,8 +88,8 @@ export default class Communication extends EventEmitter implements ICommunicatio
      */
     public connectToPeer() {
         this.logger.error({
-            src: 'Communication',
             msg: 'Peer connections not supported. Different communication module required.',
+            src: 'Communication',
         });
 
         return Promise.resolve();
@@ -102,8 +102,8 @@ export default class Communication extends EventEmitter implements ICommunicatio
      */
     public updateConnection() {
         this.logger.error({
-            src: 'Communication',
             msg: 'Peer connections not supported. Different communication module required.',
+            src: 'Communication',
         });
 
         return Promise.resolve();
@@ -121,8 +121,8 @@ export default class Communication extends EventEmitter implements ICommunicatio
      */
     public send(instanceID: string, clusterID: number, event: string, data: IJSON): Promise<void> {
         let payload = {
-            event,
             data,
+            event,
         };
 
         return this.registry.getCluster(instanceID, clusterID).then(cluster => {
@@ -148,8 +148,8 @@ export default class Communication extends EventEmitter implements ICommunicatio
     public awaitResponse(instanceID: string, clusterID: number, event: string, data: IJSON): Promise<IJSON> {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
+                event,
                 id: uuid(),
             };
 
@@ -212,3 +212,5 @@ export default class Communication extends EventEmitter implements ICommunicatio
         });
     }
 }
+
+export default Communication;

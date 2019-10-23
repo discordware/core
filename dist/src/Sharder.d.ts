@@ -2,7 +2,7 @@ import { IInstanceConfig, IModules, ISharderOptions } from './typings';
 /**
  * Main Sharder class
  */
-export default class Sharder {
+export declare class Sharder {
     private instanceID;
     private modules;
     private config;
@@ -72,3 +72,4 @@ export default class Sharder {
      */
     peerUpdate(instanceID: string): Promise<void>;
 }
+export default Sharder;

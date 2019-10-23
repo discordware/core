@@ -1,27 +1,42 @@
+import ClusterCommunication from './src/cluster/Communication';
+import DiscordDestination from './src/destinations/Discord';
+import Alerts from './src/modules/Alerts';
+import Clustering from './src/modules/Clustering';
+import Communication from './src/modules/Communication';
+import Configuration from './src/modules/Configuration';
+import Console from './src/transports/Console';
+import Logger from './src/modules/Logger';
+import Queue from './src/modules/Queue';
+import Registry from './src/modules/Registry';
 import Sharder from './src/Sharder';
+import Sharding from './src/modules/Sharding';
+import Stats from './src/modules/Stats';
 
-Object.assign(Sharder, {
-    Cluster: require('./src/Cluster'),
-    ClusterModules: {
-        Communication: require('./src/cluster/Communication'),
-    },
-    Modules: {
-        Alerts: require('./src/modules/Alerts'),
-        Clustering: require('./src/modules/Clustering'),
-        Communication: require('./src/modules/Communication'),
-        Configuration: require('./src/modules/Configuration'),
-        Logger: require('./src/modules/Logger'),
-        Queue: require('./src/modules/Queue'),
-        Registry: require('./src/modules/Registry'),
-        Sharding: require('./src/modules/Sharding'),
-        Stats: require('./src/modules/Stats'),
-    },
-    Transports: {
-        Console: require('./src/transports/Console'),
-    },
-    Destinations: {
-        Discord: require('./src/destinations/Discord'),
-    },
-});
+export * from './src/Cluster';
+export * from './src/Sharder';
+
+export const ClusterModules = {
+    Communication: ClusterCommunication,
+};
+
+export const Destinations = {
+    Discord: DiscordDestination,
+};
+
+export const Modules = {
+    Alerts,
+    Clustering,
+    Communication,
+    Configuration,
+    Logger,
+    Queue,
+    Registry,
+    Sharding,
+    Stats,
+};
+
+export const Transports = {
+    Console,
+};
 
 export default Sharder;

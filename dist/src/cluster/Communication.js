@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const cluster = require("cluster");
 const events_1 = require("events");
-const v1_1 = require("uuid/v1");
+const uuid_1 = require("uuid");
 /**
  * Cluster-side communication module
  */
@@ -14,7 +14,7 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     constructor(options) {
         super();
-        this.options = options;
+        this.options = options || {};
         this.reqTimeout = this.options.timeout || 5;
     }
     /**
@@ -25,7 +25,7 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     init() {
         process.on('message', (msg) => {
-            this.emit(msg.event, msg.data);
+            this.emit(msg.event, msg);
         });
         return Promise.resolve();
     }
@@ -41,17 +41,25 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     send(instanceID, clusterID, event, data) {
         let payload = {
-            event,
             data,
+            event,
         };
         process.send({
-            event: 'send',
             data: {
-                instanceID,
                 clusterID,
+                instanceID,
                 payload,
             },
+            event: 'core.send',
         });
+        return Promise.resolve();
+    }
+    reply(instanceID, msg, data) {
+        let payload = {
+            event: msg.id,
+            data,
+        };
+        process.send(payload);
         return Promise.resolve();
     }
     /**
@@ -67,20 +75,20 @@ class ClusterCommunication extends events_1.EventEmitter {
     awaitResponse(instanceID, clusterID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
-                id: v1_1.default(),
+                event,
+                id: uuid_1.v1(),
             };
             process.send({
-                event: 'awaitResponse',
                 data: {
-                    instanceID,
                     clusterID,
+                    instanceID,
                     payload,
                 },
+                event: 'core.awaitResponse',
                 resp: {
-                    instanceID: process.env.INSTANCE_ID,
                     clusterID: process.env.CLUSTER_ID,
+                    instanceID: process.env.INSTANCE_ID,
                     workerID: cluster.worker.id,
                 },
             });
@@ -107,15 +115,15 @@ class ClusterCommunication extends events_1.EventEmitter {
      */
     broadcast(instanceID, event, data) {
         let payload = {
-            event,
             data,
+            event,
         };
         process.send({
-            event: 'broadcast',
             data: {
                 instanceID,
                 payload,
             },
+            event: 'core.broadcast',
         });
         return Promise.resolve([]);
     }
@@ -131,16 +139,16 @@ class ClusterCommunication extends events_1.EventEmitter {
     awaitBroadcast(instanceID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
-                id: v1_1.default(),
+                event,
+                id: uuid_1.v1(),
             };
             process.send({
-                event: 'awaitBroadcast',
                 data: {
                     instanceID,
                     payload,
                 },
+                event: 'core.awaitBroadcast',
             });
             let timeout = setTimeout(() => {
                 rej(new Error(`Request ${payload.id} timed out`));
@@ -152,4 +160,5 @@ class ClusterCommunication extends events_1.EventEmitter {
         });
     }
 }
+exports.ClusterCommunication = ClusterCommunication;
 exports.default = ClusterCommunication;

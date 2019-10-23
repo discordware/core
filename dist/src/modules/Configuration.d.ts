@@ -5,7 +5,7 @@ import { IConfiguration, ISharderOptions } from '../typings';
  * @class Configuration
  * @interface
  */
-export default class Configuration implements IConfiguration {
+export declare class Configuration implements IConfiguration {
     private instanceID;
     private options;
     /**
@@ -29,12 +29,13 @@ export default class Configuration implements IConfiguration {
      * @memberof Configuration
      */
     getConfig(): Promise<{
-        token: string;
-        instanceOptions: import("../typings").IInstanceConfig;
         clustering: import("../typings").IClusteringOptions;
-        sharding: import("../typings").IShardingOptions;
-        stats: import("../typings").IStatsOptions;
         communication: import("../typings").ICommunicationOptions;
         console: import("../typings").ITransportOptions;
+        instanceOptions: import("../typings").IInstanceConfig;
+        sharding: import("../typings").IShardingOptions;
+        stats: import("../typings").IStatsOptions;
+        token: string;
     }>;
 }
+export default Configuration;

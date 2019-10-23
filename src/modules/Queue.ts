@@ -5,7 +5,7 @@ import { IJob, IJSON, IQueue } from '../typings/index';
  *
  * @class Queue
  */
-export default class Queue implements IQueue {
+export class Queue implements IQueue {
     private queues: {[name: string]: Array<IJob<IJSON>>};
 
     /**
@@ -69,3 +69,5 @@ export default class Queue implements IQueue {
         job.callback(job.data, callback);
     }
 }
+
+export default Queue;

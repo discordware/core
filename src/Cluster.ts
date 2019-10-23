@@ -4,7 +4,7 @@ import { ICluster, IClusterCommunication, IClusterModules, IClusterOptions } fro
 /**
  * Helper class for dealing with Cluster side things
  */
-class Cluster implements ICluster {
+export class Cluster implements ICluster {
     public communication: IClusterCommunication;
     private options: IClusterOptions;
     private modules: IClusterModules;
@@ -16,8 +16,8 @@ class Cluster implements ICluster {
      * @memberof Cluster
      */
     constructor(options: IClusterOptions, modules: IClusterModules) {
-        this.options = options;
-        this.modules = modules;
+        this.options = options || {};
+        this.modules = modules || {};
     }
 
     /**
@@ -95,4 +95,4 @@ class Cluster implements ICluster {
     }
 }
 
-module.exports = Cluster;
+export default Cluster;

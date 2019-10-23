@@ -1,5 +1,5 @@
 import { ILog, ITransport, ITransportOptions } from '../typings';
-export default class Console implements ITransport {
+export declare class Console implements ITransport {
     name: string;
     private options;
     constructor(options: ITransportOptions);
@@ -13,3 +13,4 @@ export default class Console implements ITransport {
     log(data: ILog): void;
     warn(data: ILog): void;
 }
+export default Console;

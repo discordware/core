@@ -5,7 +5,7 @@ import { IAlerts, IClustering, IClusteringOptions, ICommunication, ILogger, IQue
  * @class Clustering
  * @interface
  */
-export default class Clustering implements IClustering {
+export declare class Clustering implements IClustering {
     private options;
     private queue;
     private instanceID;
@@ -50,3 +50,4 @@ export default class Clustering implements IClustering {
     private restartCluster;
     private onExit;
 }
+export default Clustering;

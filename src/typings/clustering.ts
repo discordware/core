@@ -1,6 +1,6 @@
 export interface IClusteringOptions {
-    clusters: number;
-    env: { [key: string]: string | number };
+    clusters?: number;
+    env?: { [key: string]: string | number };
 }
 
 export interface IClustering {

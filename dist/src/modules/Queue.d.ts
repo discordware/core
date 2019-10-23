@@ -4,7 +4,7 @@ import { IJob, IJSON, IQueue } from '../typings/index';
  *
  * @class Queue
  */
-export default class Queue implements IQueue {
+export declare class Queue implements IQueue {
     private queues;
     /**
      * Creates an instance of Queue.
@@ -30,3 +30,4 @@ export default class Queue implements IQueue {
     enqueue<T extends IJSON>(queue: string, job: IJob<T>): void;
     process(queue: string): void;
 }
+export default Queue;

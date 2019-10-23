@@ -5,7 +5,7 @@ import { IAlerts, ILogger, IRegistry, IShardConfig, ISharding, IShardingOptions 
  *
  * @class Sharding
  */
-export default class Sharding implements ISharding {
+export class Sharding implements ISharding {
     public token: string;
     private firstShardID: number;
     private lastShardID: number;
@@ -44,6 +44,14 @@ export default class Sharding implements ISharding {
      */
     public init() {
         return Promise.resolve();
+    }
+
+    public getShardConfig() {
+        return {
+            firstShardID: this.firstShardID,
+            lastShardID: this.lastShardID,
+            shards: this.maxShards,
+        };
     }
 
     public chunk(array: number[], n: number): number[][] {
@@ -127,3 +135,5 @@ export default class Sharding implements ISharding {
         return Promise.resolve(await this.registry.getShardConfig(this.instanceID, cluster));
     }
 }
+
+export default Sharding;

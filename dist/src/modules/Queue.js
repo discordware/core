@@ -58,4 +58,5 @@ class Queue {
         job.callback(job.data, callback);
     }
 }
+exports.Queue = Queue;
 exports.default = Queue;

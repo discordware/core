@@ -8,8 +8,9 @@
        "lib": [
          "es2017.object",
          "es2015",
-         "es2017"
+         "es2017",
        ],
+       "incremental": true,
     },
     "files": [
        "./node_modules/@types/node/index.d.ts"

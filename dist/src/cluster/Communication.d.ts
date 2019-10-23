@@ -1,10 +1,10 @@
 /// <reference types="node" />
 import { EventEmitter } from 'events';
-import { IClusterCommunication, IClusterCommunicationOptions, IJSON } from '../typings';
+import { IClusterCommunication, IClusterCommunicationOptions, IJSON, IReplyPayload } from '../typings';
 /**
  * Cluster-side communication module
  */
-export default class ClusterCommunication extends EventEmitter implements IClusterCommunication {
+export declare class ClusterCommunication extends EventEmitter implements IClusterCommunication {
     private options;
     private reqTimeout;
     /**
@@ -31,6 +31,7 @@ export default class ClusterCommunication extends EventEmitter implements IClust
      * @memberof ClusterCommunication
      */
     send(instanceID: string, clusterID: number, event: string, data: IJSON): Promise<void>;
+    reply(instanceID: string, msg: IReplyPayload, data: IJSON): Promise<void>;
     /**
      * Send an event and wait for response
      *
@@ -63,3 +64,4 @@ export default class ClusterCommunication extends EventEmitter implements IClust
      */
     awaitBroadcast(instanceID: string, event: string, data: IJSON): Promise<IJSON[]>;
 }
+export default ClusterCommunication;

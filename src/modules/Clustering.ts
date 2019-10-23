@@ -19,7 +19,7 @@ import {
  * @class Clustering
  * @interface
  */
-export default class Clustering implements IClustering {
+export class Clustering implements IClustering {
     private options: IClusteringOptions;
     private queue: IQueue;
     private instanceID: string;
@@ -43,7 +43,7 @@ export default class Clustering implements IClustering {
      * @memberof Clustering
      */
     constructor(options: IClusteringOptions, instanceID: string, communication: ICommunication, sharding: ISharding, registry: IRegistry, logger: ILogger, alerts: IAlerts, queue: IQueue) {
-        this.options = options;
+        this.options = options || {};
         this.instanceID = instanceID;
         this.communication = communication;
         this.sharding = sharding;
@@ -52,8 +52,8 @@ export default class Clustering implements IClustering {
         this.alerts = alerts;
         this.queue = queue;
         this.callbacks = {
-            restart: {},
             connect: {},
+            restart: {},
         };
     }
 
@@ -73,18 +73,24 @@ export default class Clustering implements IClustering {
      * @memberof Clustering
      */
     public async init() {
-        const numClusters = this.options.clusters || require('os').cpus().length;
+        let numClusters = this.options.clusters || require('os').cpus().length;
+
+        if (numClusters > this.sharding.getShardConfig().shards) {
+            numClusters = this.sharding.getShardConfig().shards;
+        }
 
         this.logger.info({
-            src: 'Clustering',
             msg: `Starting with ${numClusters} clusters`,
+            src: 'Clustering',
         });
 
         master.on('exit', (worker, code) => {
             this.onExit(worker, code);
         });
 
-        this.communication.on('cluster.connected', data => {
+        this.communication.on('cluster.connected', msg => {
+            let data = msg.data;
+            
             let connectCallback = this.callbacks.connect[data.clusterID];
             let restartCallback = this.callbacks.restart[data.clusterID];
 
@@ -95,15 +101,15 @@ export default class Clustering implements IClustering {
             }
 
             this.alerts.alert({
-                title: 'Cluster Ready',
-                msg: `Cluster ${data.clusterID}`,
                 date: new Date(),
+                msg: `Cluster ${data.clusterID}`,
+                title: 'Cluster Ready',
                 type: 'cluster',
             });
 
             this.logger.log({
-                src: 'Clustering',
                 msg: `Cluster ${data.clusterID} ready`,
+                src: 'Clustering',
             });
 
             delete this.callbacks.connect[data.clusterID];
@@ -125,8 +131,8 @@ export default class Clustering implements IClustering {
             clusterID = await this.registry.getWorker(this.instanceID, workerID);
         } catch (err) {
             this.logger.error({
-                src: 'Clustering',
                 msg: err,
+                src: 'Registry',
             });
         }
 
@@ -140,22 +146,22 @@ export default class Clustering implements IClustering {
             clusterConfig = await this.registry.getCluster(this.instanceID, clusterID);
         } catch (err) {
             this.logger.error({
-                src: 'Clustering',
                 msg: err,
+                src: 'Clustering',
             });
 
             try {
                 clusterConfig = await this.sharding.getConfig(clusterID);
             } catch (err1) {
                 this.logger.error({
-                    src: 'Clustering',
                     msg: err1,
+                    src: 'Clustering',
                 });
 
                 this.alerts.alert({
-                    title: 'Clustering Error',
-                    msg: `Failed to fetch config for cluster ${this.instanceID}`,
                     date: new Date(),
+                    msg: `Failed to fetch config for cluster ${this.instanceID}`,
+                    title: 'Clustering Error',
                     type: 'cluster',
                 });
                 return;
@@ -168,21 +174,21 @@ export default class Clustering implements IClustering {
             shardConfig = await this.sharding.getConfig(clusterID);
         } catch (err) {
             this.logger.error({
-                src: 'Clustering',
                 msg: err,
+                src: 'Clustering',
             });
         }
 
-        if (shardConfig && shardConfig !== clusterConfig) return Object.assign(clusterConfig, shardConfig);
+        if (shardConfig) return Object.assign(clusterConfig, shardConfig);
         return clusterConfig;
     }
 
-    private restart(start, end) {
+    private restart(start: number, end: number) {
         let clusters = [...Array(end - start).keys()].map(i => i + start);
 
         for (let cluster of clusters) {
             this.queue.schedule('clusters.restart', { event: 'restart', instanceID: this.instanceID, clusterID: cluster }, (data, cb) => {
-                this.communication.send(data.instanceID.toString(), data.clusterID.toString(), data.event.toString(), {});
+                this.communication.send(data.instanceID.toString(), data.clusterID, data.event.toString(), {});
                 this.callbacks.restart[data.clusterID.toString()] = cb;
                 return true;
             });
@@ -199,36 +205,31 @@ export default class Clustering implements IClustering {
 
     private async startCluster(clusterID, total) {
         if (clusterID === total) {
-            this.logger.log({
-                src: 'Clustering',
-                msg: 'All clusters started',
-            });
-
             this.connectClusters(total);
         } else {
             let clusterConfig: IShardConfig = await this.sharding.getConfig(clusterID);
 
             if (!clusterConfig) return this.logger.error({
-                src: 'Clustering',
                 msg: `Unable to fetch cluster config for cluster ${clusterID}`,
+                src: 'Clustering',
             });
 
             let { firstShardID, lastShardID, maxShards } = clusterConfig;
 
             let env = {
-                TOKEN: this.sharding.token,
+                CLUSTER_ID: clusterID,
                 FIRST_SHARD_ID: firstShardID,
+                INSTANCE_ID: this.instanceID,
                 LAST_SHARD_ID: lastShardID,
                 MAX_SHARDS: maxShards,
-                INSTANCE_ID: this.instanceID,
-                CLUSTER_ID: clusterID,
+                TOKEN: this.sharding.token,
             };
 
             this.createCluster(clusterID, env, {
                 firstShardID,
+                instanceID: this.instanceID,
                 lastShardID,
                 maxShards,
-                instanceID: this.instanceID,
             });
 
             process.nextTick(() => {
@@ -253,14 +254,14 @@ export default class Clustering implements IClustering {
 
         if (!clusterID) {
             this.logger.error({
-                src: 'Clustering',
                 msg: `ClusterID not found for worker ${workerID}`,
+                src: 'Clustering',
             });
 
             this.alerts.alert({
-                title: 'Clustering Error',
-                msg: `ClusterID not found for worker ${workerID}`,
                 date: new Date(),
+                msg: `ClusterID not found for worker ${workerID}`,
+                title: 'Clustering Error',
                 type: 'cluster',
             });
 
@@ -272,26 +273,26 @@ export default class Clustering implements IClustering {
         if (!config) return;
 
         this.alerts.alert({
-            title: `Cluster ${clusterID} died with code ${code}. Restarting...`,
-            msg: `Shards ${config.firstShardID} - ${config.lastShardID}`,
             date: new Date(),
+            msg: `Shards ${config.firstShardID} - ${config.lastShardID}`,
+            title: `Cluster ${clusterID} died with code ${code}. Restarting...`,
             type: 'cluster',
         });
 
         this.logger.warn({
-            src: 'Clustering',
             msg: `Cluster ${clusterID} died. Restarting...`,
+            src: 'Clustering',
         });
 
         let { firstShardID, lastShardID, maxShards } = config;
 
         let env = {
-            TOKEN: this.sharding.token,
+            CLUSTER_ID: clusterID,
             FIRST_SHARD_ID: firstShardID,
+            INSTANCE_ID: this.instanceID,
             LAST_SHARD_ID: lastShardID,
             MAX_SHARDS: maxShards,
-            INSTANCE_ID: this.instanceID,
-            CLUSTER_ID: clusterID,
+            TOKEN: this.sharding.token,
         };
 
         this.registry.deleteCluster(this.instanceID, clusterID);
@@ -299,9 +300,9 @@ export default class Clustering implements IClustering {
 
         this.createCluster(clusterID, env, {
             firstShardID,
+            instanceID: this.instanceID,
             lastShardID,
             maxShards,
-            instanceID: this.instanceID,
         });
 
         this.queue.schedule<{event: string, instanceID: string, clusterID: number}>('clusters.connect', { event: 'connect', instanceID: this.instanceID, clusterID }, (data, cb) => {
@@ -314,3 +315,5 @@ export default class Clustering implements IClustering {
         this.restartCluster(worker.id, code);
     }
 }
+
+export default Clustering;

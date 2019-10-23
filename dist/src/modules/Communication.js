@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const master = require("cluster");
 const events_1 = require("events");
-const v1_1 = require("uuid/v1");
+const uuid_1 = require("uuid");
 /**
  *
  *
@@ -20,7 +20,7 @@ class Communication extends events_1.EventEmitter {
      */
     constructor(options, logger, registry) {
         super();
-        this.options = options;
+        this.options = options || {};
         this.logger = logger;
         this.registry = registry;
         this.reqTimeout = this.options.timeout || 5;
@@ -34,34 +34,34 @@ class Communication extends events_1.EventEmitter {
     init() {
         return new Promise(res => {
             master.on('message', (worker, msg) => {
-                this.emit(msg.event, msg.data, worker.id);
+                this.emit(msg.event, msg);
             });
-            this.on('send', data => {
-                this.send(data.instanceID, data.clusterID, data.payload.event, data.payload.data);
+            this.on('core.send', msg => {
+                this.send(msg.data.instanceID, msg.data.clusterID, msg.data.payload.event, msg.data.payload.data);
             });
-            this.on('awaitResponse', (data) => {
-                this.awaitResponse(data.instanceID, data.clusterID, data.payload.event, data.payload.data).then(response => {
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, response);
+            this.on('core.awaitResponse', msg => {
+                this.awaitResponse(msg.data.instanceID, msg.data.clusterID, msg.data.payload.event, msg.data.payload.data).then(response => {
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, response);
                 }).catch(err => {
                     this.logger.error({
-                        src: 'Communication',
                         msg: err,
+                        src: 'Communication',
                     });
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, { err: true, message: err.message });
                 });
             });
-            this.on('broadcast', data => {
-                this.broadcast(data.instanceID, data.payload.event, data.payload.data);
+            this.on('core.broadcast', msg => {
+                this.broadcast(msg.data.instanceID, msg.data.payload.event, msg.data.payload.data);
             });
-            this.on('awaitResponse', data => {
-                this.awaitBroadcast(data.instanceID, data.payload.event, data.payload.data).then(responses => {
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, responses);
+            this.on('core.awaitBroadcast', msg => {
+                this.awaitBroadcast(msg.data.instanceID, msg.data.payload.event, msg.data.payload.data).then(responses => {
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, responses);
                 }).catch(err => {
                     this.logger.error({
-                        src: 'Communication',
                         msg: err,
+                        src: 'Communication',
                     });
-                    this.send(data.resp.instanceID, data.resp.clusterID, data.payload.id, { err: true, message: err.message });
+                    this.send(msg.data.resp.instanceID, msg.data.resp.clusterID, msg.data.payload.id, { err: true, message: err.message });
                 });
             });
             res();
@@ -74,8 +74,8 @@ class Communication extends events_1.EventEmitter {
      */
     connectToPeer() {
         this.logger.error({
-            src: 'Communication',
             msg: 'Peer connections not supported. Different communication module required.',
+            src: 'Communication',
         });
         return Promise.resolve();
     }
@@ -86,8 +86,8 @@ class Communication extends events_1.EventEmitter {
      */
     updateConnection() {
         this.logger.error({
-            src: 'Communication',
             msg: 'Peer connections not supported. Different communication module required.',
+            src: 'Communication',
         });
         return Promise.resolve();
     }
@@ -103,8 +103,8 @@ class Communication extends events_1.EventEmitter {
      */
     send(instanceID, clusterID, event, data) {
         let payload = {
-            event,
             data,
+            event,
         };
         return this.registry.getCluster(instanceID, clusterID).then(cluster => {
             master.workers[cluster.workerID].send(payload, null, err => {
@@ -129,9 +129,9 @@ class Communication extends events_1.EventEmitter {
     awaitResponse(instanceID, clusterID, event, data) {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
-                id: v1_1.default(),
+                event,
+                id: uuid_1.v1(),
             };
             let err;
             this.registry.getCluster(instanceID, clusterID).then(cluster => {
@@ -186,4 +186,5 @@ class Communication extends events_1.EventEmitter {
         });
     }
 }
+exports.Communication = Communication;
 exports.default = Communication;

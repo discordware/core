@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const chalk_1 = require("chalk");
-const jethro_1 = require("jethro");
+const jethro = require("jethro");
 class Console {
     constructor(options) {
         this.name = 'console';
@@ -31,28 +31,28 @@ class Console {
         return color(text);
     }
     init() {
-        jethro_1.default.transports.console.getTimestamp = this.getTime.bind(this);
+        jethro.transports.console.getTimestamp = this.getTime.bind(this);
         return Promise.resolve();
     }
     debug(data) {
         if (this.options.debug) {
             let message = this.format(data.msg, chalk_1.default.blueBright);
             let source = this.format(data.src, chalk_1.default.cyanBright);
-            jethro_1.default.debug(source, message);
+            jethro.debug(source, message);
         }
     }
     error(data) {
         if (this.options.error) {
             let message = this.format(data.msg, chalk_1.default.redBright);
             let source = this.format(data.src, chalk_1.default.cyanBright);
-            jethro_1.default.error(source, message);
+            jethro.error(source, message);
         }
     }
     info(data) {
         if (this.options.info) {
             let message = this.format(data.msg, chalk_1.default.magentaBright);
             let source = this.format(data.src, chalk_1.default.cyanBright);
-            jethro_1.default.info(source, message);
+            jethro.info(source, message);
         }
     }
     log(data) {
@@ -62,8 +62,9 @@ class Console {
         if (this.options.warn) {
             let message = this.format(data.msg, chalk_1.default.yellowBright);
             let source = this.format(data.src, chalk_1.default.cyanBright);
-            jethro_1.default.warn(source, message);
+            jethro.warn(source, message);
         }
     }
 }
+exports.Console = Console;
 exports.default = Console;

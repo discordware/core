@@ -15,7 +15,7 @@ export interface ITransport {
  * @class Logger
  * @interface
  */
-export default class Logger implements ILogger {
+export class Logger implements ILogger {
     private transports: { [name: string]: ITransport };
     private started: boolean;
 
@@ -151,3 +151,5 @@ export default class Logger implements ILogger {
         });
     }
 }
+
+export default Logger;

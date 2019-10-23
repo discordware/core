@@ -5,7 +5,7 @@ import { IClusterConfig, IInstanceConfig, IRegistry, IShardConfig } from '../typ
  *
  * @class Registry
  */
-export default class Registry implements IRegistry {
+export class Registry implements IRegistry {
     private instances: { [instanceID: string]: IInstanceConfig };
     private clusters: { [instanceID: string]: { [clusterID: number]: IClusterConfig } };
     private workers: { [instanceID: string]: { [workerID: number]: number } };
@@ -224,3 +224,5 @@ export default class Registry implements IRegistry {
         return Promise.resolve();
     }
 }
+
+export default Registry;

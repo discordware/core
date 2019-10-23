@@ -29,7 +29,7 @@ class Clustering {
      * @memberof Clustering
      */
     constructor(options, instanceID, communication, sharding, registry, logger, alerts, queue) {
-        this.options = options;
+        this.options = options || {};
         this.instanceID = instanceID;
         this.communication = communication;
         this.sharding = sharding;
@@ -38,8 +38,8 @@ class Clustering {
         this.alerts = alerts;
         this.queue = queue;
         this.callbacks = {
-            restart: {},
             connect: {},
+            restart: {},
         };
     }
     /**
@@ -58,15 +58,19 @@ class Clustering {
      */
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            const numClusters = this.options.clusters || require('os').cpus().length;
+            let numClusters = this.options.clusters || require('os').cpus().length;
+            if (numClusters > this.sharding.getShardConfig().shards) {
+                numClusters = this.sharding.getShardConfig().shards;
+            }
             this.logger.info({
-                src: 'Clustering',
                 msg: `Starting with ${numClusters} clusters`,
+                src: 'Clustering',
             });
             master.on('exit', (worker, code) => {
                 this.onExit(worker, code);
             });
-            this.communication.on('cluster.connected', data => {
+            this.communication.on('cluster.connected', msg => {
+                let data = msg.data;
                 let connectCallback = this.callbacks.connect[data.clusterID];
                 let restartCallback = this.callbacks.restart[data.clusterID];
                 connectCallback(false);
@@ -74,14 +78,14 @@ class Clustering {
                     restartCallback(false);
                 }
                 this.alerts.alert({
-                    title: 'Cluster Ready',
-                    msg: `Cluster ${data.clusterID}`,
                     date: new Date(),
+                    msg: `Cluster ${data.clusterID}`,
+                    title: 'Cluster Ready',
                     type: 'cluster',
                 });
                 this.logger.log({
-                    src: 'Clustering',
                     msg: `Cluster ${data.clusterID} ready`,
+                    src: 'Clustering',
                 });
                 delete this.callbacks.connect[data.clusterID];
                 if (restartCallback) {
@@ -100,8 +104,8 @@ class Clustering {
             }
             catch (err) {
                 this.logger.error({
-                    src: 'Clustering',
                     msg: err,
+                    src: 'Registry',
                 });
             }
             return clusterID;
@@ -115,21 +119,21 @@ class Clustering {
             }
             catch (err) {
                 this.logger.error({
-                    src: 'Clustering',
                     msg: err,
+                    src: 'Clustering',
                 });
                 try {
                     clusterConfig = yield this.sharding.getConfig(clusterID);
                 }
                 catch (err1) {
                     this.logger.error({
-                        src: 'Clustering',
                         msg: err1,
+                        src: 'Clustering',
                     });
                     this.alerts.alert({
-                        title: 'Clustering Error',
-                        msg: `Failed to fetch config for cluster ${this.instanceID}`,
                         date: new Date(),
+                        msg: `Failed to fetch config for cluster ${this.instanceID}`,
+                        title: 'Clustering Error',
                         type: 'cluster',
                     });
                     return;
@@ -141,11 +145,11 @@ class Clustering {
             }
             catch (err) {
                 this.logger.error({
-                    src: 'Clustering',
                     msg: err,
+                    src: 'Clustering',
                 });
             }
-            if (shardConfig && shardConfig !== clusterConfig)
+            if (shardConfig)
                 return Object.assign(clusterConfig, shardConfig);
             return clusterConfig;
         });
@@ -154,7 +158,7 @@ class Clustering {
         let clusters = [...Array(end - start).keys()].map(i => i + start);
         for (let cluster of clusters) {
             this.queue.schedule('clusters.restart', { event: 'restart', instanceID: this.instanceID, clusterID: cluster }, (data, cb) => {
-                this.communication.send(data.instanceID.toString(), data.clusterID.toString(), data.event.toString(), {});
+                this.communication.send(data.instanceID.toString(), data.clusterID, data.event.toString(), {});
                 this.callbacks.restart[data.clusterID.toString()] = cb;
                 return true;
             });
@@ -168,33 +172,29 @@ class Clustering {
     startCluster(clusterID, total) {
         return __awaiter(this, void 0, void 0, function* () {
             if (clusterID === total) {
-                this.logger.log({
-                    src: 'Clustering',
-                    msg: 'All clusters started',
-                });
                 this.connectClusters(total);
             }
             else {
                 let clusterConfig = yield this.sharding.getConfig(clusterID);
                 if (!clusterConfig)
                     return this.logger.error({
-                        src: 'Clustering',
                         msg: `Unable to fetch cluster config for cluster ${clusterID}`,
+                        src: 'Clustering',
                     });
                 let { firstShardID, lastShardID, maxShards } = clusterConfig;
                 let env = {
-                    TOKEN: this.sharding.token,
+                    CLUSTER_ID: clusterID,
                     FIRST_SHARD_ID: firstShardID,
+                    INSTANCE_ID: this.instanceID,
                     LAST_SHARD_ID: lastShardID,
                     MAX_SHARDS: maxShards,
-                    INSTANCE_ID: this.instanceID,
-                    CLUSTER_ID: clusterID,
+                    TOKEN: this.sharding.token,
                 };
                 this.createCluster(clusterID, env, {
                     firstShardID,
+                    instanceID: this.instanceID,
                     lastShardID,
                     maxShards,
-                    instanceID: this.instanceID,
                 });
                 process.nextTick(() => {
                     this.startCluster(clusterID + 1, total);
@@ -216,13 +216,13 @@ class Clustering {
             let clusterID = yield this.fetchClusterID(workerID);
             if (!clusterID) {
                 this.logger.error({
-                    src: 'Clustering',
                     msg: `ClusterID not found for worker ${workerID}`,
+                    src: 'Clustering',
                 });
                 this.alerts.alert({
-                    title: 'Clustering Error',
-                    msg: `ClusterID not found for worker ${workerID}`,
                     date: new Date(),
+                    msg: `ClusterID not found for worker ${workerID}`,
+                    title: 'Clustering Error',
                     type: 'cluster',
                 });
                 return;
@@ -231,31 +231,31 @@ class Clustering {
             if (!config)
                 return;
             this.alerts.alert({
-                title: `Cluster ${clusterID} died with code ${code}. Restarting...`,
-                msg: `Shards ${config.firstShardID} - ${config.lastShardID}`,
                 date: new Date(),
+                msg: `Shards ${config.firstShardID} - ${config.lastShardID}`,
+                title: `Cluster ${clusterID} died with code ${code}. Restarting...`,
                 type: 'cluster',
             });
             this.logger.warn({
-                src: 'Clustering',
                 msg: `Cluster ${clusterID} died. Restarting...`,
+                src: 'Clustering',
             });
             let { firstShardID, lastShardID, maxShards } = config;
             let env = {
-                TOKEN: this.sharding.token,
+                CLUSTER_ID: clusterID,
                 FIRST_SHARD_ID: firstShardID,
+                INSTANCE_ID: this.instanceID,
                 LAST_SHARD_ID: lastShardID,
                 MAX_SHARDS: maxShards,
-                INSTANCE_ID: this.instanceID,
-                CLUSTER_ID: clusterID,
+                TOKEN: this.sharding.token,
             };
             this.registry.deleteCluster(this.instanceID, clusterID);
             this.registry.deleteWorker(this.instanceID, workerID);
             this.createCluster(clusterID, env, {
                 firstShardID,
+                instanceID: this.instanceID,
                 lastShardID,
                 maxShards,
-                instanceID: this.instanceID,
             });
             this.queue.schedule('clusters.connect', { event: 'connect', instanceID: this.instanceID, clusterID }, (data, cb) => {
                 this.communication.send(data.instanceID, data.clusterID, data.event, {});
@@ -267,4 +267,5 @@ class Clustering {
         this.restartCluster(worker.id, code);
     }
 }
+exports.Clustering = Clustering;
 exports.default = Clustering;

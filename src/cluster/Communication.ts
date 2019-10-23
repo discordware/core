@@ -1,15 +1,14 @@
 import * as cluster from 'cluster';
 import { EventEmitter } from 'events';
-import uuid from 'uuid/v1';
-import { IClusterCommunication, IClusterCommunicationOptions, IJSON } from '../typings';
+import { v1 as uuid } from 'uuid';
+import { IClusterCommunication, IClusterCommunicationOptions, IJSON, IReplyPayload } from '../typings';
 
 /**
  * Cluster-side communication module
  */
-export default class ClusterCommunication extends EventEmitter implements IClusterCommunication {
+export class ClusterCommunication extends EventEmitter implements IClusterCommunication {
     private options: IClusterCommunicationOptions;
     private reqTimeout: number;
-
 
     /**
      * Creates an instance of ClusterCommunication.
@@ -18,7 +17,7 @@ export default class ClusterCommunication extends EventEmitter implements IClust
      */
     constructor(options: IClusterCommunicationOptions) {
         super();
-        this.options = options;
+        this.options = options || {};
         this.reqTimeout = this.options.timeout || 5;
     }
 
@@ -30,7 +29,7 @@ export default class ClusterCommunication extends EventEmitter implements IClust
      */
     public init(): Promise<void> {
         process.on('message', (msg) => {
-            this.emit(msg.event, msg.data);
+            this.emit(msg.event, msg);
         });
 
         return Promise.resolve();
@@ -48,18 +47,29 @@ export default class ClusterCommunication extends EventEmitter implements IClust
      */
     public send(instanceID: string, clusterID: number, event: string, data: IJSON): Promise<void> {
         let payload = {
-            event,
             data,
+            event,
         };
 
         process.send({
-            event: 'send',
             data: {
-                instanceID,
                 clusterID,
+                instanceID,
                 payload,
             },
+            event: 'core.send',
         });
+
+        return Promise.resolve();
+    }
+
+    public reply(instanceID: string, msg: IReplyPayload, data: IJSON): Promise<void> {
+        let payload = {
+            event: msg.id,
+            data,
+        };
+
+        process.send(payload);
 
         return Promise.resolve();
     }
@@ -77,21 +87,21 @@ export default class ClusterCommunication extends EventEmitter implements IClust
     public awaitResponse(instanceID: string, clusterID: number, event: string, data: IJSON): Promise<IJSON> {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
+                event,
                 id: uuid(),
             };
 
             process.send({
-                event: 'awaitResponse',
                 data: {
-                    instanceID,
                     clusterID,
+                    instanceID,
                     payload,
                 },
+                event: 'core.awaitResponse',
                 resp: {
-                    instanceID: process.env.INSTANCE_ID,
                     clusterID: process.env.CLUSTER_ID,
+                    instanceID: process.env.INSTANCE_ID,
                     workerID: cluster.worker.id,
                 },
             });
@@ -123,16 +133,16 @@ export default class ClusterCommunication extends EventEmitter implements IClust
      */
     public broadcast(instanceID: string, event: string, data: IJSON): Promise<void[]> {
         let payload = {
-            event,
             data,
+            event,
         };
 
         process.send({
-            event: 'broadcast',
             data: {
                 instanceID,
                 payload,
             },
+            event: 'core.broadcast',
         });
 
         return Promise.resolve([]);
@@ -150,17 +160,17 @@ export default class ClusterCommunication extends EventEmitter implements IClust
     public awaitBroadcast(instanceID: string, event: string, data: IJSON): Promise<IJSON[]> {
         return new Promise((res, rej) => {
             let payload = {
-                event,
                 data,
+                event,
                 id: uuid(),
             };
 
             process.send({
-                event: 'awaitBroadcast',
                 data: {
                     instanceID,
                     payload,
                 },
+                event: 'core.awaitBroadcast',
             });
 
             let timeout = setTimeout(() => {
@@ -175,3 +185,5 @@ export default class ClusterCommunication extends EventEmitter implements IClust
         });
     }
 }
+
+export default ClusterCommunication;

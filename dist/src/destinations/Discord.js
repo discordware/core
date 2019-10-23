@@ -45,14 +45,15 @@ class DiscordDestination {
         this.eris.executeWebhook(id, token, {
             embeds: [
                 {
-                    title,
                     description: msg,
                     footer: { text: this.instanceID },
                     timestamp: date.toString(),
+                    title,
                 },
             ],
         });
         return Promise.resolve();
     }
 }
+exports.DiscordDestination = DiscordDestination;
 exports.default = DiscordDestination;
